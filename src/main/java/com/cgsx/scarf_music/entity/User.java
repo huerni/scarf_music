@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,9 +33,45 @@ public class User implements Serializable {
 
     private String qq;
 
+    private Integer listenTimes;
+
+    /**
+     * 该用户拥有的角色
+     */
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "userRole", joinColumns = {@JoinColumn(name = "userId")},
     inverseJoinColumns = @JoinColumn(name = "roleId"))
     private List<Role> roleList;
+
+    /**
+     * 收藏，喜欢的歌曲
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "userSong",joinColumns = {@JoinColumn(name = "userId")},
+    inverseJoinColumns = @JoinColumn(name = "songId"))
+    private List<Song> songList = new ArrayList<>();
+
+    /**
+     * 创建的歌单
+     */
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private List<SongSheet> songSheets = new ArrayList<>();
+
+    /**
+     * 收藏的歌单
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "userSongSheet", joinColumns = {@JoinColumn(name = "userId")},
+    inverseJoinColumns = {@JoinColumn(name = "songSheetId")})
+    private List<SongSheet> songSheetList = new ArrayList<>();
+
+    /**
+     * 关注的歌手
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "userSinger", joinColumns = {@JoinColumn(name = "userId")},
+    inverseJoinColumns = {@JoinColumn(name = "singerId")})
+    private List<Singer> singerList = new ArrayList<>();
 
 }

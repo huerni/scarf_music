@@ -22,6 +22,10 @@ public class Song implements Serializable {
 
     private String songName;
 
+    private String imgUri;
+
+    private String fileUri;
+
     @Lob
     @Column(columnDefinition = "TEXT")
     //歌词
@@ -36,6 +40,15 @@ public class Song implements Serializable {
     @Temporal(TemporalType.TIME)
     //时长
     private Date duration;
+
+
+
+    //是否上线
+    private Integer isOnline;
+
+    @ManyToOne
+    @JoinColumn(name = "singer_id")
+    private Singer singer;
 
 
 }

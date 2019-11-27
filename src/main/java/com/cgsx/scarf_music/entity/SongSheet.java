@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * 歌单
+ */
 @Entity
 @Table(name = "songSheet")
 @Data
@@ -19,13 +22,31 @@ public class SongSheet implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long songSheetId;
 
-    //简介
+    private String songSheetName;
+
+    /**
+     * 图片地址
+     */
+    private String imgUri;
+
+    /**
+     * 简介
+     */
     @Lob
     @Column(columnDefinition = "TEXT")
     private String introduction;
 
+    /**
+     * 听歌次数
+     */
     private Integer listenTimes;
 
+    /**
+     * 收藏次数
+     */
     private Integer collectionTimes;
+
+    @Transient
+    private String userName;
 
 }

@@ -1,0 +1,1 @@
+document.write('<script type="text/javascript" src="../../site/plaza/mv/mv.js"/*tpa=http://static2.qianqian.com/site/plaza/mv/mv.js*/></script>');

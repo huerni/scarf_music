@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * 歌手
+ */
 @Entity
 @Table(name = "singer")
 @Data
@@ -22,9 +25,18 @@ public class Singer implements Serializable {
 
     private String name;
 
+    /**
+     * 歌手头像
+     */
+    private String imgUri;
+
+    /**
+     * 歌手介绍
+     */
     @Lob
     @Column(columnDefinition = "TEXT")
     private String introduction;
+
 
     private String nationality;
 
@@ -33,4 +45,7 @@ public class Singer implements Serializable {
     private String experience;
 
     private Integer listenTimes;
+
+    //是否上线
+    private Integer isOnline;
 }
