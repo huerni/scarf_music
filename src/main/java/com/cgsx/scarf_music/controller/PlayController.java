@@ -13,12 +13,22 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * TODO 删除播放列表歌曲
+ */
 @Controller
 public class PlayController {
 
     @Autowired
     private SongService songService;
 
+    /**
+    * @Description: 单个跳转播放页面
+    * @Param: [model, songId, request]
+    * @return: java.lang.String
+    * @Author: cgsx
+    * @Date: 2019/12/2
+    */
     @RequestMapping("/player")
     public String toPlayer(Model model, @RequestParam(name = "id") Long songId, HttpServletRequest request){
         Song song = songService.findSongBySongIdAndIsOnline(songId);
@@ -37,6 +47,13 @@ public class PlayController {
         return "player";
     }
 
+    /**
+    * @Description: 多首歌跳转播放页面
+    * @Param: [model, songListIds, request]
+    * @return: java.lang.String
+    * @Author: cgsx
+    * @Date: 2019/12/2
+    */
     @RequestMapping("/playerList")
     public String toPlayerList(Model model, @RequestParam(name = "songList") String songListIds, HttpServletRequest request){
 

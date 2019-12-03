@@ -21,35 +21,14 @@
 <body class="theme-taihe">
 <div  data-server-rendered="true">
     <div class="view">
-            <div class="section-inner clearfix nav-box">
-                <h1 title="围巾音乐" class="logo">
-                    <a href="/" title="围巾音乐">
-                        <img src="iamges/logo.png" title="围巾音乐" alt="围巾音乐" height="40" width="210" class="logo-img-qqyy">
-                    </a>
-                </h1>
-                <div class="search-and-login">
-                    <div id="menu-user-con" class="menu-user ">
-                        <div class="login-no"><a class="login-btn">登录</a><i class="login-line">|</i>
-                            <a target="_blank" href="http://passport.taihe.com/v2/web/register.html?u=http%3A%2F%2Fmusic.taihe.com&amp;tpl=baidu_music">注册</a>
-                        </div>
-                    </div>
-                    <div class="search-box">
-                        <input type="text" id="kw" placeholder="请输入歌名、歌词、歌手或专辑" autocomplete="off" value="" class="t s-input">
-                        <i class="iconfont t icon-search"></i>
-                        <div class="search-content-wrap" style="display:none;"><!---->
-                        </div></div></div><nav class="nav">
-                <a href="#" class="on nav-list t">发现音乐</a>
-                <a href="#" target="_blank" class=" nav-list t">我的音乐</a>
-                <a href="#" target="_blank" class=" nav-list t">客户端</a>
-            </nav>
-            </div>
+        <div th:include="common/common_navigation :: commonNavigation"></div>
 
             <div class="sub-nav-box">
                 <nav class="sub-nav">
-                    <a href="/" class="on nav-list t">推荐</a>
+                    <a href="/" th:href="@{/}" class="on nav-list t">推荐</a>
                     <a href="/songlist" target="_blank" class=" nav-list t">歌单</a>
                     <a href="/artist" target="_blank" class=" nav-list t">歌手</a>
-                    <a href="/top" target="_blank" class=" nav-list t">榜单</a>
+                    <a href="/top" th:href="@{/tophot}" class=" nav-list t">榜单</a>
                     <a href="/tag" target="_blank" class=" nav-list t">分类</a>
                     <a href="/mv" target="_blank" class=" nav-list t">MV</a>
                 </nav>
@@ -202,10 +181,11 @@
                     <div class="mod-rank-item-inner" data-v-53224597>
                         <div class="mod-rank-item mod-rank-new" data-v-53224597>
                             <h2 data-v-53224597>
-                                <a href="#" title="新歌榜" target="_blank" class="rank-title" data-v-53224597>新歌榜</a>
+                                <a href="#" th:href="@{/topnew}" title="新歌榜" target="_blank" class="rank-title" data-v-53224597>新歌榜</a>
                                 <i class="iconfont icon-NEW" data-v-53224597></i></a>
                                 <span class="rank-play-all-btn t pr" data-v-53224597>
-                                  <a th:href="@{/playerList(songList=${newSongListIds})}" target="_blank">  <i class="iconfont icon-play_1" data-v-53224597></i></a>
+                                  <a th:href="@{/playerList(songList=${newSongListIds})}" target="_blank">
+                                      <i class="iconfont icon-play_1" data-v-53224597></i></a>
                                        <i class="play-btn-bg pa" data-v-53224597></i>
                                 </span>
                             </h2>
@@ -216,17 +196,19 @@
                                     01</span>
                                     <span th:if="${nsStat.count} gt 3" class="num" th:text="${nsStat.count}" >
                                     01</span>
-                                <a href="/song/672138854" th:title="${ns.songName}" target="_blank">
+                                <a href="/song/672138854" th:href="@{/song(songId = ${ns.songId})}" th:title="${ns.songName}" target="_blank">
                                     <img th:src="${ns.imgUri}" th:title="${ns.songName}" th:alt="${ns.songName}" class="pic">
                                 </a>
                                     <div class="info">
-                                        <h3 class="to"><a href="/song/672138854" th:title="${ns.songName}" target="_blank" class="song-title t" th:text="${ns.songName}">世间美好与你环环相扣</a>
+                                        <h3 class="to"><a href="/song/672138854" th:href="@{/song(songId = ${ns.songId})}" th:title="${ns.songName}" target="_blank" class="song-title t" th:text="${ns.songName}">世间美好与你环环相扣</a>
                                         </h3>
                                         <h4 class="to"><a href="/artist/340609358"  target="_blank" class="song-name" th:text="${ns.singer.getName()}">上虞JACKYZ</a>
                                         </h4>
                                     </div>
                                     <div class="tool-bar" data-v-2113e2c9>
-                                        <a th:href="@{/player(id=${ns.songId})}" target="_blank">  <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i></a>
+                                        <a th:href="@{/player(id=${ns.songId})}" target="_blank">
+                                            <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i>
+                                        </a>
                                         <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
                                         <i data-type="download" class="t iconfont icon-hover_download" data-v-2113e2c9></i>
                                         <!---->
@@ -243,7 +225,7 @@
                     <div class="mod-rank-item-inner" data-v-53224597>
                         <div class="mod-rank-item mod-rank-hot" data-v-53224597>
                             <h2 data-v-53224597>
-                                <a href="/top/dayhot" title="热歌榜" target="_blank" class="rank-title" data-v-53224597>热歌榜</a>
+                                <a href="/top/dayhot" th:href="@{/tophot}" title="热歌榜" target="_blank" class="rank-title" data-v-53224597>热歌榜</a>
                                 <i class="iconfont icon-HOT" data-v-53224597></i>
                                 <span class="rank-play-all-btn t pr" data-v-53224597>
                                      <a th:href="@{/playerList(songList=${hotSongListIds})}" target="_blank"> <i class="iconfont icon-play_1" data-v-53224597>
@@ -260,12 +242,12 @@
                                     01</span>
                                 <span th:if="${hsStat.count} gt 3" class="num" th:text="${hsStat.count}" >
                                     01</span>
-                                <a href="/song/242078437" th:title="${hs.songName}" target="_blank">
+                                <a href="/song/242078437" th:href="@{/song(songId=${hs.songId})}" th:title="${hs.songName}" target="_blank">
                                     <img th:src="${hs.imgUri}" class="pic">
                                 </a>
                                 <div class="info">
                                     <h3 class="to">
-                                    <a href="/song/242078437" th:title="${hs.songName}" target="_blank"class="song-title t" th:text="${hs.songName}">演员</a>
+                                    <a href="/song/242078437" th:href="@{/song(songId=${hs.songId})}" th:title="${hs.songName}" target="_blank"class="song-title t" th:text="${hs.songName}">演员</a>
                                     </h3>
                                     <h4 data-ss="薛之谦" data-aa="88" class="to">
                                         <a href="/artist/2517" th:title="${hs.singer.getName()}" target="_blank"class="song-name" th:text="${hs.singer.getName()}">薛之谦</a>
@@ -281,7 +263,7 @@
 
                             </div>
                             <h4 class="more-rank" data-v-53224597>
-                                <a href="/top/dayhot" title="热歌榜" target="_blank" data-v-53224597>查看完整榜单&gt;</a>
+                                <a href="/top/dayhot" th:href="@{/tophot}" title="热歌榜" target="_blank" data-v-53224597>查看完整榜单&gt;</a>
                             </h4>
                         </div>
                     </div>
@@ -289,7 +271,7 @@
                     <div class="mod-rank-item-inner" data-v-53224597>
                     <div class="mod-rank-item mod-rank-network" data-v-53224597>
                         <h2 data-v-53224597>
-                            <a href="/top/netsong" title="歌曲飙升榜" target="_blank" class="rank-title" data-v-53224597>歌曲飙升榜</a>
+                            <a href="/top/netsong" th:href="@{/topup}" title="歌曲飙升榜" target="_blank" class="rank-title" data-v-53224597>歌曲飙升榜</a>
                             <i class="iconfont icon-NETWORK" data-v-53224597></i>
                             <span class="rank-play-all-btn t pr" data-v-53224597>
                                 <a th:href="@{/playerList(songList=${upSongListIds})}" target="_blank">  <i class="iconfont icon-play_1" data-v-53224597></i></a>
@@ -304,11 +286,11 @@
                                     01</span>
                                 <span th:if="${usStat.count} gt 3" class="num" th:text="${usStat.count}" >
                                     01</span>
-                                <a href="/song/670325973" th:title="${us.songName}" target="_blank">
+                                <a href="/song/670325973" th:href="@{/song(songId=${us.songId})}" th:title="${us.songName}" target="_blank">
                                     <img th:src="${us.imgUri}" th:title="${us.songName}" alt="太多" class="pic"></a>
                                 <div class="info">
                                     <h3 class="to">
-                                        <a href="/song/670325973" th:title="${us.songName}" target="_blank" class="song-title t" th:text="${us.songName}">太多</a>
+                                        <a href="/song/670325973" th:href="@{/song(songId=${us.songId})}" th:title="${us.songName}" target="_blank" class="song-title t" th:text="${us.songName}">太多</a>
                                     </h3>
                                     <h4 class="to">
                                         <strong class=" to artist-list" data-v-4d3a7a3e>
@@ -326,7 +308,7 @@
 
                         </div>
                         <h4 class="more-rank" data-v-53224597>
-                            <a href="#" title="歌曲飙升榜" target="_blank" data-v-53224597>查看完整榜单&gt;</a>
+                            <a href="#"  th:href="@{/topup}" title="歌曲飙升榜" target="_blank" data-v-53224597>查看完整榜单&gt;</a>
                         </h4>
                     </div>
                     </div>
@@ -371,7 +353,7 @@
                 </div>
                 <div class="section-inner clearfix" data-v-39f5cd58>
                     <h2 class="mod-title clearfix" data-v-39f5cd58>
-                        <i class="mod-title-txt" data-v-39f5cd58>精选MV</i>
+                        <i class="mod-title-txt" data-v-39f5cd58>精选专辑</i>
                         <a href="/mv" target="_blank" class="more" data-v-39f5cd58>更多</a>
                     </h2>
                     <div class="swiper-container-mv" data-v-39f5cd58>

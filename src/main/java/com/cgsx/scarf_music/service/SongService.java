@@ -14,5 +14,7 @@ public interface SongService {
 
     Page<Song> findAllByIsOnlineOrderByTimes(int page, int size);
 
+    Page<Song> findSearchSongList(int page, int size, String keyword);
+
     Song findSongBySongIdAndIsOnline(Long id);
 }

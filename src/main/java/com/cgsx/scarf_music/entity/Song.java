@@ -31,6 +31,10 @@ public class Song implements Serializable {
     //歌词
     private String lyric;
 
+    //歌词展示
+    @Transient
+    private String[] lyricShow;
+
     private Integer listenTimes;
 
     @Temporal(TemporalType.DATE)

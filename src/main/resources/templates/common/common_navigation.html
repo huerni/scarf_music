@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="commonNavigation">
+    <div class="section-inner clearfix nav-box">
+        <h1 title="围巾音乐" class="logo">
+            <a href="/" title="围巾音乐">
+                <img src="iamges/logo.png" title="围巾音乐" alt="围巾音乐" height="40" width="210"
+                     class="logo-img-qqyy">
+            </a>
+        </h1>
+        <div class="search-and-login">
+            <div id="menu-user-con" class="menu-user ">
+                <div class="login-no">
+                    <a class="login-btn">登录</a>
+                    <i class="login-line">|</i>
+                    <a target="_blank" href="">注册</a>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" id="kw" name="kw" placeholder="请输入歌名、歌词、歌手或专辑" autocomplete="off" value=""
+                       class="t s-input">
+                <i class="iconfont t icon-search" id="search"></i>
+                <div class="search-content-wrap" style="display:none;">
+                    <!---->
+                </div>
+            </div>
+        </div>
+        <nav class="nav">
+            <a href="#" th:href="@{/}" class="on nav-list t">发现音乐</a>
+            <a href="#" target="_blank" class=" nav-list t">我的音乐</a>
+            <a href="#" target="_blank" class=" nav-list t">客户端</a>
+        </nav>
+    </div>
+    <script type="text/javascript" src="js/decode.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+        $(function () {
+            $('#kw').bind('keypress', function (event) {
+                if (event.keyCode == "13") {
+                    //alert('你输入的内容为：' + $('#kw').val());
+                    // window.location.href = "/search?keyword=" + encrypt($('#kw').val());
+                    window.location.href = "/search?keyword=" + $('#kw').val();
+                }
+            });
+
+            $("#search").bind("click", function () {
+                //alert('你输入的内容为：' + $('#kw').val());
+                //window.open("/search?keyword=" + $('#kw').val());
+                // window.location.href = "/search?keyword=" + encrypt($('#kw').val());
+                window.location.href = "/search?keyword=" + $('#kw').val();
+            });
+        });
+        /*]]>*/
+
+
+        /**
+         * 加密（需要先加载lib/aes/aes.min.js文件）
+         * @param word
+         * @returns {*}
+         */
+        function encrypt(word){
+            var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+            var srcs = CryptoJS.enc.Utf8.parse(word);
+            var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+            return encrypted.toString();
+        }
+
+        /**
+         * 解密
+         * @param word
+         * @returns {*}
+         */
+        function decrypt(word){
+            var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
+            var decrypt = CryptoJS.AES.decrypt(word, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+            return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+        }
+
+
+    </script>
+</div>
+
+
+
