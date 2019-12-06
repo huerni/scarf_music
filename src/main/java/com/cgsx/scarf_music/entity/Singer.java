@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 歌手
@@ -48,4 +50,8 @@ public class Singer implements Serializable {
 
     //是否上线
     private Integer isOnline;
+
+    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true)
+    //@JoinColumn(name = "songId")
+    private List<Song> songList = new ArrayList<>();
 }

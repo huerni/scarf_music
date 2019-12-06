@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div id="child_view">
+    <div data-v-7b9a77a7="" style="">
+        <div data-v-7b9a77a7="" class="artist_con">
+            <div data-v-24758928="" data-v-7b9a77a7="" class="artist artist_item" th:each="sl : ${singerList}">
+                <div data-v-24758928="" class="pic_out">
+                    <img data-v-24758928="" alt="" class="pic" th:src="${sl.imgUri}"
+                         src="http://star.kuwo.cn/star/starheads/300/48/18/1843746790.jpg"
+                         lazy="loaded">
+                </div>
+                <p data-v-24758928="" class="name flex_c">
+                    <span data-v-24758928="" title="陈奕迅" class="text" th:text="${sl.name}">陈奕迅</span>
+                    <!---->
+                </p>
+                <p data-v-24758928="" class="num" th:text="${#strings.append(sl.songList.size() , '首歌曲')}">
+                    1947首歌曲
+                </p>
+            </div>
+        </div>
+        <div th:if="${singerList.size()} eq 0" data-v-7ad2a8ce="" data-v-7b9a77a7="" class="nodata flex_c" style="display: ;">
+            <div data-v-7ad2a8ce="" class="inner">
+                <img data-v-7ad2a8ce="" src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png"
+                                                       alt="" class="nodata_img">
+                <div data-v-7ad2a8ce="" class="tip">
+                    <p data-v-7b9a77a7="" data-v-7ad2a8ce="">
+                    抱歉，还没有找到与"
+                        <span data-v-7b9a77a7="" data-v-7ad2a8ce=""
+                                    class="col_pri" th:text="${keyword}">陈奕迅</span>"相关的内容</p>
+                </div>
+            </div>
+        </div>
+        <div data-v-64d77692="" class="loading-mask" style="display: none;">
+            <div data-v-64d77692="" class="loading-wrap">
+                <div data-v-64d77692="" class="load">
+                    <span data-v-64d77692="" class="side1"></span>
+                    <span data-v-64d77692="" class="side2"></span>
+                    <span data-v-64d77692="" class="mid"></span>
+                    <span data-v-64d77692="" class="side2"></span>
+                    <span data-v-64d77692="" class="side1"></span>
+                </div>
+                <!---->
+            </div>
+        </div>
+    </div>
+
+    <!---->
+
+    <!--翻页-->
+    <block th:if="${singerList.size()} ne 0">
+        <div class="zxf_pagediv">
+            <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPageSinger( \''+${pageNumber-1}+'\')'" class="prebtn"th:if="${pageNumber} ne 0">上一页</a>
+            <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
+                <a href="javascript:void(0)" th:onclick="'javascript:toPageSinger( \''+${i}+'\')'"  class="current"
+                   th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
+                <a href="javascript:void(0)" th:onclick="'javascript:toPageSinger( \''+${i}+'\')'"  class="zxfPagenum"
+                   th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
+            </th:block>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPageSinger( \''+${pageNumber+1}+'\')'" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
+            <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
+            <span>共<b th:text="${totalPages}">2</b>页</span>
+        </div>
+    </block>
+
+</div>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    // var id = [[${singerId}]];
+    // $(function () {
+    //    toPage(0,id); //加载完index页面后，获取第一页表格数据
+    //  });
+
+    var key = [[${keyword}]];
+
+    //跳转第几页
+    function toPageSinger(num) {
+        //alert("ssdf");
+        $.ajax({
+            url: basePath + '/search/singerList',
+            type: 'post',
+            dataType: 'text',
+            data: {
+                'pageNumber': num,//第几页
+                'keyword': key
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                $(".child_view").empty();
+                $(".child_view").append(data);
+                document.getElementById("container").scrollIntoView();
+            }
+        });
+    }
+
+    /*]]>*/
+</script>

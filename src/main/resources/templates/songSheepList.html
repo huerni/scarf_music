@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
-<head data-n-head="">
-    <title data-n-head="true">围巾音乐-耳朵里的温暖</title>
+<head>
+    <style class="vjs-styles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjs-fluid {
+            padding-top: 56.25%
+        }
+    </style>
+    <title data-n-head="true">全部歌单_歌单精选推荐_酷我音乐</title>
     <meta data-n-head="true" charset="utf-8">
     <meta data-n-head="true" name="viewport" content="width=device-width, initial-scale=1">
     <meta data-n-head="true" http-equiv="Cache-Control" content="no-transform">
     <meta data-n-head="true" http-equiv="Cache-Control" content="no-siteapp">
-    <meta data-n-head="true" data-hid="keywords" name="keywords" content="围巾音乐，带给你全新音乐体验。">
-    <meta data-n-head="true" data-hid="description" name="description"
-          content="围巾音乐，带给你全新音乐体验。">
     <link data-n-head="true" rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <link rel="stylesheet" href="static1.qianqian.com/web/s/css/app.bf379620769235f7.css">
@@ -19,13 +26,10 @@
 
     <script type="text/javascript" src="js/zxf_page.js"></script>
 
-    <style data-vue-ssr-id="2b07de92:0 dea7db52:0 7bcf49f8:0 662cad01:0 17cfdfa9:0 747fea46:0 355dcdaa:0 12111b23:0 49645ff5:0 64a17c54:0 07ea863f:0 473be92f:0 7832f5f5:0 ef9a2c2e:0 e94312be:0 5ae6b581:0 c1ff7e42:0 747c0c1a:0 55c18182:0 5b0e7c02:0 945fa658:0">*, :after, :before {
+    <style data-vue-ssr-id="2b07de92:0 dea7db52:0 7bcf49f8:0 662cad01:0 17cfdfa9:0 747fea46:0 355dcdaa:0 12111b23:0 af51ac2c:0 1db843b2:0 07ea863f:0 0a261dc3:0 7832f5f5:0 e94312be:0 5ae6b581:0 c1ff7e42:0 747c0c1a:0 55c18182:0 5b0e7c02:0 945fa658:0">*, :after, :before {
         -webkit-tap-highlight-color: transparent;
         box-sizing: border-box
     }
-
-    <!--
-    -->
 
     blockquote, body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, td, textarea, th, ul {
         margin: 0;
@@ -3081,7 +3085,7 @@
         max-width: none
     }
 
-    .reg_login[data-v-291ce4ec] {
+    .reg_login[data-v-78d3f034] {
         position: fixed;
         top: 0;
         left: 0;
@@ -3091,7 +3095,7 @@
         z-index: 10010
     }
 
-    .reg_login .inner[data-v-291ce4ec] {
+    .reg_login .inner[data-v-78d3f034] {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -3102,13 +3106,13 @@
         background: #fff
     }
 
-    .reg_login .inner .login[data-v-291ce4ec] {
+    .reg_login .inner .login[data-v-78d3f034] {
         overflow: hidden;
         height: 100%;
         position: relative
     }
 
-    .reg_login .inner .login .platforms[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms[data-v-78d3f034] {
         position: absolute;
         top: 0;
         left: 0;
@@ -3118,32 +3122,32 @@
         z-index: 1
     }
 
-    .reg_login .inner .login .platforms .top[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .top[data-v-78d3f034] {
         height: 60px;
         text-align: right;
         padding: 16px 20px 0;
         width: 100%
     }
 
-    .reg_login .inner .login .platforms .top .iconfont[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .top .iconfont[data-v-78d3f034] {
         font-weight: 600;
         font-size: 22px;
         cursor: pointer
     }
 
-    .reg_login .inner .login .platforms .login_item[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .login_item[data-v-78d3f034] {
         margin: 51px 71px 57px;
         justify-content: space-between;
         flex-wrap: wrap
     }
 
-    .reg_login .inner .login .platforms .login_item .item[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .login_item .item[data-v-78d3f034] {
         width: 80px;
         text-align: center;
         margin-bottom: 41px
     }
 
-    .reg_login .inner .login .platforms .login_item .item .text[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .login_item .item .text[data-v-78d3f034] {
         height: 17px;
         line-height: 17px;
         font-size: 12px;
@@ -3151,7 +3155,7 @@
         color: rgba(0, 0, 0, .6)
     }
 
-    .reg_login .inner .login .platforms .login_item .icon[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .login_item .icon[data-v-78d3f034] {
         position: relative;
         display: inline-block;
         width: 80px;
@@ -3162,11 +3166,11 @@
         cursor: pointer
     }
 
-    .reg_login .inner .login .platforms .login_item .icon[data-v-291ce4ec]:hover {
+    .reg_login .inner .login .platforms .login_item .icon[data-v-78d3f034]:hover {
         background: rgba(0, 0, 0, .03)
     }
 
-    .reg_login .inner .login .platforms .login_item .icon[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .login_item .icon[data-v-78d3f034]:after {
         position: absolute;
         content: " ";
         top: 50%;
@@ -3178,23 +3182,23 @@
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 0 -167px no-repeat
     }
 
-    .reg_login .inner .login .platforms .login_item .icon2[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .login_item .icon2[data-v-78d3f034]:after {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 0 0 no-repeat
     }
 
-    .reg_login .inner .login .platforms .login_item .icon3[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .login_item .icon3[data-v-78d3f034]:after {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 0 -57px no-repeat
     }
 
-    .reg_login .inner .login .platforms .login_item .icon4[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .login_item .icon4[data-v-78d3f034]:after {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 0 -114px no-repeat
     }
 
-    .reg_login .inner .login .platforms .noagree .icon[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .noagree .icon[data-v-78d3f034] {
         cursor: default
     }
 
-    .reg_login .inner .login .platforms .noagree .icon[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .noagree .icon[data-v-78d3f034]:after {
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         width: 47px;
@@ -3202,49 +3206,49 @@
         background: url(http://h5static.kuwo.cn/www/kw-www/img/1a1e7f6.png) 0 -190px no-repeat
     }
 
-    .reg_login .inner .login .platforms .noagree .icon[data-v-291ce4ec]:hover {
+    .reg_login .inner .login .platforms .noagree .icon[data-v-78d3f034]:hover {
         background: rgba(0, 0, 0, .01)
     }
 
-    .reg_login .inner .login .platforms .noagree .icon2[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .noagree .icon2[data-v-78d3f034]:after {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/1a1e7f6.png) 0 0 no-repeat
     }
 
-    .reg_login .inner .login .platforms .noagree .icon3[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .noagree .icon3[data-v-78d3f034]:after {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/1a1e7f6.png) 0 -65px no-repeat
     }
 
-    .reg_login .inner .login .platforms .noagree .icon4[data-v-291ce4ec]:after {
+    .reg_login .inner .login .platforms .noagree .icon4[data-v-78d3f034]:after {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/1a1e7f6.png) 0 -130px no-repeat
     }
 
-    .reg_login .inner .login .platforms .tip1[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .tip1[data-v-78d3f034] {
         text-align: center;
         margin-top: 18px;
         margin-bottom: 11px;
         color: #487bb6
     }
 
-    .reg_login .inner .login .platforms .tip1 span[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .tip1 span[data-v-78d3f034] {
         cursor: pointer
     }
 
-    .reg_login .inner .login .platforms .tip1 .noaccess[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .tip1 .noaccess[data-v-78d3f034] {
         cursor: default;
         color: #adadad
     }
 
-    .reg_login .inner .login .platforms .tip2[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .tip2[data-v-78d3f034] {
         height: 20px;
         text-align: center;
         font-size: 12px
     }
 
-    .reg_login .inner .login .platforms .tip2 a[data-v-291ce4ec] {
+    .reg_login .inner .login .platforms .tip2 a[data-v-78d3f034] {
         color: #333
     }
 
-    .reg_login .inner .login .account .tab[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab[data-v-78d3f034] {
         margin-top: 3px;
         height: 50px;
         padding: 0 22px;
@@ -3252,7 +3256,7 @@
         border-bottom: 1px solid rgba(0, 0, 0, .1)
     }
 
-    .reg_login .inner .login .account .tab span[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab span[data-v-78d3f034] {
         position: relative;
         margin-right: 27px;
         height: 100%;
@@ -3263,12 +3267,12 @@
         cursor: pointer
     }
 
-    .reg_login .inner .login .account .tab .active[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab .active[data-v-78d3f034] {
         font-weight: 600;
         color: rgba(0, 0, 0, .8)
     }
 
-    .reg_login .inner .login .account .tab .active[data-v-291ce4ec]:after {
+    .reg_login .inner .login .account .tab .active[data-v-78d3f034]:after {
         position: absolute;
         content: " ";
         left: 12px;
@@ -3278,32 +3282,32 @@
         bottom: 0
     }
 
-    .reg_login .inner .login .account .tab .iconfont[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab .iconfont[data-v-78d3f034] {
         font-weight: 600;
         font-size: 22px;
         cursor: pointer
     }
 
-    .reg_login .inner .login .account .tab_con[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con[data-v-78d3f034] {
         padding: 0 41px
     }
 
-    .reg_login .inner .login .account .tab_con .img[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con .img[data-v-78d3f034] {
         width: 100%;
         margin-top: 7px;
         margin-bottom: 10px
     }
 
-    .reg_login .inner .login .account .tab_con form[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form[data-v-78d3f034] {
         width: 100%
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item[data-v-78d3f034] {
         position: relative;
         margin-bottom: 9px
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item input[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item input[data-v-78d3f034] {
         width: 278px;
         height: 40px;
         padding: 0 100px 0 34px;
@@ -3311,7 +3315,7 @@
         border: 1px solid rgba(0, 0, 0, .1)
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .iconfont[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .iconfont[data-v-78d3f034] {
         position: absolute;
         top: 10px;
         left: 12px;
@@ -3319,7 +3323,7 @@
         color: rgba(0, 0, 0, .5)
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .forget[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .forget[data-v-78d3f034] {
         position: absolute;
         right: 15px;
         top: 13px;
@@ -3328,13 +3332,13 @@
         color: rgba(0, 0, 0, .6)
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .input_code[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .input_code[data-v-78d3f034] {
         width: 167px;
         height: 40px;
         padding: 0 0 0 34px
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .login_code[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .login_code[data-v-78d3f034] {
         position: absolute;
         width: 75px;
         height: 30px;
@@ -3342,7 +3346,7 @@
         right: 5px
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .get_code[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .get_code[data-v-78d3f034] {
         width: 102px;
         height: 40px;
         text-align: center;
@@ -3353,11 +3357,11 @@
         margin-left: 9px
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .wait_code[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .wait_code[data-v-78d3f034] {
         background: rgba(0, 0, 0, .08)
     }
 
-    .reg_login .inner .login .account .tab_con form .form_item .from-input-error[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .form_item .from-input-error[data-v-78d3f034] {
         position: absolute;
         font-size: 12px;
         width: 100%;
@@ -3368,25 +3372,25 @@
         color: #ec1e1e
     }
 
-    .reg_login .inner .login .account .tab_con form .auto_login_out[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .auto_login_out[data-v-78d3f034] {
         display: flex;
         justify-content: space-between
     }
 
-    .reg_login .inner .login .account .tab_con form .reg_btn[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .reg_btn[data-v-78d3f034] {
         cursor: pointer;
         margin-left: 50px
     }
 
-    .reg_login .inner .login .account .tab_con form .text_right[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .text_right[data-v-78d3f034] {
         text-align: right
     }
 
-    .reg_login .inner .login .account .tab_con form .text_right span[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .text_right span[data-v-78d3f034] {
         cursor: pointer
     }
 
-    .reg_login .inner .login .account .tab_con form .sub_btn[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .sub_btn[data-v-78d3f034] {
         display: inline-block;
         margin-top: 10px;
         width: 100%;
@@ -3401,24 +3405,24 @@
         cursor: pointer
     }
 
-    .reg_login .inner .login .account .tab_con form .errors[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .errors[data-v-78d3f034] {
         color: #ec1e1e;
         height: 24px;
         line-height: 24px
     }
 
-    .reg_login .inner .login .account .tab_con form .errors .iconfont[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tab_con form .errors .iconfont[data-v-78d3f034] {
         font-size: 16px;
         margin-right: 3px
     }
 
-    .reg_login .inner .login .account .tab_con .checkbox + label[data-v-291ce4ec]:before {
+    .reg_login .inner .login .account .tab_con .checkbox + label[data-v-78d3f034]:before {
         background: #fff;
         border-radius: 1px;
         border: 1px solid #d4d4d4
     }
 
-    .reg_login .inner .login .account .tip_text[data-v-291ce4ec] {
+    .reg_login .inner .login .account .tip_text[data-v-78d3f034] {
         position: relative;
         display: block;
         width: 104px;
@@ -3430,7 +3434,7 @@
         font-size: 12px
     }
 
-    .reg_login .inner .login .account .tip_text[data-v-291ce4ec]:before {
+    .reg_login .inner .login .account .tip_text[data-v-78d3f034]:before {
         position: absolute;
         content: " ";
         top: 7px;
@@ -3440,7 +3444,7 @@
         background: rgba(0, 0, 0, .06)
     }
 
-    .reg_login .inner .login .account .tip_text[data-v-291ce4ec]:after {
+    .reg_login .inner .login .account .tip_text[data-v-78d3f034]:after {
         position: absolute;
         content: " ";
         top: 7px;
@@ -3450,13 +3454,13 @@
         background: rgba(0, 0, 0, .06)
     }
 
-    .reg_login .inner .login .account .bottom_plat[data-v-291ce4ec] {
+    .reg_login .inner .login .account .bottom_plat[data-v-78d3f034] {
         width: 230px;
         margin: 12px auto 0;
         justify-content: space-between
     }
 
-    .reg_login .inner .login .account .bottom_plat span[data-v-291ce4ec] {
+    .reg_login .inner .login .account .bottom_plat span[data-v-78d3f034] {
         position: relative;
         width: 40px;
         height: 40px;
@@ -3466,7 +3470,7 @@
         overflow: hidden
     }
 
-    .reg_login .inner .login .account .bottom_plat span[data-v-291ce4ec]:after {
+    .reg_login .inner .login .account .bottom_plat span[data-v-78d3f034]:after {
         position: absolute;
         content: " ";
         left: 0;
@@ -3476,30 +3480,30 @@
         z-index: -1
     }
 
-    .reg_login .inner .login .account .bottom_plat span[data-v-291ce4ec]:hover:after {
+    .reg_login .inner .login .account .bottom_plat span[data-v-78d3f034]:hover:after {
         background: rgba(0, 0, 0, .03)
     }
 
-    .reg_login .inner .login .account .bottom_plat .item1[data-v-291ce4ec] {
+    .reg_login .inner .login .account .bottom_plat .item1[data-v-78d3f034] {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 5px -92px no-repeat;
         background-size: 70%
     }
 
-    .reg_login .inner .login .account .bottom_plat .item2[data-v-291ce4ec] {
+    .reg_login .inner .login .account .bottom_plat .item2[data-v-78d3f034] {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 5px -26px no-repeat;
         background-size: 70%
     }
 
-    .reg_login .inner .login .account .bottom_plat .item3[data-v-291ce4ec] {
+    .reg_login .inner .login .account .bottom_plat .item3[data-v-78d3f034] {
         background: url(http://h5static.kuwo.cn/www/kw-www/img/f1b1f82.png) 5px 5px no-repeat;
         background-size: 70%
     }
 
-    .reg_login .inner input[type=checkbox][data-v-291ce4ec] {
+    .reg_login .inner input[type=checkbox][data-v-78d3f034] {
         display: none
     }
 
-    .reg_login .inner input[type=checkbox] + label[data-v-291ce4ec]:before {
+    .reg_login .inner input[type=checkbox] + label[data-v-78d3f034]:before {
         position: relative;
         top: -1px;
         display: inline-block;
@@ -3514,183 +3518,91 @@
         background: #ffe200
     }
 
-    .reg_login .inner input[type=checkbox]:checked + label[data-v-291ce4ec]:before {
+    .reg_login .inner input[type=checkbox]:checked + label[data-v-78d3f034]:before {
         content: "\2713"
     }
 
-    input[data-v-291ce4ec]::-webkit-input-placeholder {
+    input[data-v-78d3f034]::-webkit-input-placeholder {
         color: rgba(0, 0, 0, .4)
     }
 
-    input[data-v-291ce4ec]:-moz-placeholder, input[data-v-291ce4ec]::-moz-placeholder {
+    input[data-v-78d3f034]:-moz-placeholder, input[data-v-78d3f034]::-moz-placeholder {
         color: rgba(0, 0, 0, .4)
     }
 
-    input[data-v-291ce4ec]:-ms-input-placeholder {
+    input[data-v-78d3f034]:-ms-input-placeholder {
         color: rgba(0, 0, 0, .4)
     }
 
-    .sub_nav[data-v-2a28ea40] {
-        padding-left: 206px;
-        height: 54px;
-        line-height: 54px
-    }
-
-    .main_con[data-v-2a28ea40] {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-top: 38px
-    }
-
-    .con_l[data-v-2a28ea40] {
-        overflow: hidden;
-        width: 18.85%;
-        min-width: 210px;
-        background: #fff;
-        box-shadow: 0 0 20px 0 rgba(65, 67, 70, .05)
-    }
-
-    .con_r[data-v-2a28ea40] {
+    .search_out[data-v-71e59797] {
         position: relative;
-        width: 76.14%;
-        z-index: 10
+        height: 246px
     }
 
-    .title[data-v-2a28ea40] {
-        display: inline-block;
-        margin-top: 14px;
-        height: 53px;
-        line-height: 53px;
-        font-size: 38px;
-        font-weight: 600
-    }
-
-    .title[data-v-2a28ea40], .update_time[data-v-2a28ea40] {
-        vertical-align: baseline
-    }
-
-    .update_time[data-v-2a28ea40] {
-        height: 20px;
-        line-height: 20px;
-        margin-left: 10px;
-        color: #999
-    }
-
-    .tabs[data-v-2a28ea40] {
-        margin: 20px 9.09% 14px;
-        justify-content: space-between;
-        font-size: 16px;
-        font-weight: 300;
-        padding-bottom: 13px;
-        border-bottom: 1px solid #f2f2f2
-    }
-
-    .tabs span[data-v-2a28ea40] {
-        position: relative;
-        z-index: 2;
-        height: 22px;
-        line-height: 22px;
-        cursor: pointer
-    }
-
-    .tabs span.active[data-v-2a28ea40] {
-        position: relative;
-        font-weight: 600
-    }
-
-    .tabs .active[data-v-2a28ea40]:after {
-        position: absolute;
-        content: " ";
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 6px;
-        background: #ffdf1f;
+    .search_out .bg[data-v-71e59797] {
+        width: 1920px;
+        height: 100%;
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/07b12b9.png);
         z-index: -1
     }
 
-    .tab_con[data-v-2a28ea40] {
-        padding-bottom: 14px
+    .search_out .bg[data-v-71e59797], .search_out .search_inn[data-v-71e59797] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%)
     }
 
-    .tab_con li[data-v-2a28ea40] {
-        height: 80px;
-        padding: 0 9.09%
+    .search_out .search_inn[data-v-71e59797] {
+        width: 720px;
+        z-index: 20
     }
 
-    .tab_con li .cover[data-v-2a28ea40] {
-        flex-shrink: 0;
-        width: 60px;
-        height: 60px;
-        margin-right: 12px;
+    .search_out .search_inn .ipt_out[data-v-71e59797] {
+        position: relative
+    }
+
+    .search_out .search_inn .ipt_out .search_ipt[data-v-71e59797] {
+        width: 100%;
+        height: 54px;
+        padding: 0 64px 0 18px;
+        border-radius: 4px;
+        background: #fff;
+        border: none
+    }
+
+    .search_out .search_inn .ipt_out .search_icon[data-v-71e59797] {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 54px;
+        height: 54px;
+        line-height: 54px;
+        text-align: center;
         cursor: pointer
     }
 
-    .tab_con li .item_info[data-v-2a28ea40] {
-        flex: 1
+    .search_out .search_inn .ipt_out .search_icon .iconfont[data-v-71e59797] {
+        font-size: 20px
     }
 
-    .tab_con li .name[data-v-2a28ea40] {
-        height: 20px;
-        line-height: 20px;
-        font-weight: 600;
-        margin-bottom: 6px;
-        cursor: pointer;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        padding-right: 5%
-    }
-
-    .tab_con li .time[data-v-2a28ea40] {
-        height: 20px;
-        line-height: 20px;
-        color: #999
-    }
-
-    .tab_con li[data-v-2a28ea40]:hover {
-        background: #fafafa
-    }
-
-    .tab_con li.active[data-v-2a28ea40] {
-        background: #f2f2f2
-    }
-
-    .btns[data-v-2a28ea40] {
-        margin-top: 23px;
-        margin-bottom: 40px;
-        display: flex
-    }
-
-    .btns a[data-v-2a28ea40], .btns button[data-v-2a28ea40] {
+    .tabs[data-v-71e59797] {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 30px;
-        height: 40px;
-        margin-right: 10px;
-        text-align: center;
-        border-radius: 22px;
-        border: none;
-        font-size: 16px;
-        background: #f2f2f2;
-        cursor: pointer;
-        color: #333
+        align-items: baseline;
+        margin-top: 43px;
+        margin-bottom: 42px
     }
 
-    .btns a .iconfont[data-v-2a28ea40], .btns button .iconfont[data-v-2a28ea40] {
-        font-size: 20px;
-        margin-right: 5px
+    .tabs .text[data-v-71e59797] {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 30px;
+        margin-right: 40px
     }
 
-    .btns .play[data-v-2a28ea40] {
-        width: 150px;
-        background: #ffdca2
-    }
-
-    .list_out[data-v-2a28ea40] {
-        margin-bottom: 48px
+    .child_view[data-v-71e59797] {
+        min-height: 100px
     }
 
     a[data-v-17ae183a] {
@@ -3722,448 +3634,19 @@
         z-index: -1
     }
 
-    .list_head[data-v-edb94b72] {
-        height: 46px;
-        line-height: 46px;
-        background: #fafafa;
-        color: #999
-    }
-
-    .list_head .head_num[data-v-edb94b72] {
-        width: 23%;
-        padding-left: 2.81%;
-        min-width: 180px
-    }
-
-    .list_head .head_name[data-v-edb94b72] {
-        width: 26.83%
-    }
-
-    .list_head .head_artist[data-v-edb94b72] {
-        width: 17.82%
-    }
-
-    .list_head .head_album[data-v-edb94b72] {
-        flex: 1
-    }
-
-    .list_head .head_time[data-v-edb94b72] {
-        width: 6.56%
-    }
-
-    .head_name_rank .head_num[data-v-edb94b72] {
-        width: 22%;
-        flex-shrink: 0
-    }
-
-    .head_name_rank .head_name[data-v-edb94b72] {
-        width: 27.83%
-    }
-
-    .head_name_singer .head_num[data-v-edb94b72] {
-        width: 16.13%
-    }
-
-    .head_name_singer .head_name[data-v-edb94b72] {
-        width: 41.83%;
-        flex-shrink: 1
-    }
-
-    .head_name_singer .head_album[data-v-edb94b72] {
-        width: auto;
-        flex: 1
-    }
-
-    .head_name_album .head_num[data-v-edb94b72] {
-        width: 9.18%;
-        min-width: 0
-    }
-
-    .head_name_album .head_name[data-v-edb94b72] {
-        width: 43.06%
-    }
-
-    .head_name_album .head_artist[data-v-edb94b72] {
-        width: auto;
-        flex: 1
-    }
-
-    .head_name_search .head_num[data-v-edb94b72] {
-        width: 13.13%
-    }
-
-    .head_name_search .head_name[data-v-edb94b72] {
-        width: 28.2%
-    }
-
-    .head_name_search .head_artist[data-v-edb94b72] {
-        width: 24%
-    }
-
-    .head_name_search .head_time[data-v-edb94b72] {
-        width: 5.8%
-    }
-
-    .song_item[data-v-edb94b72] {
-        height: 70px;
-        line-height: 22px;
-        color: #666
-    }
-
-    .song_item[data-v-edb94b72]:nth-child(2n) {
-        background: #fafafa
-    }
-
-    .song_item[data-v-edb94b72]:hover {
-        background: #f5f5f5
-    }
-
-    .song_item.current[data-v-edb94b72] {
-        background: rgba(0, 0, 0, .05)
-    }
-
-    .song_item.current .song_name[data-v-edb94b72] {
-        font-weight: 600
-    }
-
-    .song_item .song_rank[data-v-edb94b72] {
-        position: relative;
-        padding-left: 3.18%;
-        width: 23%;
-        min-width: 180px;
-        padding-right: 20px
-    }
-
-    .song_item .song_rank .rank_num[data-v-edb94b72] {
-        flex-shrink: 0;
-        width: 20px;
-        height: 33px;
-        color: #333;
-        line-height: 33px;
-        text-align: center;
-        font-weight: 700
-    }
-
-    .song_item .song_rank .rank_num.top1[data-v-edb94b72] {
-        background: url(http://h5static.kuwo.cn/www/kw-www/img/df06fb1.png) center 4px no-repeat;
-        background-size: 168%
-    }
-
-    .song_item .song_rank .rank_num.top2[data-v-edb94b72] {
-        background: url(http://h5static.kuwo.cn/www/kw-www/img/d99e73e.png) center 4px no-repeat;
-        background-size: 168%
-    }
-
-    .song_item .song_rank .rank_num.top3[data-v-edb94b72] {
-        background: url(http://h5static.kuwo.cn/www/kw-www/img/8abbb65.png) center 4px no-repeat;
-        background-size: 168%
-    }
-
-    .song_item .song_rank .status[data-v-edb94b72] {
-        width: 50%;
-        min-width: 70px;
-        padding: 0 11% 0 14%;
-        font-size: 12px
-    }
-
-    .song_item .song_rank .status > span[data-v-edb94b72] {
-        display: flex
-    }
-
-    .song_item .song_rank .status .normal[data-v-edb94b72] {
-        display: inline-block;
-        width: 16px;
-        height: 2px;
-        background: #b3b3b3;
-        border-radius: 1px
-    }
-
-    .song_item .song_rank .status .up[data-v-edb94b72] {
-        font-size: 14px;
-        color: #fc235a
-    }
-
-    .song_item .song_rank .status .down[data-v-edb94b72] {
-        font-size: 14px;
-        color: #22c16a
-    }
-
-    .song_item .song_rank .status .is_new[data-v-edb94b72] {
-        padding-top: 5px;
-        font-size: 23px;
-        color: #fc2323
-    }
-
-    .song_item .song_rank .cover[data-v-edb94b72] {
-        flex-shrink: 0;
-        width: 54px;
-        height: 54px
-    }
-
-    .song_item .song_name[data-v-edb94b72] {
-        width: 26.83%;
-        padding-right: 2.43%;
-        color: #333
-    }
-
-    .song_item .song_name span[data-v-edb94b72] {
-        cursor: pointer
-    }
-
-    .song_item .song_name .name[data-v-edb94b72] {
-        flex-shrink: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap
-    }
-
-    .song_item .song_name .type[data-v-edb94b72] {
-        margin-left: 5px;
-        flex-shrink: 0;
-        font-size: 15px;
-        color: #e6b86d;
-        cursor: pointer
-    }
-
-    .song_item .song_name .has_mv[data-v-edb94b72] {
-        margin-left: 5px;
-        flex-shrink: 0;
-        font-size: 21px;
-        cursor: pointer;
-        color: #666
-    }
-
-    .song_item .song_artist[data-v-edb94b72] {
-        width: 17.82%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        padding-right: 1%
-    }
-
-    .song_item .song_artist span[data-v-edb94b72] {
-        cursor: pointer
-    }
-
-    .song_item .song_album[data-v-edb94b72] {
-        flex: 1;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap
-    }
-
-    .song_item .song_album span[data-v-edb94b72] {
-        cursor: pointer
-    }
-
-    .song_item .song_time[data-v-edb94b72] {
-        width: 6.56%;
-        padding-right: 3.93%
-    }
-
-    .song_item .song_opts[data-v-edb94b72] {
-        margin-right: 3.93%;
-        display: none
-    }
-
-    .song_item:hover .song_time[data-v-edb94b72] {
-        display: none
-    }
-
-    .song_item:hover .song_opts[data-v-edb94b72] {
-        width: 17.7%;
-        padding-left: 4.28%;
+    .albums[data-v-19ee24f8] {
         display: flex;
-        justify-content: space-between
+        flex-wrap: wrap;
+        margin-bottom: -26px
     }
 
-    .song_item:hover .song_opts .iconfont[data-v-edb94b72] {
-        font-size: 20px;
-        cursor: pointer
+    .albums .album_item[data-v-19ee24f8] {
+        width: 15%;
+        margin-right: 5.2%
     }
 
-    .song_item.noCopyright[data-v-edb94b72], .song_item.noCopyright .song_name[data-v-edb94b72], .song_item.noCopyright .song_rank .rank_num[data-v-edb94b72] {
-        color: rgba(0, 0, 0, .4)
-    }
-
-    .rank_list .song_item .song_rank[data-v-edb94b72] {
-        width: 22%;
-        flex-shrink: 0
-    }
-
-    .rank_list .song_item .song_name[data-v-edb94b72] {
-        width: 27.83%
-    }
-
-    .singer_list .song_item .song_rank[data-v-edb94b72] {
-        width: 16.13%
-    }
-
-    .singer_list .song_item .song_rank .cover[data-v-edb94b72] {
-        margin-left: 30%
-    }
-
-    .singer_list .song_item .song_name[data-v-edb94b72] {
-        width: 41.83%
-    }
-
-    .album_list .song_item .song_rank[data-v-edb94b72] {
-        width: 9.18%;
-        min-width: 0
-    }
-
-    .album_list .song_item .song_name[data-v-edb94b72] {
-        width: 43.06%
-    }
-
-    .album_list .song_item .song_artist[data-v-edb94b72] {
-        width: auto;
-        flex: 1
-    }
-
-    .search_list .song_item .song_rank[data-v-edb94b72] {
-        width: 13.13%
-    }
-
-    .search_list .song_item .song_rank .cover[data-v-edb94b72] {
-        margin-left: 30%
-    }
-
-    .search_list .song_item .song_name[data-v-edb94b72] {
-        width: 28.2%
-    }
-
-    .search_list .song_item .song_artist[data-v-edb94b72] {
-        width: 24%
-    }
-
-    .search_list .song_item .song_time[data-v-edb94b72] {
-        width: 5.8%
-    }
-
-    .playing[data-v-edb94b72] {
-        position: relative;
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        line-height: 14px;
-        text-align: center
-    }
-
-    .playing span[data-v-edb94b72] {
-        position: absolute;
-        bottom: 0;
-        width: 2px;
-        background: #ffe200
-    }
-
-    .side1[data-v-edb94b72] {
-        left: 2px;
-        height: 6px;
-        -webkit-animation: first-data-v-edb94b72 1s linear infinite;
-        animation: first-data-v-edb94b72 1s linear infinite
-    }
-
-    .side2[data-v-edb94b72] {
-        left: 6px;
-        height: 4px;
-        -webkit-animation: second-data-v-edb94b72 1s linear infinite;
-        animation: second-data-v-edb94b72 1s linear infinite
-    }
-
-    .side3[data-v-edb94b72] {
-        left: 10px;
-        height: 6px;
-        -webkit-animation: middle-data-v-edb94b72 1s linear infinite;
-        animation: middle-data-v-edb94b72 1s linear infinite
-    }
-
-    .plaing_now[data-v-edb94b72] {
-        -webkit-animation-play-state: running;
-        animation-play-state: running
-    }
-
-    .pause[data-v-edb94b72] {
-        -webkit-animation-play-state: paused;
-        animation-play-state: paused
-    }
-
-    @-webkit-keyframes first-data-v-edb94b72 {
-        0% {
-            height: 6px
-        }
-        56% {
-            height: 10px
-        }
-        to {
-            height: 8px
-        }
-    }
-
-    @keyframes first-data-v-edb94b72 {
-        0% {
-            height: 6px
-        }
-        56% {
-            height: 10px
-        }
-        to {
-            height: 8px
-        }
-    }
-
-    @-webkit-keyframes second-data-v-edb94b72 {
-        0% {
-            height: 4px
-        }
-        28% {
-            height: 6px
-        }
-        80% {
-            height: 12px
-        }
-        to {
-            height: 6px
-        }
-    }
-
-    @keyframes second-data-v-edb94b72 {
-        0% {
-            height: 4px
-        }
-        28% {
-            height: 6px
-        }
-        80% {
-            height: 12px
-        }
-        to {
-            height: 6px
-        }
-    }
-
-    @-webkit-keyframes middle-data-v-edb94b72 {
-        0% {
-            height: 10px
-        }
-        56% {
-            height: 8px
-        }
-        to {
-            height: 6px
-        }
-    }
-
-    @keyframes middle-data-v-edb94b72 {
-        0% {
-            height: 10px
-        }
-        56% {
-            height: 8px
-        }
-        to {
-            height: 6px
-        }
+    .albums .album_item[data-v-19ee24f8]:nth-child(5n) {
+        margin-right: 0
     }
 
     .nodata[data-v-7ad2a8ce] {
@@ -4185,254 +3668,6 @@
 
     .nodata .nodata_img[data-v-7ad2a8ce] {
         width: 260px
-    }
-
-    .comment_con {
-        margin-top: 48px
-    }
-
-    .comment_con .com_input_out {
-        margin-top: 47px;
-        margin-bottom: 6px
-    }
-
-    .comment_con .com_input_out .com_input {
-        width: 100%;
-        height: 140px;
-        background: #f5f5f5;
-        padding: 16px 18px;
-        border: none;
-        resize: none
-    }
-
-    .comment_con .com_input_out .btns {
-        margin-top: 18px;
-        justify-content: flex-end
-    }
-
-    .comment_con .com_input_out .btns .iconfont {
-        font-size: 30px
-    }
-
-    .comment_con .com_input_out .btns .com_btn {
-        width: 116px;
-        height: 38px;
-        text-align: center;
-        line-height: 37px;
-        background: #ffe12c;
-        margin-left: 5px;
-        border-radius: 22px;
-        color: #333
-    }
-
-    .comment_con .type {
-        font-size: 22px;
-        line-height: 30px;
-        font-weight: 600;
-        margin-bottom: 22px
-    }
-
-    .comment_con .type .comment-num {
-        margin-left: 8px;
-        font-weight: 300;
-        font-size: 14px
-    }
-
-    .comment_con .all-comment {
-        margin-top: 30px
-    }
-
-    .comment_con .all-comment .type.dark {
-        border-bottom: 1px solid rgba(0, 0, 0, .08)
-    }
-
-    .comment_con .all-comment .type.default {
-        border-bottom: 1px solid #f5f5f5
-    }
-
-    .comment_con .all-comment .type.shallow {
-        border-bottom: 1px solid hsla(0, 0%, 100%, .08)
-    }
-
-    .comment_con .all-comment .each-comment {
-        display: flex;
-        margin: 16px 0 20px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-avatar {
-        height: 80px;
-        margin-right: 14px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-avatar img {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        margin-top: 3px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg {
-        flex: 1;
-        position: relative;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #f2f2f2
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-nickname {
-        height: 22px;
-        line-height: 22px;
-        font-size: 14px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-nickname span {
-        font-weight: 600
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-nickname i {
-        display: inline-block;
-        width: 14px;
-        height: 16px;
-        margin-left: 5px;
-        vertical-align: middle
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-time {
-        height: 17px;
-        line-height: 17px;
-        font-size: 12px;
-        display: flex;
-        justify-content: space-between;
-        opacity: .8;
-        margin-top: 5px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-time .time {
-        font-size: 14px;
-        opacity: .5
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon {
-        text-align: right;
-        font-size: 14px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .delete {
-        display: none;
-        margin-right: 20px;
-        opacity: .5
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous {
-        font-size: 14px;
-        color: #999;
-        cursor: default
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous .icon-zan {
-        font-size: 20px;
-        vertical-align: middle
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous .likeNum {
-        display: inline-block;
-        vertical-align: middle;
-        text-align: left
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous .likeNum .fabulous-num {
-        font-weight: 400;
-        margin-left: 5px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .reply {
-        cursor: default;
-        margin-left: 26px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .reply .iconfont {
-        position: relative;
-        top: 1px;
-        font-size: 20px;
-        color: #999
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content {
-        font-size: 14px;
-        line-height: 26px;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-all
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content .reply-name {
-        color: #333;
-        font-size: 14px;
-        margin-right: 5px;
-        cursor: text
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content .reply-name span {
-        color: #296294
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content img {
-        width: 19px;
-        border: none;
-        margin-left: 3px;
-        position: relative;
-        top: 3px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content {
-        margin-top: 10px;
-        margin-left: 3px;
-        border-left: 1px solid #dbdbdb;
-        padding: 0 10px;
-        font-size: 14px;
-        line-height: 20px;
-        color: #666
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content .reply-name {
-        cursor: text;
-        color: #296294
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content img {
-        width: 19px;
-        border: none;
-        margin-left: 3px;
-        position: relative;
-        top: 3px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content span {
-        font-size: 14px;
-        line-height: 26px;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-all
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg .msg-text {
-        display: inline-block;
-        text-indent: -3px
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg.default {
-        border-bottom: 1px solid #f5f5f5
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg.shallow {
-        border-bottom: 1px solid hsla(0, 0%, 100%, .08)
-    }
-
-    .comment_con .all-comment .each-comment .each-comment-msg.dark {
-        border-bottom: 1px solid rgba(0, 0, 0, .08)
-    }
-
-    .comment_con .all-comment .each-comment:hover .delete {
-        display: inline-block !important
     }
 
     .footer[data-v-a4430894] {
@@ -5553,256 +4788,3567 @@
         border-radius: 23px;
         cursor: pointer
     }</style>
+    <style type="text/css">.error[data-v-5ad03f7a] {
+        text-align: center;
+        color: #c81623;
+        padding: 100px
+    }
+
+    .error .text[data-v-5ad03f7a] {
+        color: #999;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 24px
+    }
+
+    .error .btn[data-v-5ad03f7a] {
+        display: inline-block;
+        margin-top: 30px;
+        width: 182px;
+        height: 40px;
+        line-height: 39px;
+        border-radius: 22px;
+        background: #ffe12c;
+        color: #333;
+        box-shadow: 0 4px 10px 0 rgba(255, 223, 31, .3)
+    }
+
+    .error .nodata_img[data-v-5ad03f7a] {
+        width: 260px
+    }</style>
+    <style type="text/css">.justi[data-v-e68b2a2a] {
+        justify-content: space-between
+    }
+
+    .reg[data-v-e68b2a2a] {
+        padding: 16px 20px
+    }
+
+    .reg .tit[data-v-e68b2a2a] {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 17px;
+        border-bottom: 1px solid #f5f5f5;
+        font-weight: 600
+    }
+
+    .reg .tit span[data-v-e68b2a2a] {
+        font-size: 16px
+    }
+
+    .reg .tit .iconfont[data-v-e68b2a2a] {
+        font-size: 22px;
+        cursor: pointer
+    }
+
+    .reg form[data-v-e68b2a2a] {
+        margin-top: 16px;
+        width: 100%
+    }
+
+    .reg form .form_item[data-v-e68b2a2a] {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 23px
+    }
+
+    .reg form .form_item .label[data-v-e68b2a2a] {
+        margin-bottom: 6px;
+        color: #000;
+        font-weight: bolder;
+        height: 20px;
+        line-height: 20px
+    }
+
+    .reg form .form_item .text[data-v-e68b2a2a] {
+        width: 320px;
+        height: 40px;
+        padding-left: 12px;
+        background: #f5f5f5;
+        background: #fff;
+        border-radius: 2px;
+        border: 1px solid #d4d4d4
+    }
+
+    .reg form .form_item .input-error[data-v-e68b2a2a] {
+        border: 1px solid #ed2424
+    }
+
+    .reg form .from-input-error[data-v-e68b2a2a] {
+        position: absolute;
+        font-size: 12px;
+        width: 100%;
+        top: 66px;
+        left: 0;
+        height: 17px;
+        line-height: 17px;
+        color: #ec1e1e
+    }
+
+    .reg form .input_out[data-v-e68b2a2a] {
+        position: relative
+    }
+
+    .reg form .input_out .eye[data-v-e68b2a2a] {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        font-size: 20px
+    }
+
+    .reg form .code[data-v-e68b2a2a] {
+        position: relative
+    }
+
+    .reg form .code img[data-v-e68b2a2a] {
+        position: absolute;
+        right: 4px;
+        top: 31px;
+        width: 75px;
+        height: 30px
+    }
+
+    .reg form .submit[data-v-e68b2a2a] {
+        display: inline-block;
+        width: 320px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #ffe200;
+        border-radius: 2px;
+        font-weight: 400;
+        color: #333;
+        border: none;
+        cursor: pointer
+    }
+
+    .reg form .submit.no_agree[data-v-e68b2a2a] {
+        background: rgba(255, 226, 0, .6)
+    }
+
+    .reg form .tip1[data-v-e68b2a2a] {
+        text-align: center;
+        margin-top: 12px;
+        margin-bottom: 10px
+    }
+
+    .reg form .tip1 a[data-v-e68b2a2a] {
+        color: #487bb6
+    }
+
+    .reg form .tip2[data-v-e68b2a2a] {
+        height: 20px;
+        text-align: center;
+        font-size: 12px
+    }
+
+    .reg form .tip2 a[data-v-e68b2a2a] {
+        color: #333
+    }
+
+    .reg .step2 .notice[data-v-e68b2a2a] {
+        margin-top: 63px;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 40px;
+        color: #000
+    }
+
+    .reg .step2 .notice2[data-v-e68b2a2a] {
+        font-size: 14px;
+        color: #666;
+        margin-top: 10px
+    }
+
+    .reg .step2 .notice2 .phone[data-v-e68b2a2a] {
+        color: #cc8b04
+    }
+
+    .reg .step2 .input-error[data-v-e68b2a2a] {
+        border: 1px solid #ed2424
+    }
+
+    .reg .step2 .error[data-v-e68b2a2a] {
+        color: #ed2424
+    }
+
+    .reg .step2 input[data-v-e68b2a2a] {
+        margin-top: 44px;
+        width: 100%;
+        height: 40px;
+        border-radius: 2px;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+        margin-bottom: 15px;
+        padding: 0 20px
+    }
+
+    .reg .step2 .resend[data-v-e68b2a2a] {
+        color: #487bb6
+    }
+
+    .reg .step2 .disabled[data-v-e68b2a2a] {
+        color: #666
+    }
+
+    .reg .step2 .submit[data-v-e68b2a2a] {
+        margin-top: 100px;
+        background: #ffe200
+    }
+
+    .reg input[type=checkbox][data-v-e68b2a2a] {
+        display: none
+    }
+
+    .reg input[type=checkbox] + label[data-v-e68b2a2a]:before {
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        content: " ";
+        font-size: 11px;
+        line-height: 10px;
+        margin: 0 5px 0 0;
+        height: 12px;
+        width: 12px;
+        text-align: center;
+        vertical-align: middle;
+        background: #ffe200
+    }
+
+    .reg input[type=checkbox]:checked + label[data-v-e68b2a2a]:before {
+        content: "\2713"
+    }
+
+    input[data-v-e68b2a2a]::-webkit-input-placeholder {
+        color: rgba(0, 0, 0, .4)
+    }
+
+    input[data-v-e68b2a2a]:-moz-placeholder, input[data-v-e68b2a2a]::-moz-placeholder {
+        color: rgba(0, 0, 0, .4)
+    }
+
+    input[data-v-e68b2a2a]:-ms-input-placeholder {
+        color: rgba(0, 0, 0, .4)
+    }</style>
+    <style type="text/css">.zh-toast {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        bottom: 100px;
+        left: 50%;
+        box-sizing: border-box;
+        max-width: 80%;
+        padding: 24px 29px;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        text-align: center;
+        z-index: 9999999;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, .7);
+        animation: show-toast .5s;
+        -webkit-animation: show-toast .5s;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .zh-toast .iconfont {
+        font-size: 46px;
+        margin-right: 5px
+    }
+
+    .zh-toast.zh-word-wrap {
+        width: 80%;
+        white-space: inherit;
+        height: auto
+    }
+
+    .zh-toast.zh-toast-top {
+        top: 50px;
+        bottom: inherit
+    }
+
+    .zh-toast.zh-toast-center {
+        top: 50%;
+        margin-top: -20px;
+        bottom: inherit
+    }
+
+    @-webkit-keyframes show-toast {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -10px);
+            -webkit-transform: translate(-50%, -10px)
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%);
+            -webkit-transform: translate(-50%)
+        }
+    }
+
+    @keyframes show-toast {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -10px);
+            -webkit-transform: translate(-50%, -10px)
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%);
+            -webkit-transform: translate(-50%)
+        }
+    }</style>
+    <style type="text/css">.loading-mask[data-v-64d77692] {
+        position: absolute;
+        z-index: 10000;
+        background-color: #fff;
+        margin: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        min-height: 100px;
+        transition: opacity .3s;
+        display: flex;
+        justify-content: center
+    }
+
+    .loading-mask.fullscreen[data-v-64d77692] {
+        position: fixed
+    }
+
+    .loading-wrap[data-v-64d77692] {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0
+    }
+
+    .loading-wrap .load[data-v-64d77692] {
+        height: 22px;
+        line-height: 22px;
+        text-align: center
+    }
+
+    .loading-wrap .load span[data-v-64d77692] {
+        display: inline-block;
+        width: 4px;
+        margin: 0 2px;
+        vertical-align: middle;
+        border-radius: 2px;
+        background: #ffe200
+    }
+
+    .loading-wrap .tips[data-v-64d77692] {
+        margin-top: 10px;
+        text-align: center;
+        opacity: .6
+    }
+
+    .loading-wrap .side1[data-v-64d77692] {
+        height: 6px;
+        -webkit-animation: first-data-v-64d77692 1s linear infinite;
+        animation: first-data-v-64d77692 1s linear infinite
+    }
+
+    .loading-wrap .side2[data-v-64d77692] {
+        height: 14px;
+        -webkit-animation: second-data-v-64d77692 1s linear infinite;
+        animation: second-data-v-64d77692 1s linear infinite
+    }
+
+    .loading-wrap .mid[data-v-64d77692] {
+        height: 22px;
+        -webkit-animation: middle-data-v-64d77692 1s linear infinite;
+        animation: middle-data-v-64d77692 1s linear infinite
+    }
+
+    @-webkit-keyframes first-data-v-64d77692 {
+        0% {
+            height: 6px
+        }
+        56% {
+            height: 22px
+        }
+        to {
+            height: 6px
+        }
+    }
+
+    @keyframes first-data-v-64d77692 {
+        0% {
+            height: 6px
+        }
+        56% {
+            height: 22px
+        }
+        to {
+            height: 6px
+        }
+    }
+
+    @-webkit-keyframes second-data-v-64d77692 {
+        0% {
+            height: 14px
+        }
+        28% {
+            height: 22px
+        }
+        80% {
+            height: 6px
+        }
+        to {
+            height: 14px
+        }
+    }
+
+    @keyframes second-data-v-64d77692 {
+        0% {
+            height: 14px
+        }
+        28% {
+            height: 22px
+        }
+        80% {
+            height: 6px
+        }
+        to {
+            height: 14px
+        }
+    }
+
+    @-webkit-keyframes middle-data-v-64d77692 {
+        0% {
+            height: 22px
+        }
+        56% {
+            height: 6px
+        }
+        to {
+            height: 22px
+        }
+    }
+
+    @keyframes middle-data-v-64d77692 {
+        0% {
+            height: 22px
+        }
+        56% {
+            height: 6px
+        }
+        to {
+            height: 22px
+        }
+    }</style>
+    <style type="text/css">.page-wrap[data-v-9fcc0c74] {
+        text-align: center;
+        font-size: 14px;
+        margin: 48px 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .page-wrap ul[data-v-9fcc0c74] {
+        display: flex;
+        list-style: none;
+        overflow: hidden
+    }
+
+    .page-wrap ul li[data-v-9fcc0c74] {
+        font-size: 14px;
+        margin: 0 5px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        line-height: 20px
+    }
+
+    .page-wrap ul li span[data-v-9fcc0c74] {
+        width: 42px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        display: block;
+        cursor: pointer;
+        color: #999
+    }
+
+    .page-wrap ul li span[data-v-9fcc0c74]:hover {
+        background: #ffdf1f;
+        color: #333
+    }
+
+    .page-wrap ul li span.notCursor[data-v-9fcc0c74] {
+        cursor: inherit;
+        color: #333
+    }
+
+    .page-wrap ul li span.notCursor[data-v-9fcc0c74]:hover {
+        background: #fff
+    }
+
+    .page-wrap ul li span.currentPage[data-v-9fcc0c74]:hover {
+        background: #ffdf1f
+    }
+
+    .page-wrap .li-page[data-v-9fcc0c74] {
+        width: 42px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        color: #333;
+        cursor: pointer
+    }
+
+    .page-wrap .li-page[data-v-9fcc0c74]:hover {
+        background: #ffdf1f
+    }
+
+    .page-wrap .notPointer[data-v-9fcc0c74] {
+        width: 42px;
+        height: 42px;
+        text-align: center;
+        line-height: 42px;
+        margin: 0;
+        color: #333;
+        cursor: default;
+        opacity: .5
+    }
+
+    .page-wrap .notPointer[data-v-9fcc0c74]:hover {
+        background: #fff
+    }</style>
+    <style type="text/css">.album_item .cover_out[data-v-19727910] {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 100%
+    }
+
+    .album_item .cover_out .img_out[data-v-19727910] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        font-size: 0;
+        z-index: 10
+    }
+
+    .album_item .cover_out .img_out .cover[data-v-19727910] {
+        width: 100%
+    }
+
+    .album_item .cover_out .record[data-v-19727910] {
+        position: absolute;
+        width: 19.9%;
+        right: -14.9%;
+        top: 0;
+        z-index: 8
+    }
+
+    .album_item .cover_out .cover_play[data-v-19727910] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        z-index: 11;
+        transition: all .2s ease-in-out
+    }
+
+    .album_item .cover_out .cover_play .play[data-v-19727910] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #fff;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        transition: all .2s ease-in-out;
+        display: none
+    }
+
+    .album_item .cover_out .cover_play .play .iconfont[data-v-19727910] {
+        font-size: 24px;
+        color: #333
+    }
+
+    .album_item .cover_out .pic[data-v-19727910] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transition: -webkit-transform .75s cubic-bezier(0, 1, .75, 1);
+        transition: transform .75s cubic-bezier(0, 1, .75, 1);
+        transition: transform .75s cubic-bezier(0, 1, .75, 1), -webkit-transform .75s cubic-bezier(0, 1, .75, 1)
+    }
+
+    .album_item .cover_out:hover .cover_play[data-v-19727910] {
+        cursor: pointer;
+        background: rgba(0, 0, 0, .2)
+    }
+
+    .album_item .cover_out:hover .play[data-v-19727910] {
+        display: inline-block
+    }
+
+    .album_item .cover_out:hover .pic[data-v-19727910] {
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07)
+    }
+
+    .name[data-v-19727910] {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        margin-top: 16px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .name span[data-v-19727910] {
+        cursor: pointer
+    }
+
+    .name span[data-v-19727910]:hover {
+        font-weight: 600
+    }
+
+    .time[data-v-19727910] {
+        color: #999;
+        font-weight: 300;
+        margin-top: 11px;
+        margin-bottom: 26px
+    }</style>
+    <script src="//pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500677972" cid="500687440" id="mta"></script>
+    <script src="https://hm.baidu.com/hm.js?cdb524f42f0ce19b169a8071123a4797" id="baidu-tongji"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/9d3f1770fd0a8e178004.js"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/27f95d59636ab17b67a4.js"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/61c4a286e3b268693ae8.js"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/7af92abb2603ef7dbb3a.js"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/3c06ba5995504c40fca7.js"></script>
+    <style type="text/css">.swiper_out[data-v-6facd977] {
+        max-height: 400px
+    }
+
+    .swiper_inn[data-v-6facd977] {
+        font-size: 0;
+        max-height: 340px;
+        overflow: hidden
+    }
+
+    .Swiper[data-v-6facd977] {
+        width: 100%
+    }
+
+    .swiper-container[data-v-6facd977] {
+        height: 100%
+    }
+
+    .swiper-container .banner[data-v-6facd977] {
+        width: 100%
+    }
+
+    .swiper-container:hover .swiper-button-next[data-v-6facd977], .swiper-container:hover .swiper-button-prev[data-v-6facd977] {
+        display: inline-block
+    }
+
+    .swiper-pagination[data-v-6facd977] {
+        width: 100%;
+        bottom: 19px
+    }
+
+    .swiper-button-next[data-v-6facd977], .swiper-button-prev[data-v-6facd977] {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        border-radius: 50%;
+        color: hsla(0, 0%, 100%, .6);
+        background: rgba(0, 0, 0, .1);
+        top: 45%;
+        z-index: 100;
+        display: none
+    }
+
+    .swiper-button-next[data-v-6facd977]:hover, .swiper-button-prev[data-v-6facd977]:hover {
+        color: #fff
+    }
+
+    .swiper-button-next .iconfont[data-v-6facd977], .swiper-button-prev .iconfont[data-v-6facd977] {
+        font-size: 40px
+    }
+
+    .swiper-button-prev[data-v-6facd977] {
+        left: 38px
+    }
+
+    .swiper-button-next[data-v-6facd977] {
+        right: 38px
+    }
+
+    .blur[data-v-6facd977] {
+        overflow: hidden;
+        bottom: 0;
+        height: 60px;
+        z-index: 98
+    }
+
+    .blur[data-v-6facd977], .blur .blur_inn[data-v-6facd977] {
+        position: absolute;
+        left: 0;
+        width: 100%
+    }
+
+    .blur .blur_inn[data-v-6facd977] {
+        bottom: -25px
+    }
+
+    @media screen and (max-width: 1366px) {
+        .blur[data-v-6facd977] {
+            height: 50px
+        }
+    }</style>
+    <style type="text/css">.item[data-v-71f1ac8b] {
+        width: 18.85%
+    }
+
+    .item:hover .pic_out .pic[data-v-71f1ac8b] {
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07)
+    }
+
+    .item .pic_out[data-v-71f1ac8b] {
+        position: relative;
+        padding-bottom: 100%;
+        overflow: hidden
+    }
+
+    .item .pic_out .cover[data-v-71f1ac8b] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        z-index: 3;
+        transition: all .2s ease-in-out
+    }
+
+    .item .pic_out .cover .play[data-v-71f1ac8b] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 66px;
+        height: 66px;
+        line-height: 66px;
+        text-align: center;
+        background: #fff;
+        border-radius: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        transition: all .2s ease-in-out;
+        display: none
+    }
+
+    .item .pic_out .cover .play .iconfont[data-v-71f1ac8b] {
+        font-size: 30px;
+        color: #333
+    }
+
+    .item .pic_out .pic[data-v-71f1ac8b] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transition: -webkit-transform .75s cubic-bezier(0, 1, .75, 1);
+        transition: transform .75s cubic-bezier(0, 1, .75, 1);
+        transition: transform .75s cubic-bezier(0, 1, .75, 1), -webkit-transform .75s cubic-bezier(0, 1, .75, 1)
+    }
+
+    .item .pic_out:hover .cover[data-v-71f1ac8b] {
+        cursor: pointer;
+        background: rgba(0, 0, 0, .2)
+    }
+
+    .item .pic_out:hover .play[data-v-71f1ac8b] {
+        display: inline-block
+    }
+
+    .item .name[data-v-71f1ac8b] {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        word-break: break-all
+    }
+
+    .item .name span[data-v-71f1ac8b] {
+        cursor: pointer
+    }
+
+    .item .name span[data-v-71f1ac8b]:hover {
+        font-weight: bolder
+    }
+
+    .item .count[data-v-71f1ac8b] {
+        margin-top: 10px;
+        color: #999
+    }
+
+    .item .count .iconfont[data-v-71f1ac8b] {
+        margin-right: 2px
+    }</style>
+    <style type="text/css">.bang[data-v-e2a063a6] {
+        width: 18.85%;
+        box-shadow: 0 0 30px 0 rgba(65, 67, 70, .08)
+    }
+
+    .bang_top[data-v-e2a063a6] {
+        position: relative;
+        padding-bottom: 54.8%;
+        overflow: hidden
+    }
+
+    .bang_top .top_bg[data-v-e2a063a6] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(46, 32, 60, .7);
+        z-index: 10
+    }
+
+    .bang_top .img_tip[data-v-e2a063a6] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 54.3%;
+        z-index: 10
+    }
+
+    .bang_top .bang_bg[data-v-e2a063a6] {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%)
+    }
+
+    .bang_top .icon_play[data-v-e2a063a6] {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background: #fff;
+        border-radius: 50%;
+        display: none;
+        z-index: 15;
+        cursor: pointer
+    }
+
+    .bang_top .icon_play .iconfont[data-v-e2a063a6] {
+        font-size: 14px
+    }
+
+    .bang_top:hover .icon_play[data-v-e2a063a6] {
+        display: inline-block
+    }
+
+    .list_con[data-v-e2a063a6] {
+        padding: 28px 20px 26px
+    }
+
+    .list_con .top_img[data-v-e2a063a6] {
+        width: 20px;
+        height: 33px
+    }
+
+    .list_con .top_img.top1[data-v-e2a063a6] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/df06fb1.png) center 4px no-repeat;
+        background-size: 168%
+    }
+
+    .list_con .top_img.top2[data-v-e2a063a6] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/d99e73e.png) center 4px no-repeat;
+        background-size: 168%
+    }
+
+    .list_con .top_img.top3[data-v-e2a063a6] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/8abbb65.png) center 4px no-repeat;
+        background-size: 168%
+    }
+
+    .list_con li[data-v-e2a063a6] {
+        display: flex;
+        justify-content: space-between
+    }
+
+    .list_con li + li[data-v-e2a063a6] {
+        margin-top: 23px
+    }
+
+    .list_con .index[data-v-e2a063a6] {
+        padding-top: 3px;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 16px;
+        width: 20px;
+        text-align: center
+    }
+
+    .list_con .info[data-v-e2a063a6] {
+        width: 85%;
+        padding-left: 10px
+    }
+
+    .list_con .info .song_name[data-v-e2a063a6] {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 16px;
+        font-weight: 400;
+        height: 22px;
+        line-height: 22px;
+        cursor: pointer
+    }
+
+    .list_con .info .song_name[data-v-e2a063a6]:hover {
+        font-weight: 600
+    }
+
+    .list_con .info .artist[data-v-e2a063a6] {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 4px;
+        font-size: 14px;
+        font-weight: 300;
+        color: #999;
+        height: 20px;
+        line-height: 20px;
+        cursor: pointer
+    }
+
+    .list_con .info .artist[data-v-e2a063a6]:hover {
+        color: #333
+    }
+
+    @media screen and (max-width: 1200px) {
+        .bang[data-v-e2a063a6] {
+            width: 23.8%
+        }
+
+        .bang[data-v-e2a063a6]:last-child {
+            display: none
+        }
+    }</style>
+    <style type="text/css">.artist[data-v-24758928] {
+        text-align: center
+    }
+
+    .artist .name[data-v-24758928] {
+        position: relative;
+        height: 22px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+        margin-top: 17px;
+        flex-wrap: nowrap;
+        justify-content: center;
+        padding: 0 5px
+    }
+
+    .artist .name .text[data-v-24758928] {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer
+    }
+
+    .artist .name .isUgc[data-v-24758928] {
+        flex-shrink: 0;
+        width: 54px;
+        padding: 0 7px 2px 0;
+        text-align: center;
+        margin-left: 5px;
+        border-radius: 15px;
+        background: #ebebeb;
+        font-size: 12px
+    }
+
+    .artist .name .isUgc i[data-v-24758928] {
+        position: relative;
+        top: 3px;
+        font-size: 20px
+    }
+
+    .artist .num[data-v-24758928] {
+        margin-top: 6px;
+        font-size: 12px;
+        color: #999
+    }
+
+    .pic_out[data-v-24758928] {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+        overflow: hidden;
+        border-radius: 50%;
+        font-size: 0;
+        cursor: pointer
+    }
+
+    .pic_out img[data-v-24758928] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%
+    }</style>
+    <style type="text/css">.radio[data-v-5eb456a8] {
+        display: flex;
+        width: 32.28%;
+        margin-bottom: 24px;
+        align-content: stretch;
+        justify-content: space-between
+    }
+
+    .radio .pic_out[data-v-5eb456a8] {
+        width: 19.91%;
+        overflow: hidden;
+        font-size: 0;
+        cursor: pointer
+    }
+
+    .radio .pic_out .pic_inn[data-v-5eb456a8] {
+        position: relative;
+        padding-bottom: 100%
+    }
+
+    .radio .pic_out .pic_inn .cover[data-v-5eb456a8] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: transparent;
+        z-index: 3;
+        transition: all .2s ease-in-out
+    }
+
+    .radio .pic_out .pic_inn .cover .play[data-v-5eb456a8] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        transition: all .2s ease-in-out;
+        display: none
+    }
+
+    .radio .pic_out .pic_inn .cover .play .iconfont[data-v-5eb456a8] {
+        font-size: 18px
+    }
+
+    .radio .pic_out .pic_inn img[data-v-5eb456a8] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%
+    }
+
+    .radio .pic_out .pic_inn:hover .cover[data-v-5eb456a8] {
+        cursor: pointer;
+        background: rgba(0, 0, 0, .2)
+    }
+
+    .radio .pic_out .pic_inn:hover .play[data-v-5eb456a8] {
+        display: inline-block
+    }
+
+    .radio .name[data-v-5eb456a8] {
+        height: 22px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .radio .name span[data-v-5eb456a8] {
+        cursor: pointer
+    }
+
+    .radio .name[data-v-5eb456a8]:hover {
+        font-weight: bolder
+    }
+
+    .radio .num[data-v-5eb456a8] {
+        margin-top: 14px;
+        color: #999
+    }
+
+    .radio .num span[data-v-5eb456a8] {
+        cursor: pointer
+    }
+
+    .radio .num[data-v-5eb456a8]:hover {
+        color: #333
+    }
+
+    .info[data-v-5eb456a8] {
+        width: 75.66%;
+        border-bottom: 1px solid rgba(0, 0, 0, .04);
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+    }</style>
+    <style type="text/css">.sub_nav[data-v-414a5385] {
+        padding-left: 206px;
+        height: 54px;
+        line-height: 54px
+    }
+
+    .banner_out[data-v-414a5385] {
+        position: relative;
+        max-height: 400px;
+        overflow: hidden
+    }
+
+    .banner_out .download[data-v-414a5385] {
+        position: relative;
+        height: 60px;
+        line-height: 60px;
+        width: 100%;
+        color: #fff;
+        font-size: 16px;
+        z-index: 99;
+        padding: 0 13.5%;
+        background: rgba(0, 0, 0, .15)
+    }
+
+    .banner_out .download .split[data-v-414a5385] {
+        width: 1px;
+        height: 28px;
+        background: hsla(0, 0%, 100%, .1);
+        border-radius: 1px
+    }
+
+    .banner_out .download .btns[data-v-414a5385] {
+        position: relative;
+        z-index: 100;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .banner_out .download .btns a[data-v-414a5385], .banner_out .download .btns li[data-v-414a5385] {
+        color: #fff;
+        display: flex;
+        align-items: center
+    }
+
+    .banner_out .download .btns .iconfont[data-v-414a5385] {
+        font-size: 28px;
+        margin-right: 10px
+    }
+
+    .rec_nav[data-v-414a5385] {
+        display: flex;
+        align-items: baseline;
+        height: 40px;
+        line-height: 40px;
+        margin-top: 70px;
+        margin-bottom: 28px
+    }
+
+    .rec_nav .title[data-v-414a5385] {
+        font-size: 28px;
+        margin-right: 40px
+    }
+
+    .rec_nav .more[data-v-414a5385] {
+        position: relative;
+        color: #999;
+        font-size: 13px;
+        font-weight: 400;
+        height: 20px;
+        line-height: 20px
+    }
+
+    .act_out[data-v-414a5385], .rec_list[data-v-414a5385] {
+        display: flex;
+        justify-content: space-between
+    }
+
+    .artist_item[data-v-414a5385] {
+        width: 13%
+    }
+
+    .act[data-v-414a5385] {
+        width: 49.2%;
+        padding-bottom: 16.1%;
+        position: relative;
+        overflow: hidden
+    }
+
+    .act img[data-v-414a5385] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%
+    }
+
+    .radio_rec_nav[data-v-414a5385] {
+        align-items: center
+    }
+
+    .radio_list[data-v-414a5385] {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 62px
+    }
+
+    .title_radio[data-v-414a5385] {
+        font-size: 28px;
+        margin-right: 30px
+    }
+
+    .radio_more[data-v-414a5385] {
+        width: 170px;
+        height: 32px;
+        justify-content: center;
+        background: #ffdf1f;
+        border-radius: 18px;
+        color: #333
+    }
+
+    .radio_more span[data-v-414a5385] {
+        height: 18px;
+        line-height: 18px;
+        padding-right: 9px;
+        border-right: 1px solid rgba(0, 0, 0, .05);
+        margin-right: 9px
+    }
+
+    @media screen and (max-width: 1366px) {
+        .rec_nav[data-v-414a5385] {
+            margin-top: 60px;
+            margin-bottom: 24px
+        }
+
+        .banner_out .download[data-v-414a5385] {
+            padding: 0 108px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 15px
+        }
+    }</style>
+    <style type="text/css">.content[data-v-47212292] {
+        min-width: 1140px
+    }
+
+    .con .blank[data-v-47212292] {
+        width: 50px;
+        height: 4px;
+        background: #e6e6e6;
+        margin-top: 40px;
+        margin-bottom: 45px
+    }
+
+    .con h3[data-v-47212292] {
+        display: flex;
+        align-items: center;
+        font-size: 70px;
+        line-height: 98px;
+        font-weight: 300
+    }
+
+    .con .tit[data-v-47212292] {
+        font-size: 26px;
+        line-height: 40px;
+        color: #666;
+        margin-top: 8px
+    }
+
+    .con .circle[data-v-47212292] {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #333;
+        margin: 0 10px
+    }
+
+    .con1[data-v-47212292] {
+        position: relative;
+        justify-content: space-between
+    }
+
+    .con1 .con_l[data-v-47212292] {
+        position: relative;
+        padding-bottom: 80px
+    }
+
+    .con1 .con_l .bg_left[data-v-47212292] {
+        position: absolute;
+        top: -119px;
+        left: -162px;
+        width: 174%;
+        z-index: -1
+    }
+
+    .con1 h2[data-v-47212292] {
+        height: 81px;
+        font-size: 54px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .9);
+        line-height: 81px;
+        letter-spacing: 1px
+    }
+
+    .con1 h3[data-v-47212292] {
+        height: 30px;
+        font-size: 22px;
+        font-weight: 300;
+        color: rgba(0, 0, 0, .6);
+        line-height: 30px;
+        margin-top: 12px;
+        margin-bottom: 48px
+    }
+
+    .con1 .bg[data-v-47212292] {
+        width: 1920px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%)
+    }
+
+    .con1 .img_out[data-v-47212292] {
+        position: relative;
+        right: -5.14%;
+        width: 67.85%;
+        margin: 44px 0
+    }
+
+    .con1 .img_out .bg_right[data-v-47212292] {
+        position: absolute;
+        top: -44px;
+        left: 161px;
+        z-index: -1;
+        width: 104%
+    }
+
+    .con1 .img_out img[data-v-47212292] {
+        width: 100%
+    }
+
+    .con1 .item[data-v-47212292] {
+        color: #fff;
+        width: 198px;
+        height: 62px;
+        cursor: pointer
+    }
+
+    .con1 .item .icon[data-v-47212292] {
+        width: 62px;
+        height: 62px;
+        text-align: center;
+        line-height: 62px;
+        margin-right: 14px;
+        background: rgba(0, 0, 0, .05);
+        border-radius: 3px 0 0 3px
+    }
+
+    .con1 .item .icon .iconfont[data-v-47212292] {
+        font-size: 42px
+    }
+
+    .con1 .item .text[data-v-47212292] {
+        line-height: 18px;
+        font-size: 13px;
+        font-weight: 400
+    }
+
+    .con1 .item .text .type[data-v-47212292] {
+        line-height: 22px;
+        font-size: 16px;
+        font-weight: 500
+    }
+
+    .con1 .platform[data-v-47212292] {
+        width: 410px;
+        display: flex;
+        flex-wrap: wrap
+    }
+
+    .con1 .item1[data-v-47212292] {
+        background: linear-gradient(135deg, #3998f3, #4ab1f7);
+        box-shadow: 0 6px 20px 0 rgba(57, 152, 243, .2);
+        margin-right: 14px;
+        margin-bottom: 14px;
+        border-radius: 3px
+    }
+
+    .con1 .item2[data-v-47212292] {
+        background: linear-gradient(316deg, #30c784, #13ba82);
+        box-shadow: 0 6px 20px 0 rgba(19, 186, 130, .2);
+        border-radius: 4px 3px 3px 4px;
+        margin-bottom: 14px
+    }
+
+    .con1 .item3[data-v-47212292] {
+        background: linear-gradient(315deg, #666, #4d4d4d);
+        box-shadow: 0 6px 20px 0 hsla(0, 0%, 40%, .2);
+        border-radius: 3px;
+        margin-right: 14px
+    }
+
+    .con1 .item4[data-v-47212292] {
+        width: 62px;
+        border-radius: 4px 3px 3px 4px
+    }
+
+    .con1 .item4 .icon[data-v-47212292] {
+        margin-right: 0
+    }
+
+    .con1 .item4 .icon .iconfont[data-v-47212292] {
+        font-size: 36px
+    }
+
+    .con2 .title[data-v-47212292] {
+        font-size: 28px;
+        font-weight: 500;
+        color: #333;
+        line-height: 40px;
+        margin-bottom: 28px
+    }
+
+    .con2 .platform[data-v-47212292] {
+        display: flex
+    }
+
+    .con2 .item[data-v-47212292] {
+        position: relative;
+        padding: 40px 33px 31px;
+        width: 18.85%;
+        text-align: center;
+        background: #fff;
+        box-shadow: 0 6px 36px 0 rgba(0, 0, 0, .08)
+    }
+
+    .con2 .item .bg[data-v-47212292] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 52.65%
+    }
+
+    .con2 .item + .item[data-v-47212292] {
+        margin-left: 1.42%
+    }
+
+    .con2 .item .icon[data-v-47212292] {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 40px;
+        color: #fff;
+        background: #666;
+        border-radius: 50%
+    }
+
+    .con2 .item .icon .iconfont[data-v-47212292] {
+        font-size: 40px
+    }
+
+    .con2 .item .type[data-v-47212292] {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 25px;
+        margin-top: 18px
+    }
+
+    .con2 .item .version[data-v-47212292] {
+        line-height: 18px;
+        font-weight: 400;
+        color: #999;
+        font-size: 13px;
+        margin-top: 2px;
+        margin-bottom: 18px
+    }
+
+    .con2 .item .text[data-v-47212292] {
+        height: 60px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px
+    }
+
+    .con2 .item .load[data-v-47212292] {
+        width: 146px;
+        height: 38px;
+        margin: 36px auto 0;
+        line-height: 38px;
+        justify-content: center;
+        background: #f2f2f2;
+        border-radius: 22px;
+        font-weight: 400;
+        color: #666
+    }
+
+    .con2 .item .load .iconfont[data-v-47212292] {
+        margin-right: 5px
+    }
+
+    .con2 .item2 .icon[data-v-47212292] {
+        background: #3e88f7
+    }
+
+    .con2 .item3 .icon[data-v-47212292] {
+        background: #13ba82
+    }
+
+    .con3[data-v-47212292] {
+        margin-top: 100px;
+        margin-bottom: 86px;
+        justify-content: space-between
+    }
+
+    .con3 .con_l[data-v-47212292] {
+        width: 65%
+    }
+
+    .con3 .con_l img[data-v-47212292] {
+        position: relative;
+        left: -8%;
+        width: 112%
+    }
+
+    .con3 .con_r[data-v-47212292] {
+        position: relative;
+        width: 386px;
+        font-weight: 300
+    }
+
+    .con3 .con_r .bg[data-v-47212292] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1
+    }
+
+    .con3 .con_r .kind_out[data-v-47212292] {
+        flex-wrap: wrap
+    }
+
+    .con3 .con_r .kind_out .kind[data-v-47212292] {
+        color: #666;
+        font-size: 19px;
+        line-height: 27px;
+        font-weight: 400;
+        margin-right: 43px;
+        margin-bottom: 26px
+    }
+
+    .con3 .con_r .kind_out .kind[data-v-47212292]:nth-child(4n) {
+        margin-right: 0
+    }
+
+    .con3 .con_r .kind_out .kind .iconfont[data-v-47212292] {
+        font-size: 22px;
+        margin-right: 4px
+    }
+
+    .con4[data-v-47212292] {
+        justify-content: space-between;
+        margin-bottom: 39px
+    }
+
+    .con4 .con_l[data-v-47212292] {
+        position: relative;
+        width: 386px
+    }
+
+    .con4 .con_l .bg[data-v-47212292] {
+        position: absolute;
+        top: 0;
+        left: 17%;
+        width: 100%;
+        z-index: -1
+    }
+
+    .con4 .con_r[data-v-47212292] {
+        width: 65%
+    }
+
+    .con4 .con_r img[data-v-47212292] {
+        position: relative;
+        top: 0;
+        right: 4%;
+        width: 112%
+    }
+
+    .con5[data-v-47212292] {
+        justify-content: space-between;
+        margin-bottom: 39px
+    }
+
+    .con5 .con_l[data-v-47212292] {
+        width: 65%
+    }
+
+    .con5 .con_l img[data-v-47212292] {
+        position: relative;
+        top: 0;
+        left: -7.8%;
+        width: 112%
+    }
+
+    .con5 .con_r[data-v-47212292] {
+        position: relative;
+        width: 386px
+    }
+
+    .con5 .con_r .bg[data-v-47212292] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1
+    }
+
+    .con6[data-v-47212292] {
+        margin-bottom: 59px
+    }
+
+    .con6 .con_l .bg[data-v-47212292] {
+        top: -22%;
+        left: -24%;
+        width: 136%
+    }</style>
+    <style type="text/css">.comment_con {
+        margin-top: 48px
+    }
+
+    .comment_con .com_input_out {
+        margin-top: 47px;
+        margin-bottom: 6px
+    }
+
+    .comment_con .com_input_out .com_input {
+        width: 100%;
+        height: 140px;
+        background: #f5f5f5;
+        padding: 16px 18px;
+        border: none;
+        resize: none
+    }
+
+    .comment_con .com_input_out .btns {
+        margin-top: 18px;
+        justify-content: flex-end
+    }
+
+    .comment_con .com_input_out .btns .iconfont {
+        font-size: 30px
+    }
+
+    .comment_con .com_input_out .btns .com_btn {
+        width: 116px;
+        height: 38px;
+        text-align: center;
+        line-height: 37px;
+        background: #ffe12c;
+        margin-left: 5px;
+        border-radius: 22px;
+        color: #333
+    }
+
+    .comment_con .type {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 600;
+        margin-bottom: 22px
+    }
+
+    .comment_con .type .comment-num {
+        margin-left: 8px;
+        font-weight: 300;
+        font-size: 14px
+    }
+
+    .comment_con .all-comment {
+        margin-top: 30px
+    }
+
+    .comment_con .all-comment .type.dark {
+        border-bottom: 1px solid rgba(0, 0, 0, .08)
+    }
+
+    .comment_con .all-comment .type.default {
+        border-bottom: 1px solid #f5f5f5
+    }
+
+    .comment_con .all-comment .type.shallow {
+        border-bottom: 1px solid hsla(0, 0%, 100%, .08)
+    }
+
+    .comment_con .all-comment .each-comment {
+        display: flex;
+        margin: 16px 0 20px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-avatar {
+        height: 80px;
+        margin-right: 14px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-avatar img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin-top: 3px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg {
+        flex: 1;
+        position: relative;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f2f2f2
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-nickname {
+        height: 22px;
+        line-height: 22px;
+        font-size: 14px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-nickname span {
+        font-weight: 600
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-nickname i {
+        display: inline-block;
+        width: 14px;
+        height: 16px;
+        margin-left: 5px;
+        vertical-align: middle
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-time {
+        height: 17px;
+        line-height: 17px;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        opacity: .8;
+        margin-top: 5px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-time .time {
+        font-size: 14px;
+        opacity: .5
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon {
+        text-align: right;
+        font-size: 14px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .delete {
+        display: none;
+        margin-right: 20px;
+        opacity: .5
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous {
+        font-size: 14px;
+        color: #999;
+        cursor: default
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous .icon-zan {
+        font-size: 20px;
+        vertical-align: middle
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous .likeNum {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .fabulous .likeNum .fabulous-num {
+        font-weight: 400;
+        margin-left: 5px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .reply {
+        cursor: default;
+        margin-left: 26px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .comment-likeicon .reply .iconfont {
+        position: relative;
+        top: 1px;
+        font-size: 20px;
+        color: #999
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content {
+        font-size: 14px;
+        line-height: 26px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content .reply-name {
+        color: #333;
+        font-size: 14px;
+        margin-right: 5px;
+        cursor: text
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content .reply-name span {
+        color: #296294
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-comment-content img {
+        width: 19px;
+        border: none;
+        margin-left: 3px;
+        position: relative;
+        top: 3px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content {
+        margin-top: 10px;
+        margin-left: 3px;
+        border-left: 1px solid #dbdbdb;
+        padding: 0 10px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #666
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content .reply-name {
+        cursor: text;
+        color: #296294
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content img {
+        width: 19px;
+        border: none;
+        margin-left: 3px;
+        position: relative;
+        top: 3px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .each-reply-content span {
+        font-size: 14px;
+        line-height: 26px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg .msg-text {
+        display: inline-block;
+        text-indent: -3px
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg.default {
+        border-bottom: 1px solid #f5f5f5
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg.shallow {
+        border-bottom: 1px solid hsla(0, 0%, 100%, .08)
+    }
+
+    .comment_con .all-comment .each-comment .each-comment-msg.dark {
+        border-bottom: 1px solid rgba(0, 0, 0, .08)
+    }
+
+    .comment_con .all-comment .each-comment:hover .delete {
+        display: inline-block !important
+    }</style>
+    <style type="text/css">.model_out[data-v-770a1cd1] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .1);
+        z-index: 100000
+    }
+
+    .model[data-v-770a1cd1] {
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 450px;
+        padding: 16px 20px;
+        background: #fff;
+        box-shadow: 0 4px 20px 0 rgba(65, 67, 70, .08)
+    }
+
+    .model .tit[data-v-770a1cd1] {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #f5f5f5;
+        font-size: 16px;
+        font-weight: 600
+    }
+
+    .model .tit .iconfont[data-v-770a1cd1] {
+        cursor: pointer;
+        font-size: 22px
+    }
+
+    .model .wx_share[data-v-770a1cd1] {
+        position: absolute;
+        top: 53px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 15px 20px 11px;
+        height: 245px;
+        background: #fff
+    }
+
+    .model .wx_share .canvas_out[data-v-770a1cd1] {
+        margin: 0 auto;
+        text-align: center
+    }
+
+    .model .wx_share .tip[data-v-770a1cd1] {
+        margin-top: 10px;
+        line-height: 26px;
+        font-weight: 300;
+        color: #666
+    }
+
+    .model .platforms[data-v-770a1cd1] {
+        padding: 28px 85px 21px;
+        justify-content: space-between;
+        border-bottom: 1px solid #f5f5f5
+    }
+
+    .model .platforms .item[data-v-770a1cd1] {
+        width: 82px;
+        text-align: center
+    }
+
+    .model .platforms .icon[data-v-770a1cd1] {
+        width: 82px;
+        height: 82px;
+        cursor: pointer;
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/8e9696d.png) 0 0 no-repeat
+    }
+
+    .model .platforms .qzone[data-v-770a1cd1] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/8e9696d.png) 0 -199px no-repeat
+    }
+
+    .model .platforms .weixin[data-v-770a1cd1] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/8e9696d.png) 0 -99px no-repeat
+    }
+
+    .model .platforms p[data-v-770a1cd1] {
+        margin-top: 13px
+    }
+
+    .model .tits[data-v-770a1cd1] {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 22px;
+        margin-bottom: 7px
+    }
+
+    .model .copy_out[data-v-770a1cd1] {
+        position: relative;
+        justify-content: space-between;
+        margin-bottom: 10px
+    }
+
+    .model .copy_out #copy[data-v-770a1cd1] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0
+    }
+
+    .model .copy_out .url[data-v-770a1cd1] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #666;
+        padding-right: 20px;
+        line-height: 21px
+    }
+
+    .model .copy_out .copy[data-v-770a1cd1] {
+        width: 94px;
+        flex-shrink: 0;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 17px;
+        border: 1px solid #ebebeb;
+        text-align: center;
+        cursor: pointer
+    }</style>
+    <style type="text/css">.main_con .content[data-v-63cd9696] {
+        display: flex;
+        justify-content: space-between
+    }
+
+    .main_con .info_l[data-v-63cd9696] {
+        width: 22.5%;
+        margin-top: 47px
+    }
+
+    .main_con .info_l .intr[data-v-63cd9696] {
+        margin-top: 40px;
+        margin-bottom: 10px;
+        font-size: 22px;
+        font-weight: 600;
+        height: 30px;
+        line-height: 30px
+    }
+
+    .main_con .info_l .intr_txt[data-v-63cd9696] {
+        width: 100%;
+        font-size: 14px;
+        color: #666;
+        line-height: 21px
+    }
+
+    .main_con .info_l .show_all[data-v-63cd9696] {
+        display: inline-block;
+        width: 42px;
+        color: #296294;
+        font-size: 14px;
+        cursor: pointer
+    }
+
+    .main_con .info_l .show_all .iconfont[data-v-63cd9696] {
+        font-size: 14px
+    }
+
+    .main_con .info_l .intr_all[data-v-63cd9696] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10003;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5)
+    }
+
+    .main_con .info_l .intr_all .con[data-v-63cd9696] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 59.42%;
+        background: #fff;
+        padding: 42px 48px;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        box-shadow: 0 4px 20px 0 rgba(65, 67, 70, .08)
+    }
+
+    .main_con .info_l .intr_all .con .tit[data-v-63cd9696] {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        line-height: 30px;
+        font-size: 22px;
+        margin-bottom: 26px
+    }
+
+    .main_con .info_l .intr_all .con .tit .iconfont[data-v-63cd9696] {
+        font-size: 22px;
+        cursor: pointer
+    }
+
+    .main_con .info_l .intr_all .con .text[data-v-63cd9696] {
+        max-height: 700px;
+        overflow: auto;
+        color: #666;
+        line-height: 21px;
+        font-weight: 300
+    }
+
+    .main_con .info_l .download[data-v-63cd9696] {
+        display: block;
+        width: 202px;
+        height: 44px;
+        margin: 30px auto 0;
+        text-align: center;
+        line-height: 44px;
+        box-shadow: 0 4px 10px 0 rgba(255, 223, 31, .3);
+        border-radius: 27px;
+        color: #333
+    }
+
+    .main_con .info_l .download .iconfont[data-v-63cd9696] {
+        margin-right: 6px
+    }
+
+    .main_con .info_r[data-v-63cd9696] {
+        width: 70%;
+        margin-top: 63px
+    }
+
+    .main_con .info_r .song_name[data-v-63cd9696] {
+        flex-wrap: wrap
+    }
+
+    .main_con .info_r .song_name .name[data-v-63cd9696] {
+        word-break: break-all;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 42px;
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text
+    }
+
+    .main_con .info_r .song_name .name .has_mv[data-v-63cd9696] {
+        position: relative;
+        top: 2px;
+        margin-left: 6px;
+        font-weight: 400;
+        color: #666;
+        font-size: 36px;
+        cursor: pointer
+    }
+
+    .main_con .info_r .artist_name[data-v-63cd9696] {
+        margin-top: 14px;
+        font-size: 18px;
+        height: 25px;
+        color: #666;
+        line-height: 25px
+    }
+
+    .main_con .info_r .artist_name .name[data-v-63cd9696] {
+        cursor: pointer;
+        margin-right: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+
+    .main_con .info_r .artist_name .isUgc[data-v-63cd9696] {
+        flex-shrink: 0;
+        width: 54px;
+        padding: 0 7px 2px 0;
+        text-align: center;
+        line-height: 22px;
+        border-radius: 15px;
+        background: #ebebeb;
+        font-size: 12px;
+        cursor: default
+    }
+
+    .main_con .info_r .artist_name .isUgc i[data-v-63cd9696] {
+        position: relative;
+        top: 3px;
+        font-size: 20px
+    }
+
+    .main_con .info_r .song_info[data-v-63cd9696] {
+        margin-top: 16px;
+        height: 20px;
+        font-weight: 400;
+        color: #999;
+        line-height: 20px
+    }
+
+    .main_con .info_r .song_info span[data-v-63cd9696] {
+        display: inline-block;
+        overflow: hidden
+    }
+
+    .main_con .info_r .song_info .album_name[data-v-63cd9696] {
+        max-width: 60%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer
+    }
+
+    .main_con .info_r .song_info .time[data-v-63cd9696], .main_con .info_r .song_info .tip[data-v-63cd9696] {
+        margin-right: 40px;
+        color: #333
+    }
+
+    .main_con .info_r .btns[data-v-63cd9696] {
+        margin-top: 32px;
+        display: flex
+    }
+
+    .main_con .info_r .btns a[data-v-63cd9696], .main_con .info_r .btns button[data-v-63cd9696] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 28px;
+        height: 40px;
+        margin-right: 10px;
+        text-align: center;
+        border-radius: 22px;
+        border: none;
+        font-size: 16px;
+        background: #f2f2f2;
+        cursor: pointer;
+        color: inherit
+    }
+
+    .main_con .info_r .btns a .iconfont[data-v-63cd9696], .main_con .info_r .btns button .iconfont[data-v-63cd9696] {
+        font-size: 20px;
+        margin-right: 5px
+    }
+
+    .main_con .info_r .btns .play[data-v-63cd9696] {
+        width: 150px;
+        background: #ffe12c
+    }
+
+    .main_con .info_r .btns .mobile-trial[data-v-63cd9696] {
+        width: 150px
+    }
+
+    .main_con .info_r .lyric[data-v-63cd9696] {
+        position: relative;
+        min-height: 150px;
+        overflow: hidden;
+        margin-top: 48px;
+        line-height: 24px;
+        color: #666
+    }
+
+    .main_con .info_r .lyric .active[data-v-63cd9696] {
+        color: #333;
+        font-weight: bolder
+    }
+
+    .main_con .info_r .lyricAll[data-v-63cd9696] {
+        overflow: auto
+    }
+
+    .main_con .info_r .down[data-v-63cd9696] {
+        color: #296294;
+        margin-top: 5px;
+        line-height: 20px;
+        cursor: pointer
+    }
+
+    .cover_out[data-v-63cd9696] {
+        position: relative;
+        width: 100%;
+        margin-bottom: 40px;
+        margin-right: 103px;
+        font-size: 0
+    }
+
+    .cover_out .cover[data-v-63cd9696] {
+        width: 100%;
+        height: 100%
+    }
+
+    .open_app[data-v-63cd9696] {
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        z-index: -1
+    }
+
+    .xiuchang-container[data-v-63cd9696] {
+        position: relative
+    }
+
+    .xiuchang.fixed[data-v-63cd9696] {
+        position: absolute;
+        top: -120px;
+        float: right;
+        right: 0;
+        width: 224px;
+        height: 60px;
+        background: #f1edfa;
+        border-radius: 30px;
+        z-index: 99
+    }
+
+    .xiuchang.fixed .avatar[data-v-63cd9696] {
+        height: 50px;
+        width: 50px;
+        border-radius: 25px;
+        padding: 0;
+        margin: 5px;
+        border: none;
+        float: left
+    }
+
+    .xiuchang .right-container[data-v-63cd9696] {
+        display: inline-block;
+        width: 113px;
+        height: 24px;
+        margin: 8px 11px;
+        float: left
+    }
+
+    .xiuchang .single-line[data-v-63cd9696] {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+        height: 22px
+    }
+
+    .xiuchang .top-line[data-v-63cd9696] {
+        line-height: 20px;
+        font-weight: 400;
+        font-size: 14px;
+        color: #453662
+    }
+
+    .xiuchang .bottom-line[data-v-63cd9696] {
+        line-height: 22px;
+        font-weight: 600;
+        font-size: 16px;
+        color: #453662
+    }
+
+    .xiuchang .right-arrow[data-v-63cd9696] {
+        display: inline-block;
+        width: 5px;
+        height: 10px;
+        float: left;
+        margin: 20px 10px 0 0;
+        color: #453662;
+        font-weight: 600
+    }
+
+    .xiuchang.lumbar-banner[data-v-63cd9696] {
+        margin-top: 48px;
+        width: 100%;
+        border-radius: 4px
+    }
+
+    .qrcode-container[data-v-63cd9696] {
+        margin: 36px 0;
+        border-top: 1px solid #efefef;
+        text-align: center
+    }
+
+    .qrcode-container img[data-v-63cd9696] {
+        margin: 36px 0 18px;
+        width: 168px;
+        height: 168px
+    }
+
+    .qrcode-container p[data-v-63cd9696] {
+        font-size: 16px;
+        font-family: PingFangSC-Light;
+        font-weight: 300;
+        color: #666;
+        line-height: 21px
+    }</style>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/570903acd016f8029aa7.js"></script>
+    <style type="text/css">.rec_list[data-v-356b3256] {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -26px
+    }
+
+    .rec_list .item[data-v-356b3256] {
+        margin-bottom: 26px;
+        margin-right: 1.42%
+    }
+
+    .rec_list .item[data-v-356b3256]:nth-child(5n) {
+        margin-right: 0
+    }</style>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/9f9d4f7336c708c6d7c7.js"></script>
+    <style type="text/css">.list_head[data-v-edb94b72] {
+        height: 46px;
+        line-height: 46px;
+        background: #fafafa;
+        color: #999
+    }
+
+    .list_head .head_num[data-v-edb94b72] {
+        width: 23%;
+        padding-left: 2.81%;
+        min-width: 180px
+    }
+
+    .list_head .head_name[data-v-edb94b72] {
+        width: 26.83%
+    }
+
+    .list_head .head_artist[data-v-edb94b72] {
+        width: 17.82%
+    }
+
+    .list_head .head_album[data-v-edb94b72] {
+        flex: 1
+    }
+
+    .list_head .head_time[data-v-edb94b72] {
+        width: 6.56%
+    }
+
+    .head_name_rank .head_num[data-v-edb94b72] {
+        width: 22%;
+        flex-shrink: 0
+    }
+
+    .head_name_rank .head_name[data-v-edb94b72] {
+        width: 27.83%
+    }
+
+    .head_name_singer .head_num[data-v-edb94b72] {
+        width: 16.13%
+    }
+
+    .head_name_singer .head_name[data-v-edb94b72] {
+        width: 41.83%;
+        flex-shrink: 1
+    }
+
+    .head_name_singer .head_album[data-v-edb94b72] {
+        width: auto;
+        flex: 1
+    }
+
+    .head_name_album .head_num[data-v-edb94b72] {
+        width: 9.18%;
+        min-width: 0
+    }
+
+    .head_name_album .head_name[data-v-edb94b72] {
+        width: 43.06%
+    }
+
+    .head_name_album .head_artist[data-v-edb94b72] {
+        width: auto;
+        flex: 1
+    }
+
+    .head_name_search .head_num[data-v-edb94b72] {
+        width: 13.13%
+    }
+
+    .head_name_search .head_name[data-v-edb94b72] {
+        width: 28.2%
+    }
+
+    .head_name_search .head_artist[data-v-edb94b72] {
+        width: 24%
+    }
+
+    .head_name_search .head_time[data-v-edb94b72] {
+        width: 5.8%
+    }
+
+    .song_item[data-v-edb94b72] {
+        height: 70px;
+        line-height: 22px;
+        color: #666
+    }
+
+    .song_item[data-v-edb94b72]:nth-child(2n) {
+        background: #fafafa
+    }
+
+    .song_item[data-v-edb94b72]:hover {
+        background: #f5f5f5
+    }
+
+    .song_item.current[data-v-edb94b72] {
+        background: rgba(0, 0, 0, .05)
+    }
+
+    .song_item.current .song_name[data-v-edb94b72] {
+        font-weight: 600
+    }
+
+    .song_item .song_rank[data-v-edb94b72] {
+        position: relative;
+        padding-left: 3.18%;
+        width: 23%;
+        min-width: 180px;
+        padding-right: 20px
+    }
+
+    .song_item .song_rank .rank_num[data-v-edb94b72] {
+        flex-shrink: 0;
+        width: 20px;
+        height: 33px;
+        color: #333;
+        line-height: 33px;
+        text-align: center;
+        font-weight: 700
+    }
+
+    .song_item .song_rank .rank_num.top1[data-v-edb94b72] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/df06fb1.png) center 4px no-repeat;
+        background-size: 168%
+    }
+
+    .song_item .song_rank .rank_num.top2[data-v-edb94b72] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/d99e73e.png) center 4px no-repeat;
+        background-size: 168%
+    }
+
+    .song_item .song_rank .rank_num.top3[data-v-edb94b72] {
+        background: url(http://h5static.kuwo.cn/www/kw-www/img/8abbb65.png) center 4px no-repeat;
+        background-size: 168%
+    }
+
+    .song_item .song_rank .status[data-v-edb94b72] {
+        width: 50%;
+        min-width: 70px;
+        padding: 0 11% 0 14%;
+        font-size: 12px
+    }
+
+    .song_item .song_rank .status > span[data-v-edb94b72] {
+        display: flex
+    }
+
+    .song_item .song_rank .status .normal[data-v-edb94b72] {
+        display: inline-block;
+        width: 16px;
+        height: 2px;
+        background: #b3b3b3;
+        border-radius: 1px
+    }
+
+    .song_item .song_rank .status .up[data-v-edb94b72] {
+        font-size: 14px;
+        color: #fc235a
+    }
+
+    .song_item .song_rank .status .down[data-v-edb94b72] {
+        font-size: 14px;
+        color: #22c16a
+    }
+
+    .song_item .song_rank .status .is_new[data-v-edb94b72] {
+        padding-top: 5px;
+        font-size: 23px;
+        color: #fc2323
+    }
+
+    .song_item .song_rank .cover[data-v-edb94b72] {
+        flex-shrink: 0;
+        width: 54px;
+        height: 54px
+    }
+
+    .song_item .song_name[data-v-edb94b72] {
+        width: 26.83%;
+        padding-right: 2.43%;
+        color: #333
+    }
+
+    .song_item .song_name span[data-v-edb94b72] {
+        cursor: pointer
+    }
+
+    .song_item .song_name .name[data-v-edb94b72] {
+        flex-shrink: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .song_item .song_name .type[data-v-edb94b72] {
+        margin-left: 5px;
+        flex-shrink: 0;
+        font-size: 15px;
+        color: #e6b86d;
+        cursor: pointer
+    }
+
+    .song_item .song_name .has_mv[data-v-edb94b72] {
+        margin-left: 5px;
+        flex-shrink: 0;
+        font-size: 21px;
+        cursor: pointer;
+        color: #666
+    }
+
+    .song_item .song_artist[data-v-edb94b72] {
+        width: 17.82%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-right: 1%
+    }
+
+    .song_item .song_artist span[data-v-edb94b72] {
+        cursor: pointer
+    }
+
+    .song_item .song_album[data-v-edb94b72] {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .song_item .song_album span[data-v-edb94b72] {
+        cursor: pointer
+    }
+
+    .song_item .song_time[data-v-edb94b72] {
+        width: 6.56%;
+        padding-right: 3.93%
+    }
+
+    .song_item .song_opts[data-v-edb94b72] {
+        margin-right: 3.93%;
+        display: none
+    }
+
+    .song_item:hover .song_time[data-v-edb94b72] {
+        display: none
+    }
+
+    .song_item:hover .song_opts[data-v-edb94b72] {
+        width: 17.7%;
+        padding-left: 4.28%;
+        display: flex;
+        justify-content: space-between
+    }
+
+    .song_item:hover .song_opts .iconfont[data-v-edb94b72] {
+        font-size: 20px;
+        cursor: pointer
+    }
+
+    .song_item.noCopyright[data-v-edb94b72], .song_item.noCopyright .song_name[data-v-edb94b72], .song_item.noCopyright .song_rank .rank_num[data-v-edb94b72] {
+        color: rgba(0, 0, 0, .4)
+    }
+
+    .rank_list .song_item .song_rank[data-v-edb94b72] {
+        width: 22%;
+        flex-shrink: 0
+    }
+
+    .rank_list .song_item .song_name[data-v-edb94b72] {
+        width: 27.83%
+    }
+
+    .singer_list .song_item .song_rank[data-v-edb94b72] {
+        width: 16.13%
+    }
+
+    .singer_list .song_item .song_rank .cover[data-v-edb94b72] {
+        margin-left: 30%
+    }
+
+    .singer_list .song_item .song_name[data-v-edb94b72] {
+        width: 41.83%
+    }
+
+    .album_list .song_item .song_rank[data-v-edb94b72] {
+        width: 9.18%;
+        min-width: 0
+    }
+
+    .album_list .song_item .song_name[data-v-edb94b72] {
+        width: 43.06%
+    }
+
+    .album_list .song_item .song_artist[data-v-edb94b72] {
+        width: auto;
+        flex: 1
+    }
+
+    .search_list .song_item .song_rank[data-v-edb94b72] {
+        width: 13.13%
+    }
+
+    .search_list .song_item .song_rank .cover[data-v-edb94b72] {
+        margin-left: 30%
+    }
+
+    .search_list .song_item .song_name[data-v-edb94b72] {
+        width: 28.2%
+    }
+
+    .search_list .song_item .song_artist[data-v-edb94b72] {
+        width: 24%
+    }
+
+    .search_list .song_item .song_time[data-v-edb94b72] {
+        width: 5.8%
+    }
+
+    .playing[data-v-edb94b72] {
+        position: relative;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        line-height: 14px;
+        text-align: center
+    }
+
+    .playing span[data-v-edb94b72] {
+        position: absolute;
+        bottom: 0;
+        width: 2px;
+        background: #ffe200
+    }
+
+    .side1[data-v-edb94b72] {
+        left: 2px;
+        height: 6px;
+        -webkit-animation: first-data-v-edb94b72 1s linear infinite;
+        animation: first-data-v-edb94b72 1s linear infinite
+    }
+
+    .side2[data-v-edb94b72] {
+        left: 6px;
+        height: 4px;
+        -webkit-animation: second-data-v-edb94b72 1s linear infinite;
+        animation: second-data-v-edb94b72 1s linear infinite
+    }
+
+    .side3[data-v-edb94b72] {
+        left: 10px;
+        height: 6px;
+        -webkit-animation: middle-data-v-edb94b72 1s linear infinite;
+        animation: middle-data-v-edb94b72 1s linear infinite
+    }
+
+    .plaing_now[data-v-edb94b72] {
+        -webkit-animation-play-state: running;
+        animation-play-state: running
+    }
+
+    .pause[data-v-edb94b72] {
+        -webkit-animation-play-state: paused;
+        animation-play-state: paused
+    }
+
+    @-webkit-keyframes first-data-v-edb94b72 {
+        0% {
+            height: 6px
+        }
+        56% {
+            height: 10px
+        }
+        to {
+            height: 8px
+        }
+    }
+
+    @keyframes first-data-v-edb94b72 {
+        0% {
+            height: 6px
+        }
+        56% {
+            height: 10px
+        }
+        to {
+            height: 8px
+        }
+    }
+
+    @-webkit-keyframes second-data-v-edb94b72 {
+        0% {
+            height: 4px
+        }
+        28% {
+            height: 6px
+        }
+        80% {
+            height: 12px
+        }
+        to {
+            height: 6px
+        }
+    }
+
+    @keyframes second-data-v-edb94b72 {
+        0% {
+            height: 4px
+        }
+        28% {
+            height: 6px
+        }
+        80% {
+            height: 12px
+        }
+        to {
+            height: 6px
+        }
+    }
+
+    @-webkit-keyframes middle-data-v-edb94b72 {
+        0% {
+            height: 10px
+        }
+        56% {
+            height: 8px
+        }
+        to {
+            height: 6px
+        }
+    }
+
+    @keyframes middle-data-v-edb94b72 {
+        0% {
+            height: 10px
+        }
+        56% {
+            height: 8px
+        }
+        to {
+            height: 6px
+        }
+    }</style>
+    <style type="text/css">.btns[data-v-3665e15d] {
+        margin-top: 32px;
+        margin-bottom: 40px;
+        display: flex
+    }
+
+    .btns button[data-v-3665e15d] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 30px;
+        height: 40px;
+        margin-right: 10px;
+        text-align: center;
+        border-radius: 22px;
+        border: none;
+        font-size: 16px;
+        background: #f2f2f2;
+        cursor: pointer
+    }
+
+    .btns button .iconfont[data-v-3665e15d] {
+        font-size: 20px;
+        margin-right: 5px
+    }
+
+    .btns .play[data-v-3665e15d] {
+        width: 150px;
+        background: #ffe12c
+    }</style>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/12b6c2388fb456fe5dc3.js"></script>
+    <style type="text/css">.album_item .cover_out[data-v-912c3bd2] {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 59%
+    }
+
+    .album_item .cover_out .play_cnt[data-v-912c3bd2] {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 3px 5px;
+        color: hsla(0, 0%, 100%, .8);
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 18px;
+        z-index: 2
+    }
+
+    .album_item .cover_out .shadow[data-v-912c3bd2] {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 45px;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .3))
+    }
+
+    .album_item .cover_out .cover[data-v-912c3bd2], .album_item .cover_out .cover_play[data-v-912c3bd2] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%
+    }
+
+    .album_item .cover_out .cover_play[data-v-912c3bd2] {
+        background: transparent;
+        z-index: 3;
+        transition: all .2s ease-in-out
+    }
+
+    .album_item .cover_out .cover_play .play[data-v-912c3bd2] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 50%;
+        background: #fff;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        transition: all .2s ease-in-out;
+        display: none
+    }
+
+    .album_item .cover_out .cover_play .play .iconfont[data-v-912c3bd2] {
+        font-size: 24px;
+        color: #333
+    }
+
+    .album_item .cover_out .pic[data-v-912c3bd2] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transition: -webkit-transform .75s cubic-bezier(0, 1, .75, 1);
+        transition: transform .75s cubic-bezier(0, 1, .75, 1);
+        transition: transform .75s cubic-bezier(0, 1, .75, 1), -webkit-transform .75s cubic-bezier(0, 1, .75, 1)
+    }
+
+    .album_item .cover_out:hover .cover_play[data-v-912c3bd2] {
+        cursor: pointer;
+        background: rgba(0, 0, 0, .2)
+    }
+
+    .album_item .cover_out:hover .play[data-v-912c3bd2] {
+        display: inline-block
+    }
+
+    .album_item .cover_out:hover .pic[data-v-912c3bd2] {
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07)
+    }
+
+    .album_item .name[data-v-912c3bd2] {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 25px;
+        margin-top: 12px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .album_item .name span[data-v-912c3bd2] {
+        cursor: pointer
+    }
+
+    .album_item .name span[data-v-912c3bd2]:hover {
+        font-weight: 600
+    }
+
+    .album_item .time[data-v-912c3bd2] {
+        color: #999;
+        font-weight: 300;
+        margin-top: 8px;
+        margin-bottom: 26px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .album_item .time span[data-v-912c3bd2] {
+        cursor: pointer
+    }
+
+    .album_item .time span[data-v-912c3bd2]:hover {
+        color: #333
+    }</style>
+    <style type="text/css">.list_out[data-v-266d48f4] {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -26px
+    }
+
+    .list_out .mv_item[data-v-266d48f4] {
+        width: 18.85%;
+        margin-right: 1.42%
+    }
+
+    .list_out .mv_item[data-v-266d48f4]:nth-child(5n) {
+        margin-right: 0
+    }</style>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/12253bf6c1e1c0f21627.js"></script>
+    <style type="text/css">.artist_con[data-v-7b9a77a7] {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -47px
+    }
+
+    .artist_con .artist_item[data-v-7b9a77a7] {
+        width: 15%;
+        margin-right: 4.35%;
+        margin-bottom: 47px
+    }
+
+    .artist_con .artist_item[data-v-7b9a77a7]:nth-child(5n) {
+        margin-right: 0
+    }</style>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/788d807066c9af4e9412.js"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/3c8b194dfcfa7d20ff1c.js"></script>
+    <style type="text/css">.container .sub_nav[data-v-5fbff215] {
+        padding-left: 206px;
+        height: 54px;
+        line-height: 54px
+    }
+
+    .singer_bg[data-v-5fbff215] {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 200%;
+        background: #f5f5f5;
+        z-index: -1;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%)
+    }
+
+    .singer_out[data-v-5fbff215] {
+        position: relative;
+        height: 314px
+    }
+
+    .singer_out .singer_info[data-v-5fbff215] {
+        padding: 42px 0
+    }
+
+    .singer_out .singer_info .s_imgout[data-v-5fbff215] {
+        width: 230px;
+        height: 230px;
+        overflow: hidden;
+        border-radius: 50%
+    }
+
+    .singer_out .singer_info .s_imgout img[data-v-5fbff215] {
+        width: 100%;
+        height: 100%
+    }
+
+    .singer_out .singer_info .info[data-v-5fbff215] {
+        margin-left: 42px
+    }
+
+    .singer_out .singer_info .info .name[data-v-5fbff215] {
+        height: 42px;
+        line-height: 42px;
+        font-weight: 500;
+        font-size: 30px
+    }
+
+    .singer_out .singer_info .info .is_ugc[data-v-5fbff215] {
+        display: inline-block;
+        width: 70px;
+        height: 29px;
+        text-align: center;
+        line-height: 26px;
+        background: #ebebeb;
+        margin-left: 8px;
+        border-radius: 27px
+    }
+
+    .singer_out .singer_info .info .is_ugc .iconfont[data-v-5fbff215] {
+        font-size: 26px;
+        vertical-align: middle
+    }
+
+    .singer_out .singer_info .info .is_ugc span[data-v-5fbff215] {
+        color: #666;
+        display: inline-block;
+        vertical-align: middle
+    }
+
+    .singer_out .singer_info .info .info_items[data-v-5fbff215] {
+        color: #999;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 25px;
+        margin: 16px 0
+    }
+
+    .singer_out .singer_info .info .info_items > span[data-v-5fbff215] {
+        margin-right: 40px
+    }
+
+    .singer_out .singer_info .info .info_items .num[data-v-5fbff215] {
+        color: #333
+    }
+
+    .singer_out .singer_info .info .singer_items[data-v-5fbff215] {
+        color: #666;
+        font-weight: 300
+    }
+
+    .singer_out .singer_info .info .singer_items p[data-v-5fbff215] {
+        max-width: 600px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap
+    }
+
+    .singer_out .singer_info .info .singer_items p > span[data-v-5fbff215] {
+        margin-right: 15px
+    }
+
+    .singer_out .singer_info .info .singer_items .all[data-v-5fbff215] {
+        cursor: pointer;
+        color: #296294;
+        font-weight: 400
+    }
+
+    .singer_out .singer_info .info .btns[data-v-5fbff215] {
+        margin-top: 32px;
+        display: flex
+    }
+
+    .singer_out .singer_info .info .btns .play[data-v-5fbff215] {
+        background: #ffe12c;
+        color: #333
+    }
+
+    .singer_out .singer_info .info .btns button[data-v-5fbff215] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 30px;
+        height: 40px;
+        margin-right: 10px;
+        text-align: center;
+        border-radius: 22px;
+        border: none;
+        font-size: 16px;
+        background: #ebebeb;
+        cursor: pointer;
+        color: #666
+    }
+
+    .singer_out .singer_info .info .btns button .iconfont[data-v-5fbff215] {
+        font-size: 20px;
+        margin-right: 5px
+    }
+
+    .main_con[data-v-5fbff215] {
+        display: flex;
+        margin-top: 60px;
+        overflow: hidden
+    }
+
+    .main_con .con_l[data-v-5fbff215] {
+        width: 76.14%
+    }
+
+    .main_con .con_l .tabs[data-v-5fbff215] {
+        margin-bottom: 24px
+    }
+
+    .main_con .con_l .tabs span[data-v-5fbff215] {
+        position: relative;
+        display: inline-block;
+        font-size: 22px;
+        line-height: 30px;
+        margin-right: 46px;
+        font-weight: 300;
+        color: #333;
+        cursor: pointer
+    }
+
+    .main_con .con_l .tabs span.active[data-v-5fbff215] {
+        font-weight: 600
+    }
+
+    .main_con .con_l .tabs span.active[data-v-5fbff215]:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 1px;
+        width: 100%;
+        height: 6px;
+        background: #ffe443;
+        z-index: -1
+    }
+
+    .main_con .con_l .child_view[data-v-5fbff215] {
+        min-height: 100px
+    }
+
+    .main_con .con_r[data-v-5fbff215] {
+        width: 18.85%;
+        margin-left: 5.07%
+    }
+
+    .main_con .con_r h3[data-v-5fbff215] {
+        font-size: 22px;
+        font-weight: 500
+    }
+
+    .main_con .con_r .tip[data-v-5fbff215] {
+        margin-top: 11px;
+        margin-bottom: 24px;
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 18px;
+        color: #999
+    }
+
+    .main_con .con_r .download[data-v-5fbff215] {
+        display: flex;
+        justify-content: space-between
+    }
+
+    .main_con .con_r .download a[data-v-5fbff215] {
+        position: relative;
+        width: 27.27%;
+        padding-bottom: 27.27%;
+        color: #fff;
+        cursor: pointer
+    }
+
+    .main_con .con_r .download a .iconfont[data-v-5fbff215] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        font-size: 50px
+    }
+
+    .main_con .con_r .download a[data-v-5fbff215]:first-of-type {
+        background: #3998f3
+    }
+
+    .main_con .con_r .download a[data-v-5fbff215]:nth-of-type(2) {
+        background: #13ba82
+    }
+
+    .main_con .con_r .download a[data-v-5fbff215]:nth-of-type(3) {
+        background: #666
+    }
+
+    .main_con .con_r .item_text[data-v-5fbff215] {
+        margin-top: 14px;
+        justify-content: space-between
+    }
+
+    .main_con .con_r .item_text span[data-v-5fbff215] {
+        width: 27.27%;
+        text-align: center;
+        font-weight: 400
+    }
+
+    .xiuchang.lumbar-banner[data-v-5fbff215] {
+        margin-top: 56px;
+        width: 100%;
+        border-radius: 4px
+    }</style>
+    <script src="http://mobilead.kuwo.cn/MobileAdServer/getWebLyriceAd.do?callback=jsoncallback"
+            id="xiuchang-jsonp"></script>
+    <script charset="utf-8" src="http://h5static.kuwo.cn/www/kw-www/aff8f011d9f998a34ef8.js"></script>
+    <style type="text/css">.sub_nav[data-v-10ead6d8] {
+        padding-left: 206px;
+        height: 54px;
+        line-height: 54px
+    }
+
+    .main_con[data-v-10ead6d8] {
+        position: relative
+    }
+
+    .main_con .tit_out[data-v-10ead6d8] {
+        margin-top: 38px;
+        margin-bottom: 28px
+    }
+
+    .main_con .tit[data-v-10ead6d8] {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 30px;
+        margin-right: 36px;
+        cursor: pointer
+    }
+
+    .main_con .tit .iconfont[data-v-10ead6d8] {
+        font-weight: 600;
+        font-size: 24px
+    }
+
+    .main_con .tags_out[data-v-10ead6d8] {
+        position: absolute;
+        left: 0;
+        top: 44px;
+        background: #fff;
+        width: 65.57%;
+        max-height: 646px;
+        box-shadow: 0 4px 20px 0 rgba(65, 67, 70, .08);
+        padding: 30px 10px 0 36px;
+        z-index: 100000
+    }
+
+    .main_con .tags_out .tags[data-v-10ead6d8] {
+        max-height: 586px;
+        overflow: hidden;
+        position: relative;
+        padding-right: 36px
+    }
+
+    .main_con .tags_out .item_list[data-v-10ead6d8]:not(:first-child) {
+        margin-top: 20px
+    }
+
+    .main_con .tags_out .item_list .tip[data-v-10ead6d8] {
+        margin-bottom: 16px;
+        color: #000
+    }
+
+    .main_con .tags_out .item_list .tip .iconfont[data-v-10ead6d8] {
+        font-size: 18px
+    }
+
+    .main_con .tags_out .item_list .tip span[data-v-10ead6d8] {
+        margin-left: 2px;
+        font-weight: 600
+    }
+
+    .main_con .tags_out .item_list .list_tags[data-v-10ead6d8] {
+        flex-wrap: wrap
+    }
+
+    .main_con .tags_out .item_list .item[data-v-10ead6d8] {
+        padding: 6px 18px;
+        background: #f7f7f7;
+        border-radius: 16px;
+        margin: 0 10px 10px 0;
+        cursor: pointer
+    }
+
+    .main_con .tags_out .item_list .item span[data-v-10ead6d8] {
+        line-height: 20px;
+        font-weight: 300;
+        color: #000
+    }
+
+    .main_con .tags_out .item_list .item.active[data-v-10ead6d8], .main_con .tags_out .item_list .item[data-v-10ead6d8]:hover {
+        background: #ffe12c
+    }
+
+    .main_con .tags_out .item_list .item.active span[data-v-10ead6d8] {
+        color: #333;
+        font-weight: 600
+    }
+
+    .main_con .rec_list[data-v-10ead6d8] {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -26px
+    }
+
+    .main_con .rec_list .item[data-v-10ead6d8] {
+        margin-bottom: 26px;
+        margin-right: 1.41%
+    }
+
+    .main_con .rec_list .item[data-v-10ead6d8]:nth-child(5n) {
+        margin-right: 0
+    }</style>
+
 </head>
 <body class="theme-taihe">
-
-<div data-server-rendered="true" id="__nuxt"><!---->
+<div id="__nuxt"><!---->
     <div id="__layout">
         <div class="page">
 
+            <!--            头部head-->
             <div th:include="common/common_navigation :: commonNavigation"></div>
 
             <div class="sub-nav-box">
                 <nav class="sub-nav">
-                    <a href="/" class=" nav-list t">推荐</a>
-                    <a href="/songlist" target="_blank" class=" nav-list t">歌单</a>
+                    <a href="/" th:href="@{/}" class=" nav-list t">推荐</a>
+                    <a href="/songlist" target="_blank" class="on nav-list t">歌单</a>
                     <a href="/artist" target="_blank" class=" nav-list t">歌手</a>
-                    <a href="/rankList.htm" target="_blank" class="on nav-list t">榜单</a>
+                    <a href="/rankList.htm" th:href="@{/tophat}" target="_blank" class="nav-list t">榜单</a>
                     <a href="/tag" target="_blank" class=" nav-list t">分类</a>
                     <a href="/mv" target="_blank" class=" nav-list t">MV</a>
                 </nav>
             </div>
 
             <div class="container">
-                <div data-v-2a28ea40>
-                    <div class="main_con" data-v-2a28ea40>
-                        <div class="con_l" data-v-2a28ea40>
-                            <div class="con" data-v-2a28ea40>
-                                <div class="tabs flex_c" data-v-2a28ea40>
-                                    <span data-v-2a28ea40></span>
-                                    <span class="active" data-v-2a28ea40>官方榜</span>
-                                    <span data-v-2a28ea40></span><!----><!---->
-                                </div>
-                                <ul class="tab_con" data-v-2a28ea40>
-                                    <a th:href="@{/tophot}">
-                                        <li th:if="${type} eq 1" class="flex_c active" data-v-2a28ea40>
+                <div data-v-10ead6d8="">
 
-                                            <img alt="" src="iamges/hot.png" class="cover" data-v-2a28ea40>
-                                            <div class="item_info" data-v-2a28ea40>
-                                                <p class="name" data-v-2a28ea40>热歌榜</p>
-                                                <p class="time" data-v-2a28ea40>今日更新</p>
-                                            </div>
 
-                                        </li>
-
-                                        <li th:if="${type} ne 1" class="flex_c" data-v-2a28ea40>
-
-                                            <img alt="" src="iamges/hot.png" class="cover" data-v-2a28ea40>
-                                            <div class="item_info" data-v-2a28ea40>
-                                                <p class="name" data-v-2a28ea40>热歌榜</p>
-                                                <p class="time" data-v-2a28ea40>今日更新</p>
-                                            </div>
-                                        </li>
-                                    </a>
-
-                                    <a th:href="@{/topup}">
-                                        <li th:if="${type} eq 2" class="flex_c active" data-v-2a28ea40>
-                                            <img alt="" src="iamges/up.png" class="cover" data-v-2a28ea40>
-                                            <div class="item_info" data-v-2a28ea40>
-                                                <p class="name" data-v-2a28ea40>飙升榜</p>
-                                                <p class="time" data-v-2a28ea40>今日更新</p>
-                                            </div>
-                                        </li>
-                                        <li th:if="${type} ne 2" class="flex_c" data-v-2a28ea40>
-                                            <img alt="" src="iamges/up.png" class="cover" data-v-2a28ea40>
-                                            <div class="item_info" data-v-2a28ea40>
-                                                <p class="name" data-v-2a28ea40>飙升榜</p>
-                                                <p class="time" data-v-2a28ea40>今日更新</p>
-                                            </div>
-                                        </li>
-                                    </a>
-
-                                    <a th:href="@{/topnew}">
-                                        <li th:if="${type} eq 3" class="flex_c active" data-v-2a28ea40>
-                                            <img alt="" src="iamges/new.png" class="cover" data-v-2a28ea40>
-                                            <div class="item_info" data-v-2a28ea40>
-                                                <p class="name" data-v-2a28ea40>新歌榜</p>
-                                                <p class="time" data-v-2a28ea40>今日更新</p>
-                                            </div>
-                                        </li>
-                                        <li th:if="${type} ne 3" class="flex_c" data-v-2a28ea40>
-                                            <img alt="" src="iamges/new.png" class="cover" data-v-2a28ea40>
-                                            <div class="item_info" data-v-2a28ea40>
-                                                <p class="name" data-v-2a28ea40>新歌榜</p>
-                                                <p class="time" data-v-2a28ea40>今日更新</p>
-                                            </div>
-                                        </li>
-                                    </a>
-
-                                </ul>
+                    <div data-v-10ead6d8="" class="main_con">
+                        <div data-v-10ead6d8="" class="tit_out flex_c">
+                            <span data-v-10ead6d8="" class="tit">精选歌单
+                                <!--收起 iconfont icon-bar_icon_arrow_   打开 iconfont icon-pop_icon_returntop-->
+        <i data-v-10ead6d8="" class="iconfont icon-bar_icon_arrow_"></i>
+                            </span>
+                            <div data-v-17ae183a="" data-v-10ead6d8="">
+                                <a data-v-17ae183a="" href="javascript:;" class="active">最新</a>
+                                <a data-v-17ae183a="" href="javascript:;" class="">最热</a>
                             </div>
                         </div>
-                        <div class="con_r" data-v-2a28ea40 th:fragment="article_type" id="article_type">
-                            <div data-v-2a28ea40>
-                                <div data-v-2a28ea40><span class="title" data-v-2a28ea40 th:text="${rank}">热歌榜</span>
-                                    <span class="update_time" data-v-2a28ea40>更新时间：2019-11-29</span>
-                                </div>
-                                <div class="btns" data-v-2a28ea40>
-                                    <a th:href="@{/playerList(songList = ${songListIds})}">
-                                        <button class="play bg_primary" data-v-2a28ea40>
-                                            <i class="iconfont icon-icon_play_" data-v-2a28ea40></i>
-                                            <span data-v-2a28ea40>播放全部</span>
-                                        </button>
-                                    </a>
-                                    <button data-v-2a28ea40>
-                                        <i class="iconfont icon-playlist_icon_add_" data-v-2a28ea40></i>
-                                        <span data-v-2a28ea40>添加</span>
-                                    </button>
-                                    <button data-v-2a28ea40>
-                                        <i class="iconfont icon-bar_icon_heart_" data-v-2a28ea40></i>
-                                        <span data-v-2a28ea40>收藏</span>
-                                    </button>
-                                </div>
-                                <div class="list_out" data-v-2a28ea40>
-                                    <div data-v-edb94b72 data-v-2a28ea40>
-                                        <div class="list_head head_name_rank" style="" data-v-edb94b72>
-                                            <ul class="flex_c" data-v-edb94b72>
-                                                <li class="head_num" data-v-edb94b72>序号</li>
-                                                <li class="head_name" data-v-edb94b72>歌曲</li>
-                                                <li class="head_artist" data-v-edb94b72>歌手</li>
-                                                <li class="head_album" data-v-edb94b72>专辑</li>
-                                                <li class="head_time" data-v-edb94b72>时长</li>
-                                            </ul>
-                                        </div>
-                                        <!---->
-                                        <!--歌曲条目-->
-                                        <ul data-v-edb94b72 class="rank_list">
-                                            <li data-v-edb94b72="" class="song_item flex_c" th:each="sl : ${songList}">
-                                                <div data-v-edb94b72="" class="song_rank flex_c">
-                                                    <div data-v-edb94b72="" class="rank_num top1"
-                                                         th:if="${slStat.count}+ ${pageNumber}*15 eq 1"></div>
-                                                    <div data-v-edb94b72="" class="rank_num top2"
-                                                         th:if="${slStat.count}+ ${pageNumber}*15 eq 2"></div>
-                                                    <div data-v-edb94b72="" class="rank_num top3"
-                                                         th:if="${slStat.count}+ ${pageNumber}*15 eq 3"></div>
-                                                    <div data-v-edb94b72="" class="rank_num "
-                                                         th:if="${slStat.count} + ${pageNumber}*15 gt 3"
-                                                         th:text="${slStat.count} + ${pageNumber}*15"></div>
-
-                                                    <!---->
-
-                                                    <div data-v-edb94b72="" class="status"><!----> <!----> <!---->
-                                                        <!----></div>
-                                                    <img data-v-edb94b72="" alt="" class="cover"
-                                                         src="http://img2.kuwo.cn/star/albumcover/120/48/79/1272165134.jpg"
-                                                         lazy="loaded" th:src="${sl.imgUri}">
-                                                </div>
-                                                <div data-v-edb94b72="" class="song_name flex_c">
-                                                    <a th:href="@{/song(songId=${sl.songId})}" target="_blank"><span
-                                                        data-v-edb94b72="" title="桥边姑娘" th:title="${sl.songName}"
-                                                        class="name" th:text="${sl.songName}">桥边姑娘</span>
-                                                    </a>
-                                                    <i data-v-edb94b72="" class="type iconfont icon-tag_wusun"></i>
-                                                    <!---->
-                                                </div>
-                                                <div data-v-edb94b72="" class="song_artist">
-                                                    <span data-v-edb94b72="" title="MC海伦"
-                                                          th:text="${sl.singer.getName()}">MC海伦</span>
-                                                </div>
-                                                <div data-v-edb94b72="" class="song_album">
-                                                    <span data-v-edb94b72="" title="桥边姑娘">桥边姑娘</span>
-                                                </div>
-                                                <div data-v-edb94b72="" class="song_time">
-                                                    <span data-v-edb94b72="">03:03</span>
-                                                </div>
-                                                <div data-v-edb94b72="" class="song_opts flex_c">
-                                                    <a th:href="@{/player(id=${sl.songId})}" target="_blank"><i
-                                                            data-v-edb94b72="" class="iconfont icon-icon_play_"></i></a>
-                                                    <i data-v-edb94b72="" class="iconfont icon-playlist_icon_add_"></i>
-                                                    <i data-v-edb94b72="" class="iconfont icon-bar_icon_heart_"></i>
-                                                    <i data-v-edb94b72="" class="iconfont icon-bar_icon_download_"></i>
-                                                </div>
+                        <!--打开增加class show_tag  再去掉display-->
+                        <div data-v-10ead6d8="" class="tags_out " style="display:none;">
+                            <div data-v-10ead6d8="" class="tags">
+                                <ul data-v-10ead6d8=""
+                                    style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+                                    <li data-v-10ead6d8="" class="item_list" style="pointer-events: auto;">
+                                        <p data-v-10ead6d8="" class="tip flex_c">
+                                            <i data-v-10ead6d8="" class="iconfont icon-icon_all_"></i>
+                                            <span data-v-10ead6d8="">默认</span></p>
+                                        <ul data-v-10ead6d8="" class="flex_c list_tags">
+                                            <li data-v-10ead6d8="" class="item active">
+                                                <span data-v-10ead6d8="">精选歌单</span>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </li>
 
-                                    <div th:if="${songList.size()} eq 0" class="nodata flex_c" data-v-7ad2a8ce
-                                         data-v-2a28ea40 style="display: ;">
-                                        <div class="inner" data-v-7ad2a8ce><img
-                                                src="http://h5static.kuwo.cn/www/kw-www/img/f18848f .png" alt
-                                                class="nodata_img" data-v-7ad2a8ce>
-                                            <div class="tip" data-v-7ad2a8ce><p data-v-7ad2a8ce>暂无相关数据</p></div>
-                                        </div>
-                                    </div>
-                                    <div data-v-64d77692="" class="loading-mask" style="display: none;">
-                                        <div data-v-64d77692="" class="loading-wrap">
-                                            <div data-v-64d77692="" class="load">
-                                                <span data-v-64d77692="" class="side1"></span>
-                                                <span data-v-64d77692="" class="side2"></span>
-                                                <span data-v-64d77692="" class="mid"></span>
-                                                <span data-v-64d77692="" class="side2"></span>
-                                                <span data-v-64d77692="" class="side1"></span>
-                                            </div>
-                                            <!---->
-                                        </div>
-                                    </div>
+                                    <li data-v-10ead6d8="" class="item_list" style="pointer-events: auto;">
+                                        <p data-v-10ead6d8="" class="tip flex_c">
+                                            <i data-v-10ead6d8="" class="iconfont icon-icon_note_"></i>
+                                        <span data-v-10ead6d8="">分类</span></p>
+                                        <ul data-v-10ead6d8="" class="flex_c list_tags">
+                                            <!--TODO 歌单类别-->
+                                            <li data-v-10ead6d8="" class="item">
+                                                <span data-v-10ead6d8="">流行</span>
+                                            </li>
 
+                                        </ul>
+                                        <br/>
+                                    </li>
+                                </ul>
+                                <div class="bscroll-vertical-scrollbar"
+                                     style="position: absolute; z-index: 9999; width: 7px; bottom: 2px; top: 2px; right: 1px; overflow: hidden;">
+                                    <div class="bscroll-indicator"
+                                         style="box-sizing: border-box; position: absolute; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 3px; width: 100%; transition-duration: 0ms; height: 394px; transform: translateY(0px) translateZ(0px); transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);"></div>
                                 </div>
-                                <!--分页-->
-
-                                <!--翻页-->
-                                <div class="zxf_pagediv" th:if="${type} eq 1">
-                                    <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
-                                    <a href="javascript:;" class="prebtn" th:if="${pageNumber} ne 0"
-                                       th:href="@{/tophot(pageNumber = ${pageNumber}-1)}">上一页</a>
-                                    <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
-                                        <a th:href="@{/tophot(pageNumber = ${i}-1)}" class="current"
-                                           th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
-                                        <a href="" th:href="@{/tophot(pageNumber = ${i}-1)}" class="zxfPagenum"
-                                           th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
-                                    </th:block>
-                                    <a href="javascript:;" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1"
-                                       th:href="@{/tophot(pageNumber = ${pageNumber}+1)}">下一页</a>
-                                    <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
-                                    <span>共<b th:text="${totalPages}">2</b>页</span>
-                                </div>
-
-                                <div class="zxf_pagediv" th:if="${type} eq 2">
-                                    <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
-                                    <a href="javascript:;" class="prebtn" th:if="${pageNumber} ne 0"
-                                       th:href="@{/topup(pageNumber = ${pageNumber}-1)}">上一页</a>
-                                    <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
-                                        <a th:href="@{/topup(pageNumber = ${i}-1)}" class="current"
-                                           th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
-                                        <a href="" th:href="@{/topup(pageNumber = ${i}-1)}" class="zxfPagenum"
-                                           th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
-                                    </th:block>
-                                    <a href="javascript:;" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1"
-                                       th:href="@{/topup(pageNumber = ${pageNumber}+1)}">下一页</a>
-                                    <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
-                                    <span>共<b th:text="${totalPages}">2</b>页</span>
-                                </div>
-
-                                <div class="zxf_pagediv" th:if="${type} eq 3">
-                                    <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
-                                    <a href="javascript:;" class="prebtn" th:if="${pageNumber} ne 0"
-                                       th:href="@{/topnew(pageNumber = ${pageNumber}-1)}">上一页</a>
-                                    <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
-                                        <a th:href="@{/topnew(pageNumber = ${i}-1)}" class="current"
-                                           th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
-                                        <a href="" th:href="@{/topnew(pageNumber = ${i}-1)}" class="zxfPagenum"
-                                           th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
-                                    </th:block>
-                                    <a href="javascript:;" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1"
-                                    th:href="@{/topnew(pageNumber = ${pageNumber}+1)}">下一页</a>
-                                    <span>共<b th:text="${totalPages}">2</b>页</span>
-                                </div>
-
                             </div>
                         </div>
+                        <!--TODO 歌曲列表  完成分页，局部刷新数据 -->
+                        <div data-v-10ead6d8="" class="rec_list">
+                            <div data-v-71f1ac8b="" data-v-10ead6d8="" class="item item">
+                                <div data-v-71f1ac8b="" class="pic_out">
+                                    <div data-v-71f1ac8b="" class="cover">
+                                        <span data-v-71f1ac8b=""
+                                              class="play icon_play">
+                                            <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
+                                        </span>
+                                    </div>
+                                    <img data-v-71f1ac8b="" alt="【港乐经典】九十年代辉煌金曲"
+                                         src="http://img1.kwcdn.kuwo.cn/star/userpl2015/74/18/1575293134558_395182674_500.jpg"
+                                         class="pic"
+                                         data-src="http://img1.kwcdn.kuwo.cn/star/userpl2015/74/18/1575293134558_395182674_500.jpg"
+                                         lazy="loaded">
+                                </div>
+                                <p data-v-71f1ac8b="" class="name">
+                                    <span data-v-71f1ac8b="" title="【港乐经典】九十年代辉煌金曲">【港乐经典】九十年代辉煌金曲</span>
+                                </p>
+                                <p data-v-71f1ac8b="" class="count">
+                                    <i data-v-71f1ac8b=""
+                                       class="iconfont icon-icon_play_"></i>5.0万
+                                </p>
+                            </div>
+
+                            <div data-v-7ad2a8ce="" data-v-10ead6d8="" class="nodata flex_c" style="display: none;">
+                                <div data-v-7ad2a8ce="" class="inner">
+                                    <img data-v-7ad2a8ce="" src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png"
+                                                                           alt="" class="nodata_img">
+                                    <div data-v-7ad2a8ce="" class="tip"><p data-v-7ad2a8ce="">暂无相关数据</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!--分页-->
+                        <div data-v-9fcc0c74="" data-v-10ead6d8="" class="page-wrap">
+                            <i data-v-9fcc0c74=""
+                               class="li-page iconfont icon-icon_pageup notPointer"></i>
+                            <ul data-v-9fcc0c74="" class="flex_c">
+                                <li data-v-9fcc0c74="" style="background: rgb(255, 223, 31);"><span data-v-9fcc0c74=""
+                                                                                                    class="notCursor currentPage">1</span>
+                                </li>
+                                <li data-v-9fcc0c74=""><span data-v-9fcc0c74="" class="">2</span></li>
+                                <li data-v-9fcc0c74=""><span data-v-9fcc0c74="" class="">3</span></li>
+                                <li data-v-9fcc0c74=""><span data-v-9fcc0c74="" class="notCursor">···</span></li>
+                                <li data-v-9fcc0c74=""><span data-v-9fcc0c74="" class="">169</span></li>
+                            </ul>
+                            <i data-v-9fcc0c74="" class="li-page iconfont icon-icon_pagedown"></i></div>
+
                     </div>
                 </div>
             </div>
+
+            <!--footer-->
             <br/><br/><br/><br/>
             <footer>
                 <div class="footer-mod" data-v-278df946>
@@ -5827,101 +8373,25 @@
 
             <div class="fixed" data-v-6a994542>
 
-                <div class="list top" data-v-6a994542 >
-                    <a href="javascript:;" data-v-6a994542>
-                        <img data-type="top" id="totop"
-                             src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png" data-item="top"
-                             class="fixd-item-pic" data-v-6a994542>
+                <div class="list top" data-v-6a994542>
+                    <a href="javascript:void(0);" data-v-6a994542>
+                        <img data-type="top" src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png"
+                             data-item="top" class="fixd-item-pic" data-v-6a994542>
                     </a>
                 </div>
 
-                <div class="list play-box" data-v-6a994542>
-                    <a href="/" target="_blank" data-v-6a994542>
-                        <img data-type="musicbox"
-                             src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png"
-                             data-item="playbox" class="fixd-item-pic" data-v-6a994542>
-                    </a>
-                </div>
-
+                <!--<div class="list play-box" data-v-6a994542>-->
+                <!--<a href="//play.taihe.com/" target="_blank" data-v-6a994542>-->
+                <!--<img data-type="musicbox"-->
+                <!--src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png"-->
+                <!--data-item="playbox" class="fixd-item-pic" data-v-6a994542>-->
+                <!--</a>-->
+                <!--</div>-->
             </div>
+
         </div>
     </div>
 </div>
-
-
-<script>
-    window.onload = function () {
-        var btn = document.getElementById('totop');
-        //timer需要放在最外面
-        var timer = null;
-        var istop = true;
-        //屏幕可视化高度
-        var clientHeight = document.documentElement.clientHeight;
-        //设置向上滚动时候突然往下翻的事件,注意要加window.onscroll
-        window.onscroll = function () {
-            if (!istop) {
-                clearInterval(timer);
-            }
-            istop = false;
-            //这里需要再申明一遍high的值，否则获取不到下面已经申明的值，因为Js是从上向下执行代码
-            var high = document.documentElement.scrollTop || document.body.scrollTop;
-            if (high >= clientHeight) {
-                btn.style.display = 'block';
-            } else {
-                btn.style.display = 'none';
-            }
-        }
-        btn.onclick = function () {
-            //设置定时器，在30ms之内完成回到顶部的平滑效果
-            timer = setInterval(function () {
-                //解决各个浏览器的兼容性问题
-                //获得的这个high必须写在点击事件里面，因为js是从上往下执行代码
-                var high = document.documentElement.scrollTop || document.body.scrollTop;
-                //设置向上的速度，由快到慢，并且取负数整，这样可以为0，让定时器关闭
-                var speed = Math.floor(-high / 6);
-                document.documentElement.scrollTop = document.body.scrollTop = high + speed;
-                //向上滚动突然停止的变量一开始设为true,并且放在点击事件里面
-                istop = true;
-                if (high == 0) {
-                    clearInterval(timer);
-                }
-            }, 30);
-        }
-    }
-</script>
-
-
-<script type = "text/javascript" th:inline="javascript">
-    /*<![CDATA[*/
-    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
-
-    //$(function () {
-    //   toPage(1, 4); //加载完index页面后，获取第一页表格数据
-    // });
-
-    //跳转第几页
-    function toPage(num, singerId) {
-        //alert("ssdf");
-        $.ajax({
-            url: basePath + '/singerDetail/list',
-            type: 'post',
-            dataType: 'text',
-            data: {
-                'pageNumber': num,//第几页
-                'singerId':singerId
-            },
-            cache: false,
-            async: true,
-            success: function (data) {
-                $(".child_view").empty();
-                $(".child_view").append(data);
-                document.getElementById("child_view").scrollIntoView();
-            }
-        });
-    }
-
-    /*]]>*/
-</script>
 
 </body>
 </html>

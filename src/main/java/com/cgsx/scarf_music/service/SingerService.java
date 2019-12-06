@@ -6,4 +6,8 @@ import org.springframework.data.domain.Page;
 
 public interface SingerService {
     Page<Singer> findAllSingerByIsOnline(int page, int size);
+
+    Singer findSingerBySingerId(Long singerId);
+
+    Page<Singer> findSearchSinger(int page, int size, String keyword);
 }

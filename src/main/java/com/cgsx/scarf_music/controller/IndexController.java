@@ -32,6 +32,13 @@ public class IndexController {
     @Autowired
     private CategoryService categoryService;
 
+    /**
+    * @Description: 跳转到主页
+    * @Param: [model]
+    * @return: java.lang.String
+    * @Author: cgsx
+    * @Date: 2019/12/3
+    */
     @RequestMapping({"/", "/index"})
     public String index(Model model){
         Page<Song> songList = songService.findAllByIsOnlineOrderByDate(0, 4);

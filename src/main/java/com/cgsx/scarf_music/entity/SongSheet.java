@@ -49,4 +49,6 @@ public class SongSheet implements Serializable {
     @Transient
     private String userName;
 
+    private Integer isOnline;
+
 }

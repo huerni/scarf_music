@@ -1,11 +1,11 @@
 package com.cgsx.scarf_music.service.impl;
 
 import com.cgsx.scarf_music.constants.Constants;
+import com.cgsx.scarf_music.entity.Album;
 import com.cgsx.scarf_music.entity.Singer;
 import com.cgsx.scarf_music.entity.Song;
-import com.cgsx.scarf_music.entity.SongSheet;
-import com.cgsx.scarf_music.repository.SongSheetRepository;
-import com.cgsx.scarf_music.service.SongSheetService;
+import com.cgsx.scarf_music.repository.AlbumRepository;
+import com.cgsx.scarf_music.service.AlbumService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,34 +19,35 @@ import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @program: scarf_music
+ * @description: 专辑服务层
+ * @author: cgsx
+ * @create: 2019-12-06 16:21
+ **/
 @Service
-public class SongSheetServiceImpl implements SongSheetService {
+public class AlbumServiceImpl implements AlbumService {
 
     @Autowired
-    SongSheetRepository songSheetRepository;
+    private AlbumRepository albumRepository;
 
     @Override
-    public List<SongSheet> findAllSongSheet() {
-        return songSheetRepository.findAll();
-    }
-
-    @Override
-    public Page<SongSheet> findSearchSongSheet(int page, int size, String keyword) {
+    public Page<Album> findSearchAlbum(int page, int size, String keyword) {
         Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "listenTimes");
 
-        return songSheetRepository.findAll(getWhereClause(keyword), pageable);
+        return albumRepository.findAll(getWhereClause(keyword), pageable);
     }
 
-    public Specification<SongSheet> getWhereClause(String keyword){
-        return new Specification<SongSheet>() {
+    public Specification<Album> getWhereClause(String keyword){
+        return new Specification<Album>() {
             @Override
-            public Predicate toPredicate(Root<SongSheet> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+            public Predicate toPredicate(Root<Album> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 List<Predicate> predicates = new ArrayList<>();
                 if(StringUtils.isNotBlank(keyword)){
                     predicates.add(
                             criteriaBuilder.and(
                                     criteriaBuilder.or(
-                                            criteriaBuilder.like(root.get("songSheetName"),"%" + keyword + "%")
+                                            criteriaBuilder.like(root.get("albumName"),"%" + keyword + "%")
                                     )
                             )
                     );

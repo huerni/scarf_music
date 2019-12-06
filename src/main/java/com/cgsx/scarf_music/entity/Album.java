@@ -21,6 +21,10 @@ public class Album implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long albumId;
 
+    private String albumName;
+
+    private String imgUri;
+
     @Temporal(TemporalType.DATE)
     private Date issueDate;
 
@@ -33,4 +37,6 @@ public class Album implements Serializable {
     private Integer collectionTimes;
 
     private Integer listenTimes;
+
+    private Integer isOnline;
 }

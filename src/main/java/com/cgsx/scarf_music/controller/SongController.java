@@ -20,6 +20,13 @@ public class SongController {
     @Autowired
     private SongService songService;
 
+    /**
+    * @Description: 跳转到歌曲详情页面
+    * @Param: [model, songId]
+    * @return: java.lang.String
+    * @Author: cgsx
+    * @Date: 2019/12/3
+    */
     @RequestMapping("/song")
     public String toSong(Model model, @RequestParam(name = "songId") Long songId){
         Song song = songService.findSongBySongIdAndIsOnline(songId);

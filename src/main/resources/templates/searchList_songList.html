@@ -1,0 +1,140 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<div id="child_view">
+    <div class="btns" style="display:;" data-v-3665e15d>
+        <button class="play bg_primary" style="background: #ffdca2" data-v-3665e15d>
+            <i class="iconfont icon-icon_play_" data-v-3665e15d></i>
+            <span data-v-3665e15d>播放全部</span>
+        </button>
+        <button data-v-3665e15d>
+            <i class="iconfont icon-bar_icon_heart_" data-v-3665e15d></i>
+            <span data-v-3665e15d>收藏</span>
+        </button>
+        <button data-v-3665e15d>
+            <i class="iconfont icon-bar_icon_download_" data-v-3665e15d></i>
+            <span data-v-3665e15d>下载歌曲</span>
+        </button>
+    </div>
+    <div data-v-3665e15d>
+        <div data-v-edb94b72 data-v-3665e15d>
+            <div th:if="${songList} ne 0" class="list_head head_name_search" style="display:;"
+                 data-v-edb94b72>
+                <ul class="flex_c" data-v-edb94b72>
+                    <li class="head_num" data-v-edb94b72>序号</li>
+                    <li class="head_name" data-v-edb94b72>歌曲</li>
+                    <li class="head_artist" data-v-edb94b72>歌手</li>
+                    <li class="head_album" data-v-edb94b72>专辑</li>
+                    <li class="head_time" data-v-edb94b72>时长</li>
+                </ul>
+            </div>
+            <!--歌曲列表-->
+
+            <ul class="search_list" data-v-edb94b72="">
+                <li class="song_item flex_c" data-v-edb94b72="" th:each="sl : ${songList}">
+                    <div class="song_rank flex_c" data-v-edb94b72=""><!---->
+                        <div class="rank_num" data-v-edb94b72="">
+                                                    <span class="playing" style="display: none;" data-v-edb94b72="">
+                                                        <span class="side1 pause" data-v-edb94b72=""></span>
+                                                        <span class="side2 pause" data-v-edb94b72=""></span>
+                                                        <span class="side3 pause" data-v-edb94b72=""></span>
+                                                    </span>
+                            <span data-v-edb94b72="" th:text="${pageNumber}*15 + ${slStat.count}">1</span>
+                        </div> <!---->
+                        <img class="cover" alt="" th:src="${sl.imgUri}"
+                             src="http://img2.kuwo.cn/star/albumcover/120/20/65/2206872936.jpg"
+                             lazy="loaded" data-v-edb94b72="">
+                    </div>
+                    <div class="song_name flex_c" data-v-edb94b72="">
+                                                <span title="To The Stars" class="name" data-v-edb94b72=""
+                                                      th:text="${sl.songName}">To The Stars</span>
+                        <!----> <!---->
+                    </div>
+                    <div class="song_artist" data-v-edb94b72="">
+                                                <span title="Tyler Bates" data-v-edb94b72=""
+                                                      th:text="${sl.singer.getName()}">Tyler Bates</span>
+                    </div>
+                    <div class="song_album" data-v-edb94b72="">
+                                                <span title="Guardians of the Galaxy (Original Score)"
+                                                      data-v-edb94b72="">Guardians of the Galaxy (Original Score)</span>
+                    </div>
+                    <div class="song_time" data-v-edb94b72="">
+                        <span data-v-edb94b72="">02:52</span>
+                    </div>
+                    <div class="song_opts flex_c" data-v-edb94b72="">
+                        <a th:href="@{/player(id=${sl.songId})}" target="_blank">
+                            <i class="iconfont icon-icon_play_" data-v-edb94b72=""></i>
+                        </a>
+                        <i class="iconfont icon-playlist_icon_add_" data-v-edb94b72=""></i>
+                        <i class="iconfont icon-bar_icon_heart_" data-v-edb94b72=""></i>
+                        <i class="iconfont icon-bar_icon_download_" data-v-edb94b72=""></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div th:if="${songList.size()} eq 0" class="nodata flex_c" style="display:;"
+             data-v-7ad2a8ce data-v-3665e15d>
+            <div class="inner" data-v-7ad2a8ce>
+                <img src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png" alt
+                     class="nodata_img" data-v-7ad2a8ce>
+                <div class="tip" data-v-7ad2a8ce><p data-v-7ad2a8ce data-v-3665e15d>抱歉，还没有找到与&quot;<span
+                        class="col_pri" data-v-7ad2a8ce data-v-3665e15d
+                        th:text="${keyword}">纯音乐</span>&quot;相关的内容
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <!--翻页-->
+    <block th:if="${songList.size()} ne 0">
+        <div class="zxf_pagediv">
+            <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber-1}+'\')'" class="prebtn"th:if="${pageNumber} ne 0">上一页</a>
+            <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
+                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'"  class="current"
+                   th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
+                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'"  class="zxfPagenum"
+                 th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
+            </th:block>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber+1}+'\')'" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
+            <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
+            <span>共<b th:text="${totalPages}">2</b>页</span>
+        </div>
+    </block>
+</div>
+
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    // var id = [[${singerId}]];
+    // $(function () {
+    //    toPage(0,id); //加载完index页面后，获取第一页表格数据
+    //  });
+
+    var key = [[${keyword}]];
+
+    //跳转第几页
+    function toPage(num) {
+        //alert("ssdf");
+        $.ajax({
+            url: basePath + '/search/songList',
+            type: 'post',
+            dataType: 'text',
+            data: {
+                'pageNumber': num,//第几页
+                'keyword': key
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                 $(".child_view").empty();
+                 $(".child_view").append(data);
+                document.getElementById("container").scrollIntoView();
+            }
+        });
+    }
+
+    /*]]>*/
+</script>

@@ -25,12 +25,12 @@
 
             <div class="sub-nav-box">
                 <nav class="sub-nav">
-                    <a href="/" th:href="@{/}" class="on nav-list t">推荐</a>
+                    <a href="/"  th:href="@{/}" class="on nav-list t">推荐</a>
                     <a href="/songlist" target="_blank" class=" nav-list t">歌单</a>
-                    <a href="/artist" target="_blank" class=" nav-list t">歌手</a>
+                    <a href="/artist" th:href="@{/singers}" class=" nav-list t">歌手</a>
                     <a href="/top" th:href="@{/tophot}" class=" nav-list t">榜单</a>
                     <a href="/tag" target="_blank" class=" nav-list t">分类</a>
-                    <a href="/mv" target="_blank" class=" nav-list t">MV</a>
+                    <!--<a href="/mv" target="_blank" class=" nav-list t">MV</a>-->
                 </nav>
             </div>
 
@@ -144,7 +144,9 @@
                                                 <img th:src="${s.imgUri}"  class="t item-pic">
                                                 <i  class="img-mask pa"></i>
                                             </a>
-                                            <a th:href="@{/player(id=${s.songId})}" target="_blank"> <i target="_blank"  class="iconfont icon-play_2 pa t" ></i></a><!---->
+                                            <a th:href="@{/player(id=${s.songId})}" target="_blank">
+                                                <i target="_blank"  class="iconfont icon-play_2 pa t" ></i>
+                                            </a><!---->
                                         </div>
                                         <h3 class="to">
                                             <a href="#" th:href="@{/player(id=${s.songId})}" target="_blank"  th:title="${s.songName}" class="title t" th:text="${s.songName}">密室逃脱</a>
