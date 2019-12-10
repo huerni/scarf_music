@@ -37,6 +37,18 @@ public class SongSheetServiceImpl implements SongSheetService {
         return songSheetRepository.findAll(getWhereClause(keyword), pageable);
     }
 
+    @Override
+    public Page<SongSheet> findSongSheetSort(int page, int size, String sort) {
+        Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, sort);
+
+        return songSheetRepository.findAll(getWhereClause(""), pageable);
+    }
+
+    @Override
+    public SongSheet findSongSheetById(Long songSheetId) {
+        return songSheetRepository.findBySongSheetIdAndIsOnline(songSheetId, Constants.YES);
+    }
+
     public Specification<SongSheet> getWhereClause(String keyword){
         return new Specification<SongSheet>() {
             @Override

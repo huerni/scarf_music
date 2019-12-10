@@ -46,7 +46,6 @@ public class Song implements Serializable {
     private Date duration;
 
 
-
     //是否上线
     private Integer isOnline;
 

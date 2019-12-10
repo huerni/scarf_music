@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 歌单
@@ -37,6 +40,12 @@ public class SongSheet implements Serializable {
     private String introduction;
 
     /**
+     * 创建日期
+     */
+    @Temporal(TemporalType.DATE)
+    private Date createDate;
+
+    /**
      * 听歌次数
      */
     private Integer listenTimes;
@@ -46,8 +55,28 @@ public class SongSheet implements Serializable {
      */
     private Integer collectionTimes;
 
-    @Transient
-    private String userName;
+    /**
+     * 歌单创建用户
+     */
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+
+    /**
+     * 歌单收藏用户
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "userSongSheet", joinColumns = {@JoinColumn(name = "songSheetId")},
+            inverseJoinColumns = {@JoinColumn(name = "userId")})
+    private List<User> userList = new ArrayList<>();
+
+    /**
+     * 歌单分类
+     */
+    @ManyToMany
+    @JoinTable(name = "songSheetCategory", joinColumns = {@JoinColumn(name = "songSheetId")},
+            inverseJoinColumns = {@JoinColumn(name = "categoryId")})
+    private List<Category> categoryList = new ArrayList<>();
 
     private Integer isOnline;
 

@@ -2817,7 +2817,7 @@
     }
 
     .nav .item.active[data-v-5b4abc5f] {
-        background: #ffe443;
+        background: #ffdca2;
         font-weight: 600
     }
 
@@ -3278,7 +3278,7 @@
         left: 12px;
         height: 2px;
         width: 40px;
-        background-color: #ffd200;
+        background-color: #ffdca2;
         bottom: 0
     }
 
@@ -3630,7 +3630,7 @@
         bottom: 1px;
         width: 100%;
         height: 6px;
-        background: #ffe443;
+        background: #ffdca2;
         z-index: -1
     }
 
@@ -8034,7 +8034,7 @@
         bottom: 1px;
         width: 100%;
         height: 6px;
-        background: #ffe443;
+        background: #ffdca2;
         z-index: -1
     }
 
@@ -8198,7 +8198,7 @@
     }
 
     .main_con .tags_out .item_list .item.active[data-v-10ead6d8], .main_con .tags_out .item_list .item[data-v-10ead6d8]:hover {
-        background: #ffe12c
+        background: #ffdca2
     }
 
     .main_con .tags_out .item_list .item.active span[data-v-10ead6d8] {
@@ -8233,11 +8233,9 @@
             <div class="sub-nav-box">
                 <nav class="sub-nav">
                     <a href="/" th:href="@{/}" class=" nav-list t">推荐</a>
-                    <a href="/songlist" target="_blank" class="on nav-list t">歌单</a>
-                    <a href="/artist" target="_blank" class=" nav-list t">歌手</a>
-                    <a href="/rankList.htm" th:href="@{/tophat}" target="_blank" class="nav-list t">榜单</a>
-                    <a href="/tag" target="_blank" class=" nav-list t">分类</a>
-                    <a href="/mv" target="_blank" class=" nav-list t">MV</a>
+                    <a href="/songlist" th:href="@{/songSheetList}" class="on nav-list t">歌单</a>
+                    <a href="/artist" th:href="@{/singers}" class=" nav-list t">歌手</a>
+                    <a href="/rankList.htm" th:href="@{/tophat}"  class="nav-list t">榜单</a>
                 </nav>
             </div>
 
@@ -8247,17 +8245,18 @@
 
                     <div data-v-10ead6d8="" class="main_con">
                         <div data-v-10ead6d8="" class="tit_out flex_c">
-                            <span data-v-10ead6d8="" class="tit">精选歌单
+                            <span data-v-10ead6d8="" class="tit" id="tit">
+                                <span id="showCat">精选歌单</span>
                                 <!--收起 iconfont icon-bar_icon_arrow_   打开 iconfont icon-pop_icon_returntop-->
-        <i data-v-10ead6d8="" class="iconfont icon-bar_icon_arrow_"></i>
+                                <i data-v-10ead6d8="" class="iconfont icon-bar_icon_arrow_" id="iconfont"></i>
                             </span>
                             <div data-v-17ae183a="" data-v-10ead6d8="">
-                                <a data-v-17ae183a="" href="javascript:;" class="active">最新</a>
-                                <a data-v-17ae183a="" href="javascript:;" class="">最热</a>
+                                <a data-v-17ae183a="" href="javascript:void(0);" id="new" class="active">最新</a>
+                                <a data-v-17ae183a="" href="javascript:void(0);" id="hot" class="">最热</a>
                             </div>
                         </div>
                         <!--打开增加class show_tag  再去掉display-->
-                        <div data-v-10ead6d8="" class="tags_out " style="display:none;">
+                        <div data-v-10ead6d8="" class="tags_out " style="display:none;" id="tags">
                             <div data-v-10ead6d8="" class="tags">
                                 <ul data-v-10ead6d8=""
                                     style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px);">
@@ -8267,7 +8266,7 @@
                                             <span data-v-10ead6d8="">默认</span></p>
                                         <ul data-v-10ead6d8="" class="flex_c list_tags">
                                             <li data-v-10ead6d8="" class="item active">
-                                                <span data-v-10ead6d8="">精选歌单</span>
+                                                <span data-v-10ead6d8="" id="priCat">精选歌单</span>
                                             </li>
                                         </ul>
                                     </li>
@@ -8275,11 +8274,13 @@
                                     <li data-v-10ead6d8="" class="item_list" style="pointer-events: auto;">
                                         <p data-v-10ead6d8="" class="tip flex_c">
                                             <i data-v-10ead6d8="" class="iconfont icon-icon_note_"></i>
-                                        <span data-v-10ead6d8="">分类</span></p>
-                                        <ul data-v-10ead6d8="" class="flex_c list_tags">
-                                            <!--TODO 歌单类别-->
-                                            <li data-v-10ead6d8="" class="item">
-                                                <span data-v-10ead6d8="">流行</span>
+                                            <span data-v-10ead6d8="">分类</span></p>
+                                        <ul data-v-10ead6d8="" class="flex_c list_tags" id="list_tags">
+                                            <!--TODO 歌单类别 -->
+                                            <li data-v-10ead6d8="" class="item" th:each="cl : ${categoryList}" id="item">
+                                                <a href="javascript:void(0)" th:onclick="'javascript:catSongSheet( \''+${cl.categoryId}+'\')'">
+                                                <span data-v-10ead6d8="" th:text="${cl.tag}">流行</span>
+                                                </a>
                                             </li>
 
                                         </ul>
@@ -8293,8 +8294,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!--TODO 歌曲列表  完成分页，局部刷新数据 -->
-                        <div data-v-10ead6d8="" class="rec_list">
+                        <!--TODO 歌单列表  完成分页，局部刷新数据 -->
+                        <div id="child_view">
+                            <div data-v-10ead6d8="" class="rec_list">
                             <div data-v-71f1ac8b="" data-v-10ead6d8="" class="item item">
                                 <div data-v-71f1ac8b="" class="pic_out">
                                     <div data-v-71f1ac8b="" class="cover">
@@ -8321,16 +8323,15 @@
                             <div data-v-7ad2a8ce="" data-v-10ead6d8="" class="nodata flex_c" style="display: none;">
                                 <div data-v-7ad2a8ce="" class="inner">
                                     <img data-v-7ad2a8ce="" src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png"
-                                                                           alt="" class="nodata_img">
+                                         alt="" class="nodata_img">
                                     <div data-v-7ad2a8ce="" class="tip"><p data-v-7ad2a8ce="">暂无相关数据</p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-
-                        <!--分页-->
-                        <div data-v-9fcc0c74="" data-v-10ead6d8="" class="page-wrap">
+                            <!--分页-->
+                            <div data-v-9fcc0c74="" data-v-10ead6d8="" class="page-wrap">
                             <i data-v-9fcc0c74=""
                                class="li-page iconfont icon-icon_pageup notPointer"></i>
                             <ul data-v-9fcc0c74="" class="flex_c">
@@ -8343,7 +8344,7 @@
                                 <li data-v-9fcc0c74=""><span data-v-9fcc0c74="" class="">169</span></li>
                             </ul>
                             <i data-v-9fcc0c74="" class="li-page iconfont icon-icon_pagedown"></i></div>
-
+                        </div>
                     </div>
                 </div>
             </div>
@@ -8374,7 +8375,7 @@
             <div class="fixed" data-v-6a994542>
 
                 <div class="list top" data-v-6a994542>
-                    <a href="javascript:void(0);" data-v-6a994542>
+                    <a href="javascript:void(0);" data-v-6a994542 id="totop">
                         <img data-type="top" src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png"
                              data-item="top" class="fixd-item-pic" data-v-6a994542>
                     </a>
@@ -8392,6 +8393,169 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('totop');
+        //timer需要放在最外面
+        var timer = null;
+        var istop = true;
+        //屏幕可视化高度
+        var clientHeight = document.documentElement.clientHeight;
+        //设置向上滚动时候突然往下翻的事件,注意要加window.onscroll
+        window.onscroll = function () {
+            if (!istop) {
+                clearInterval(timer);
+            }
+            istop = false;
+            //这里需要再申明一遍high的值，否则获取不到下面已经申明的值，因为Js是从上向下执行代码
+            var high = document.documentElement.scrollTop || document.body.scrollTop;
+            if (high >= clientHeight) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+        btn.onclick = function () {
+            //设置定时器，在30ms之内完成回到顶部的平滑效果
+            timer = setInterval(function () {
+                //解决各个浏览器的兼容性问题
+                //获得的这个high必须写在点击事件里面，因为js是从上往下执行代码
+                var high = document.documentElement.scrollTop || document.body.scrollTop;
+                //设置向上的速度，由快到慢，并且取负数整，这样可以为0，让定时器关闭
+                var speed = Math.floor(-high / 6);
+                document.documentElement.scrollTop = document.body.scrollTop = high + speed;
+                //向上滚动突然停止的变量一开始设为true,并且放在点击事件里面
+                istop = true;
+                if (high == 0) {
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $('#tit').bind('click', function (event) {
+            //收起
+            if ($('#tags').hasClass("show_tag")) {
+                $('#tags').removeClass("show_tag");
+                $('#tags').css("display", "none");
+                $('#iconfont').removeClass("icon-pop_icon_returntop");
+                $('#iconfont').addClass("icon-bar_icon_arrow_");
+            }
+            else {
+                //打开
+                $('#tags').css("display", "");
+                $('#tags').addClass("show_tag");
+                $('#iconfont').removeClass("icon-bar_icon_arrow_");
+                $('#iconfont').addClass(" icon-pop_icon_returntop");
+            }
+        });
+
+        /**
+         * 获取不同类别数据
+         */
+        $('#new').bind('click', function (event) {
+            $('#new').addClass("active");
+            $('#hot').removeClass("active");
+            $('#tags').removeClass("show_tag");
+            $('#tags').css("display", "none");
+            $('#iconfont').removeClass("icon-pop_icon_returntop");
+            $('#iconfont').addClass("icon-bar_icon_arrow_");
+            getSongSheetData(0,-1);
+        });
+
+
+
+        $('#hot').bind('click', function (event) {
+            $('#hot').addClass("active");
+            $('#new').removeClass("active");
+            $('#tags').removeClass("show_tag");
+            $('#tags').css("display", "none");
+            $('#iconfont').removeClass("icon-pop_icon_returntop");
+            $('#iconfont').addClass("icon-bar_icon_arrow_");
+            getSongSheetData(0,0);
+        });
+
+
+
+        $('#priCat').bind('click',function (event) {
+            $('#new').css("display", "");
+            $('#hot').css("display", "");
+            $('#new').addClass("active");
+            $('#hot').removeClass("active");
+            $('#showCat').text("精选歌单");
+            $('#tags').removeClass("show_tag");
+            $('#tags').css("display", "none");
+            $('#iconfont').removeClass("icon-pop_icon_returntop");
+            $('#iconfont').addClass("icon-bar_icon_arrow_");
+            getSongSheetData(0,-1);
+        });
+
+    });
+
+
+
+    function catSongSheet(type) {
+        $('#new').css("display", "none");
+        $('#hot').css("display", "none");
+        $('#tags').removeClass("show_tag");
+        $('#tags').css("display", "none");
+        $('#iconfont').removeClass("icon-pop_icon_returntop");
+        $('#iconfont').addClass("icon-bar_icon_arrow_");
+        getSongSheetData(0,type);
+        $("#list_tags #item").click(function(){
+            //alert($(this).index());
+            $('#showCat').text($(this).text());
+        });
+    }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    // var id = [[${singerId}]];
+     $(function () {
+        getSongSheetData(0,-1); //加载完index页面后，获取第一页表格数据
+      });
+
+
+
+
+    //跳转第几页
+    function getSongSheetData(num, type) {
+        //alert("ssdf");
+        $.ajax({
+            url: basePath + '/songSheetList/data',
+            type: 'post',
+            dataType: 'text',
+            data: {
+                'pageNumber': num,//第几页
+                'type': type
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                $("#child_view").empty();
+                $("#child_view").append(data);
+                document.getElementById("__nuxt").scrollIntoView();
+            }
+        });
+    }
+
+    /*]]>*/
+</script>
 
 </body>
 </html>

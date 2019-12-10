@@ -66,6 +66,7 @@ public class IndexController {
 
         Page<Singer> singerList = singerService.findAllSingerByIsOnline(0,6);
 
+
         List<SongSheet> songSheetList = songSheetService.findAllSongSheet().subList(0,8);
         Collections.shuffle(songSheetList);
 

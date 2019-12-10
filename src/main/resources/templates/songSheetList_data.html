@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div id="child_view">
+    <div data-v-10ead6d8="" class="rec_list" >
+        <div data-v-71f1ac8b="" data-v-10ead6d8="" class="item item" th:each="ssl : ${songSheetList}">
+            <div data-v-71f1ac8b="" class="pic_out">
+                <div data-v-71f1ac8b="" class="cover">
+                    <span data-v-71f1ac8b="" class="play icon_play">
+                        <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
+                    </span>
+                </div>
+                <a th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
+                <img data-v-71f1ac8b="" alt="【港乐经典】九十年代辉煌金曲"
+                     src="http://img1.kwcdn.kuwo.cn/star/userpl2015/74/18/1575293134558_395182674_500.jpg"
+                     class="pic"
+                     th:src="${ssl.imgUri}"
+                     lazy="loaded">
+                </a>
+            </div>
+            <a th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
+            <p data-v-71f1ac8b="" class="name">
+                <span data-v-71f1ac8b="" title="【港乐经典】九十年代辉煌金曲" th:text="${ssl.songSheetName}">【港乐经典】九十年代辉煌金曲</span>
+            </p>
+            </a>
+            <p data-v-71f1ac8b="" class="count">
+                <i data-v-71f1ac8b=""
+                   class="iconfont icon-icon_play_"></i>
+                <th:block th:text="${#strings.append(ssl.listenTimes, '万')}">5.0万</th:block>
+            </p>
+        </div>
+
+        <div th:if="${songSheetList.size()} eq 0" data-v-7ad2a8ce="" data-v-10ead6d8="" class="nodata flex_c" style="display: ;">
+            <div data-v-7ad2a8ce="" class="inner">
+                <img data-v-7ad2a8ce="" src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png"
+                     alt="" class="nodata_img">
+                <div data-v-7ad2a8ce="" class="tip"><p data-v-7ad2a8ce="">暂无相关数据</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--分页-->
+    <block th:if="${songSheetList.size()} ne 0">
+        <div class="zxf_pagediv">
+            <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber-1}+'\')'" class="prebtn"th:if="${pageNumber} ne 0">上一页</a>
+            <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
+                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'"  class="current"
+                   th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
+                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'"  class="zxfPagenum"
+                   th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
+            </th:block>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber+1}+'\')'" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
+            <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
+            <span>共<b th:text="${totalPages}">2</b>页</span>
+        </div>
+    </block>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    // var id = [[${singerId}]];
+    // $(function () {
+    //    toPage(0,id); //加载完index页面后，获取第一页表格数据
+    //  });
+
+    var key = [[${type}]];
+
+    //跳转第几页
+    function toPage(num) {
+        //alert("ssdf");
+        $.ajax({
+            url: basePath + '/songSheetList/data',
+            type: 'post',
+            dataType: 'text',
+            data: {
+                'pageNumber': num,//第几页
+                'type': key
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                $("#child_view").empty();
+                $("#child_view").append(data);
+                document.getElementById("__nuxt").scrollIntoView();
+            }
+        });
+    }
+
+    /*]]>*/
+</script>

@@ -24,6 +24,8 @@ public class User implements Serializable {
 
     private String username;
 
+    private String imgUri;
+
     private String password;
 
     private Integer sex;
@@ -54,8 +56,7 @@ public class User implements Serializable {
     /**
      * 创建的歌单
      */
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SongSheet> songSheets = new ArrayList<>();
 
     /**
