@@ -42,7 +42,9 @@ public class SearchController {
     */
     @RequestMapping("/search")
     public String toSearch(Model model, @RequestParam(name = "keyword", defaultValue = " ")String keyword){
+        List<Song> songList = songService.findAllByIsOnline().subList(0,10);
 
+        model.addAttribute("songL", songList);
         model.addAttribute("keyword", keyword);
         return "searchList";
     }

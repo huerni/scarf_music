@@ -4,12 +4,12 @@
 <head>
     <title>围巾音乐-耳朵里的温暖</title>
     <meta content="围巾音乐" name="keywords"/>
-    <meta content="围巾音乐，带给你全新音乐体验。"        name="description"/>
+    <meta content="围巾音乐，带给你全新音乐体验。" name="description"/>
     <meta charset="utf-8">
     <link rel="dns-prefetch" href="static1.qianqian.com">
-    <meta name="baidu-site-verification" content="m6MTpI0KQl" />
+    <meta name="baidu-site-verification" content="m6MTpI0KQl"/>
     <link rel="canonical" href="music.taihe.com"/>
-    <link rel="preload" href="static1.qianqian.com/web/s/js/manifest.77aecfae0933b3e5.js"as="script">
+    <link rel="preload" href="static1.qianqian.com/web/s/js/manifest.77aecfae0933b3e5.js" as="script">
     <link rel="preload" href="static1.qianqian.com/web/s/js/vendor.323ab8ee34febb93.js" as="script">
     <link rel="preload" href="static1.qianqian.com/web/s/js/app.9cd88a1ddc07d942.js" as="script">
     <link rel="preload" href="static1.qianqian.com/web/s/css/app.bf379620769235f7.css" as="style">
@@ -19,30 +19,32 @@
     <link rel="stylesheet" href="static1.qianqian.com/web/s/css/app.bf379620769235f7.css">
 </head>
 <body class="theme-taihe">
-<div  data-server-rendered="true">
+<div data-server-rendered="true">
     <div class="view">
         <div th:include="common/common_navigation :: commonNavigation"></div>
 
-            <div class="sub-nav-box">
-                <nav class="sub-nav">
-                    <a href="/"  th:href="@{/}" class="on nav-list t">推荐</a>
-                    <a href="/songlist" th:href="@{/songSheetList}" class=" nav-list t">歌单</a>
-                    <a href="/artist" th:href="@{/singers}" class=" nav-list t">歌手</a>
-                    <a href="/top" th:href="@{/tophot}" class=" nav-list t">榜单</a>
-                    <!--<a href="/tag" target="_blank" class=" nav-list t">分类</a>-->
-                    <!--<a href="/mv" target="_blank" class=" nav-list t">MV</a>-->
-                </nav>
-            </div>
+        <div class="sub-nav-box">
+            <nav class="sub-nav">
+                <a href="/" th:href="@{/}" class="on nav-list t">推荐</a>
+                <a href="/songlist" th:href="@{/songSheetList}" class=" nav-list t">歌单</a>
+                <a href="/artist" th:href="@{/singers}" class=" nav-list t">歌手</a>
+                <a href="/top" th:href="@{/tophot}" class=" nav-list t">榜单</a>
+                <!--<a href="/tag" target="_blank" class=" nav-list t">分类</a>-->
+                <!--<a href="/mv" target="_blank" class=" nav-list t">MV</a>-->
+            </nav>
+        </div>
 
         <div class="home-view sub-view">
             <section class="section-inner pr mod-main">
                 <section class="mod-hot-songlist">
                     <h2 class="mod-title clearfix">
                         <i class="mod-title-txt">热门歌单</i>
-                        <a href="/songlist" target="_blank" class="more">更多</a>
+                        <a href="/songlist" th:href="@{/songSheetList}"  class="more">更多</a>
                         <div class="swiper-control fr pr">
-                            <i slot="button-prev" class="swiper-button-prev pa t iconfont icon-songlist_left swiper-button-prev-hot-songlist"></i>
-                            <i slot="button-next" class="swiper-button-next pa t iconfont icon-songlist_right swiper-button-next-hot-songlist"></i>
+                            <i slot="button-prev"
+                               class="swiper-button-prev pa t iconfont icon-songlist_left swiper-button-prev-hot-songlist"></i>
+                            <i slot="button-next"
+                               class="swiper-button-next pa t iconfont icon-songlist_right swiper-button-next-hot-songlist"></i>
                         </div>
                     </h2>
 
@@ -51,17 +53,23 @@
 
                             <div imgSize="[object Object]" class="swiper-slide">
                                 <!--歌单列表  8个-->
-                                <div class=" li-wrapper" style="width:25%;height:225px;overflow:hidden;margin-bottom:26px;" th:each="ss : ${songSheetList}">
+                                <div class=" li-wrapper"
+                                     style="width:25%;height:225px;overflow:hidden;margin-bottom:26px;"
+                                     th:each="ss : ${songSheetList}">
                                     <div style="margin-right:30px;">
                                         <div class="img-wrapper-box pr">
-                                            <a href="#" target="_blank" class="img-wrapper pr">
-                                                <img th:src="${ss.imgUri}" th:title="${ss.songSheetName}" th:alt="${ss.songSheetName}" class="t item-pic"> <!--item-pic-v  图片变灰-->
+                                            <a href="#" th:href="@{/songSheet(songSheetId=${ss.songSheetId})}"
+                                               target="_blank" class="img-wrapper pr">
+                                                <img th:src="${ss.imgUri}" th:title="${ss.songSheetName}"
+                                                     th:alt="${ss.songSheetName}" class="t item-pic">
+                                                <!--item-pic-v  图片变灰-->
                                             </a>
-                                            <i target="_blank"  class="iconfont icon-play_2 pa t"></i>
+                                            <i target="_blank" class="iconfont icon-play_2 pa t"></i>
                                             <!---->
                                         </div>
                                         <h3 class="to-2" style="text-align:left;line-height:1.4;">
-                                            <a href="#" target="_blank"  class="title t" th:text="${ss.songSheetName}">我找了你好久
+                                            <a href="#" th:href="@{/songSheet(songSheetId=${ss.songSheetId})}"
+                                                class="title t" th:text="${ss.songSheetName}">我找了你好久
                                             </a>
                                         </h3>
                                     </div>
@@ -74,16 +82,18 @@
                 </section>
 
                 <!--分类听歌-->
+                <!--TODO 分类链接-->
                 <section class="mod-tag pa clearfix">
                     <h2 class="mod-title clearfix"><i class="mod-title-txt">分类听歌</i>
                         <a href="/tag" target="_blank" class="more">更多</a></h2>
                     <div class="mod-tag-box">
 
                         <h3 class="mod-tag-item" th:each=" cl : ${categoryList}">
-                            <a href="/tag/情歌" th:title="${cl.tag}" target="_blank" class="tag  t" th:text="${cl.tag}">情歌</a>
+                            <a href="/tag/情歌" th:title="${cl.tag}" target="_blank" class="tag  t"
+                               th:text="${cl.tag}">情歌</a>
                         </h3>
 
-              </div>
+                    </div>
                 </section>
                 <section class="mod-fm pa clearfix">
                     <h2 class="mod-title clearfix"><i class="mod-title-txt">推荐电台</i>
@@ -107,30 +117,71 @@
 
             <!--新歌首发轮播图-->
             <section class="mod-focus section-box" data-v-c9cd8e06>
-                <div slot="button-prev" class="swiper-button-prev t iconfont icon-hover_new_left swiper-button-prev-focus" data-v-c9cd8e06>
+                <div slot="button-prev"
+                     class="swiper-button-prev t iconfont icon-hover_new_left swiper-button-prev-focus" data-v-c9cd8e06>
                 </div>
-                <div slot="button-next" class="swiper-button-next t iconfont icon-hover_new_right swiper-button-next-focus" data-v-c9cd8e06>
+                <div slot="button-next"
+                     class="swiper-button-next t iconfont icon-hover_new_right swiper-button-next-focus"
+                     data-v-c9cd8e06>
                 </div>
+                <!--TODO 轮播图链接，图片更换-->
                 <div class="section-inner pr" data-v-c9cd8e06>
                     <div class="swiper-container  swiper-container-focus" data-v-c9cd8e06>
                         <div class="swiper-wrapper" data-v-c9cd8e06>
-                        <div class="swiper-slide" data-v-c9cd8e06>
-                            <a href="#" title="" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573730880e416abd6c2b73f184648cff1a357fabf.jpg@s_2,w_750,h_300" alt="" data-item="/album/672377309" data-v-c9cd8e06></a>
-                        </div>
                             <div class="swiper-slide" data-v-c9cd8e06>
-                                <a href="/album/672377462" title="" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573730853e73a6594a427dc587a857b7d08c44ba4.jpg@s_2,w_750,h_300" alt="" data-item="/album/672377462" data-v-c9cd8e06></a></div><div class="swiper-slide" data-v-c9cd8e06><a href="/album/672377935" title="" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573730824c162363aa1d4543399cab4c6bf01ce99.jpg@s_2,w_750,h_300" alt="" data-item="/album/672377935" data-v-c9cd8e06></a></div><div class="swiper-slide" data-v-c9cd8e06><a href="/album/672350808" title="" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_157369939542c09feaa4c47a44e6b94000135710bb.jpg@s_2,w_750,h_300" alt="" data-item="/album/672350808" data-v-c9cd8e06></a></div><div class="swiper-slide" data-v-c9cd8e06><a href="/album/672350758" title="" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573642590e9871ffdee4ff5437d9ba9d0040a6dd2.jpg@s_2,w_750,h_300" alt="" data-item="/album/672350758" data-v-c9cd8e06></a></div><div class="swiper-slide" data-v-c9cd8e06><a href="/album/672350779" title="" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573642521c0b56e32de59bb13ebab675fc6aef4ac.jpg@s_2,w_750,h_300" alt="" data-item="/album/672350779" data-v-c9cd8e06></a></div><div class="swiper-slide" data-v-c9cd8e06><a target="_blank" title="" href="https://music.taihe.com/redstar?frs=qianqianbanner&amp;hideplay=1&amp;showminibar=0" data-v-c9cd8e06><img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1547466371f5a8864429456f49e904ab0430b8dc17.jpg@s_2,w_750,h_300" alt="" data-item="https://music.taihe.com/redstar?frs=qianqianbanner&amp;hideplay=1&amp;showminibar=0" data-v-c9cd8e06></a></div></div></div></div></section>
+                                <a href="#" title="" data-v-c9cd8e06>
+                                    <img
+                                        src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573730880e416abd6c2b73f184648cff1a357fabf.jpg@s_2,w_750,h_300"
+                                        alt="" data-item="/album/672377309" data-v-c9cd8e06></a>
+                            </div>
+                            <div class="swiper-slide" data-v-c9cd8e06>
+                                <a href="/album/672377462" title="" data-v-c9cd8e06>
+                                    <img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573730853e73a6594a427dc587a857b7d08c44ba4.jpg@s_2,w_750,h_300"
+                                         alt="" data-item="/album/672377462" data-v-c9cd8e06></a>
+                            </div>
+                            <div class="swiper-slide" data-v-c9cd8e06>
+                                <a href="/album/672377935" title="" data-v-c9cd8e06>
+                                    <img
+                                    src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573730824c162363aa1d4543399cab4c6bf01ce99.jpg@s_2,w_750,h_300"
+                                    alt="" data-item="/album/672377935" data-v-c9cd8e06></a>
+                            </div>
+                            <div class="swiper-slide" data-v-c9cd8e06><a href="/album/672350808" title=""
+                                                                         data-v-c9cd8e06>
+                                <img src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_157369939542c09feaa4c47a44e6b94000135710bb.jpg@s_2,w_750,h_300"
+                                     alt="" data-item="/album/672350808" data-v-c9cd8e06></a></div>
+                            <div class="swiper-slide" data-v-c9cd8e06><a href="/album/672350758" title=""
+                                                                         data-v-c9cd8e06><img
+                                    src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573642590e9871ffdee4ff5437d9ba9d0040a6dd2.jpg@s_2,w_750,h_300"
+                                    alt="" data-item="/album/672350758" data-v-c9cd8e06></a></div>
+                            <div class="swiper-slide" data-v-c9cd8e06><a href="/album/672350779" title=""
+                                                                         data-v-c9cd8e06><img
+                                    src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1573642521c0b56e32de59bb13ebab675fc6aef4ac.jpg@s_2,w_750,h_300"
+                                    alt="" data-item="/album/672350779" data-v-c9cd8e06></a></div>
+                            <div class="swiper-slide" data-v-c9cd8e06><a target="_blank" title=""
+                                                                         href="https://music.taihe.com/redstar?frs=qianqianbanner&amp;hideplay=1&amp;showminibar=0"
+                                                                         data-v-c9cd8e06><img
+                                    src="http://business.cdn.qianqian.com/qianqian/pic/bos_client_1547466371f5a8864429456f49e904ab0430b8dc17.jpg@s_2,w_750,h_300"
+                                    alt=""
+                                    data-item="https://music.taihe.com/redstar?frs=qianqianbanner&amp;hideplay=1&amp;showminibar=0"
+                                    data-v-c9cd8e06></a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!--新歌首发-->
             <section class="mod-focus section-box" data-v-39f5cd58>
-                <div slot="button-prev" class="swiper-button-prev t iconfont icon-hover_new_left swiper-button-prev-mv" data-v-39f5cd58>
+                <div slot="button-prev" class="swiper-button-prev t iconfont icon-hover_new_left swiper-button-prev-mv"
+                     data-v-39f5cd58>
                 </div>
-                <div slot="button-next" class="swiper-button-next t iconfont icon-hover_new_right swiper-button-next-mv" data-v-39f5cd58>
+                <div slot="button-next" class="swiper-button-next t iconfont icon-hover_new_right swiper-button-next-mv"
+                     data-v-39f5cd58>
 
                 </div>
                 <div class="section-inner clearfix" data-v-39f5cd58>
                     <h2 class="mod-title clearfix" data-v-39f5cd58>
                         <i class="mod-title-txt" data-v-39f5cd58>新歌首发</i>
-                        <a href="/mv" target="_blank" class="more" data-v-39f5cd58>更多</a>
+                        <a href="/mv" th:href="@{/topnew}" target="_blank" class="more" data-v-39f5cd58>更多</a>
                     </h2>
                     <div class="swiper-container-mv" data-v-39f5cd58>
                         <div class="swiper-wrapper" data-v-39f5cd58>
@@ -140,19 +191,23 @@
                                 <div class=" li-wrapper" style="width:25%;" th:each="s : ${songList}">
                                     <div style="margin-right:30px;">
                                         <div class="img-wrapper-box pr">
-                                            <a href="#" th:href="@{/player(id=${s.songId})}" target="_blank" class="img-wrapper pr" style="padding-top:56.32%;">
-                                                <img th:src="${s.imgUri}"  class="t item-pic">
-                                                <i  class="img-mask pa"></i>
+                                            <a href="#" th:href="@{/song(songId=${s.songId})}" target="_blank"
+                                               class="img-wrapper pr" style="padding-top:56.32%;">
+                                                <img th:src="${s.imgUri}" class="t item-pic">
+                                                <i class="img-mask pa"></i>
                                             </a>
                                             <a th:href="@{/player(id=${s.songId})}" target="_blank">
-                                                <i target="_blank"  class="iconfont icon-play_2 pa t" ></i>
+                                                <i target="_blank" class="iconfont icon-play_2 pa t"></i>
                                             </a><!---->
                                         </div>
                                         <h3 class="to">
-                                            <a href="#" th:href="@{/player(id=${s.songId})}" target="_blank"  th:title="${s.songName}" class="title t" th:text="${s.songName}">密室逃脱</a>
+                                            <a href="#" th:href="@{/song(songId=${s.songId})}" target="_blank"
+                                               th:title="${s.songName}" class="title t" th:text="${s.songName}">密室逃脱</a>
                                         </h3>
                                         <h4 class="to">
-                                            <a  href="#" th:href="@{/player(id=${s.songId})}" th:title="${s.singer.getName()}" th:text="${s.singer.getName()}" target="_blank" class="desch4 gray t">
+                                            <a href="#" th:href="@{/singerDetail(singerId=${s.singer.getSingerId()})}"
+                                               th:title="${s.singer.getName()}" th:text="${s.singer.getName()}"
+                                               target="_blank" class="desch4 gray t">
                                                 <!---->女孩与机器人
                                             </a>
                                         </h4>
@@ -173,17 +228,18 @@
             </section>
 
             <!--排行版-->
-            <section class="mod-rank section-inner" >
-                <h2 class="mod-title clearfix" >
-                    <i class="mod-title-txt" >排行榜</i>
-                    <a href="/top" target="_blank" class="more" >更多</a>
+            <section class="mod-rank section-inner">
+                <h2 class="mod-title clearfix">
+                    <i class="mod-title-txt">排行榜</i>
+                    <a href="/top" th:href="@{/tophot}" target="_blank" class="more">更多</a>
                 </h2>
 
                 <div class="mod-rank-item-box clearfix" data-v-53224597>
                     <div class="mod-rank-item-inner" data-v-53224597>
                         <div class="mod-rank-item mod-rank-new" data-v-53224597>
                             <h2 data-v-53224597>
-                                <a href="#" th:href="@{/topnew}" title="新歌榜" target="_blank" class="rank-title" data-v-53224597>新歌榜</a>
+                                <a href="#" th:href="@{/topnew}" title="新歌榜" target="_blank" class="rank-title"
+                                   data-v-53224597>新歌榜</a>
                                 <i class="iconfont icon-NEW" data-v-53224597></i></a>
                                 <span class="rank-play-all-btn t pr" data-v-53224597>
                                   <a th:href="@{/playerList(songList=${newSongListIds})}" target="_blank">
@@ -194,17 +250,26 @@
                             <div class="rank-list-box" data-v-53224597>
                                 <!--新歌排行榜  6个-->
                                 <div class="rank-list-item pr" th:each="ns : ${newSongList}" target="_blank">
-                                    <span th:if="${nsStat.count} le 3" class="num less-three-num" th:text="${nsStat.count}" >
+                                    <span th:if="${nsStat.count} le 3" class="num less-three-num"
+                                          th:text="${nsStat.count}">
                                     01</span>
-                                    <span th:if="${nsStat.count} gt 3" class="num" th:text="${nsStat.count}" >
+                                    <span th:if="${nsStat.count} gt 3" class="num" th:text="${nsStat.count}">
                                     01</span>
-                                <a href="/song/672138854" th:href="@{/song(songId = ${ns.songId})}" th:title="${ns.songName}" target="_blank">
-                                    <img th:src="${ns.imgUri}" th:title="${ns.songName}" th:alt="${ns.songName}" class="pic">
-                                </a>
+                                    <a href="/song/672138854" th:href="@{/song(songId = ${ns.songId})}"
+                                       th:title="${ns.songName}" target="_blank">
+                                        <img th:src="${ns.imgUri}" th:title="${ns.songName}" th:alt="${ns.songName}"
+                                             class="pic">
+                                    </a>
                                     <div class="info">
-                                        <h3 class="to"><a href="/song/672138854" th:href="@{/song(songId = ${ns.songId})}" th:title="${ns.songName}" target="_blank" class="song-title t" th:text="${ns.songName}">世间美好与你环环相扣</a>
+                                        <h3 class="to"><a href="/song/672138854"
+                                                          th:href="@{/song(songId = ${ns.songId})}"
+                                                          th:title="${ns.songName}" target="_blank" class="song-title t"
+                                                          th:text="${ns.songName}">世间美好与你环环相扣</a>
                                         </h3>
-                                        <h4 class="to"><a href="/artist/340609358"  target="_blank" class="song-name" th:text="${ns.singer.getName()}">上虞JACKYZ</a>
+                                        <h4 class="to"><a href="/artist/340609358"
+                                                          th:href="@{/singerDetail(singerId=${ns.singer.getSingerId()})}"
+                                                          target="_blank" class="song-name"
+                                                          th:text="${ns.singer.getName()}">上虞JACKYZ</a>
                                         </h4>
                                     </div>
                                     <div class="tool-bar" data-v-2113e2c9>
@@ -212,14 +277,16 @@
                                             <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i>
                                         </a>
                                         <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
-                                        <i data-type="download" class="t iconfont icon-hover_download" data-v-2113e2c9></i>
+                                        <i data-type="download" class="t iconfont icon-hover_download"
+                                           data-v-2113e2c9></i>
                                         <!---->
                                     </div>
                                 </div>
 
                             </div>
                             <h4 class="more-rank" data-v-53224597>
-                                <a href="#" title="新歌榜" target="_blank" data-v-53224597>查看完整榜单&gt;</a>
+                                <a href="#" title="新歌榜" th:href="@{/topnew}" target="_blank"
+                                   data-v-53224597>查看完整榜单&gt;</a>
                             </h4>
                         </div>
                     </div>
@@ -227,10 +294,12 @@
                     <div class="mod-rank-item-inner" data-v-53224597>
                         <div class="mod-rank-item mod-rank-hot" data-v-53224597>
                             <h2 data-v-53224597>
-                                <a href="/top/dayhot" th:href="@{/tophot}" title="热歌榜" target="_blank" class="rank-title" data-v-53224597>热歌榜</a>
+                                <a href="/top/dayhot" th:href="@{/tophot}" title="热歌榜" target="_blank"
+                                   class="rank-title" data-v-53224597>热歌榜</a>
                                 <i class="iconfont icon-HOT" data-v-53224597></i>
                                 <span class="rank-play-all-btn t pr" data-v-53224597>
-                                     <a th:href="@{/playerList(songList=${hotSongListIds})}" target="_blank"> <i class="iconfont icon-play_1" data-v-53224597>
+                                     <a th:href="@{/playerList(songList=${hotSongListIds})}" target="_blank"> <i
+                                             class="iconfont icon-play_1" data-v-53224597>
 
                                      </i></a>
                                     <i class="play-btn-bg pa" data-v-53224597></i>
@@ -238,30 +307,40 @@
                             </h2>
                             <div class="rank-list-box" data-v-53224597>
                                 <!--热歌榜 6个-->
-                            <div class="rank-list-item pr" th:each="hs : ${hotSongList}">
-                                  <!--num  灰色序号-->
-                                <span th:if="${hsStat.count} le 3" class="num less-three-num" th:text="${hsStat.count}" >
+                                <div class="rank-list-item pr" th:each="hs : ${hotSongList}">
+                                    <!--num  灰色序号-->
+                                    <span th:if="${hsStat.count} le 3" class="num less-three-num"
+                                          th:text="${hsStat.count}">
                                     01</span>
-                                <span th:if="${hsStat.count} gt 3" class="num" th:text="${hsStat.count}" >
+                                    <span th:if="${hsStat.count} gt 3" class="num" th:text="${hsStat.count}">
                                     01</span>
-                                <a href="/song/242078437" th:href="@{/song(songId=${hs.songId})}" th:title="${hs.songName}" target="_blank">
-                                    <img th:src="${hs.imgUri}" class="pic">
-                                </a>
-                                <div class="info">
-                                    <h3 class="to">
-                                    <a href="/song/242078437" th:href="@{/song(songId=${hs.songId})}" th:title="${hs.songName}" target="_blank"class="song-title t" th:text="${hs.songName}">演员</a>
-                                    </h3>
-                                    <h4 data-ss="薛之谦" data-aa="88" class="to">
-                                        <a href="/artist/2517" th:title="${hs.singer.getName()}" target="_blank"class="song-name" th:text="${hs.singer.getName()}">薛之谦</a>
-                                    </h4>
+                                    <a href="/song/242078437" th:href="@{/song(songId=${hs.songId})}"
+                                       th:title="${hs.songName}" target="_blank">
+                                        <img th:src="${hs.imgUri}" class="pic">
+                                    </a>
+                                    <div class="info">
+                                        <h3 class="to">
+                                            <a href="/song/242078437" th:href="@{/song(songId=${hs.songId})}"
+                                               th:title="${hs.songName}" target="_blank" class="song-title t"
+                                               th:text="${hs.songName}">演员</a>
+                                        </h3>
+                                        <h4 data-ss="薛之谦" data-aa="88" class="to">
+                                            <a href="/artist/2517"
+                                               th:href="@{/singerDetail(singerId=${hs.singer.getSingerId()})}"
+                                               th:title="${hs.singer.getName()}" target="_blank" class="song-name"
+                                               th:text="${hs.singer.getName()}">薛之谦</a>
+                                        </h4>
+                                    </div>
+                                    <div class="tool-bar" data-v-2113e2c9>
+                                        <a th:href="@{/player(id=${hs.songId})}" target="_blank">
+                                            <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i>
+                                        </a>
+                                        <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
+                                        <i data-type="download" class="t iconfont icon-hover_download"
+                                           data-v-2113e2c9></i>
+                                        <!---->
+                                    </div>
                                 </div>
-                                <div class="tool-bar" data-v-2113e2c9>
-                                    <a th:href="@{/player(id=${hs.songId})}" target="_blank">  <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i></a>
-                                    <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
-                                    <i data-type="download" class="t iconfont icon-hover_download" data-v-2113e2c9></i>
-                                    <!---->
-                                </div>
-                            </div>
 
                             </div>
                             <h4 class="more-rank" data-v-53224597>
@@ -271,48 +350,63 @@
                     </div>
 
                     <div class="mod-rank-item-inner" data-v-53224597>
-                    <div class="mod-rank-item mod-rank-network" data-v-53224597>
-                        <h2 data-v-53224597>
-                            <a href="/top/netsong" th:href="@{/topup}" title="歌曲飙升榜" target="_blank" class="rank-title" data-v-53224597>歌曲飙升榜</a>
-                            <i class="iconfont icon-NETWORK" data-v-53224597></i>
-                            <span class="rank-play-all-btn t pr" data-v-53224597>
-                                <a th:href="@{/playerList(songList=${upSongListIds})}" target="_blank">  <i class="iconfont icon-play_1" data-v-53224597></i></a>
+                        <div class="mod-rank-item mod-rank-network" data-v-53224597>
+                            <h2 data-v-53224597>
+                                <a href="/top/netsong" th:href="@{/topup}" title="歌曲飙升榜" target="_blank"
+                                   class="rank-title" data-v-53224597>歌曲飙升榜</a>
+                                <i class="iconfont icon-NETWORK" data-v-53224597></i>
+                                <span class="rank-play-all-btn t pr" data-v-53224597>
+                                <a th:href="@{/playerList(songList=${upSongListIds})}" target="_blank">  <i
+                                        class="iconfont icon-play_1" data-v-53224597></i></a>
                                 <i class="play-btn-bg pa" data-v-53224597></i>
                             </span>
-                        </h2>
-                        <div class="rank-list-box" data-v-53224597>
+                            </h2>
+                            <div class="rank-list-box" data-v-53224597>
 
-                            <!--网络歌曲榜 6个-->
-                            <div class="rank-list-item pr" th:each="us : ${upSongList}">
-                                <span th:if="${usStat.count} le 3" class="num less-three-num" th:text="${usStat.count}" >
+                                <!--网络歌曲榜 6个-->
+                                <div class="rank-list-item pr" th:each="us : ${upSongList}">
+                                <span th:if="${usStat.count} le 3" class="num less-three-num" th:text="${usStat.count}">
                                     01</span>
-                                <span th:if="${usStat.count} gt 3" class="num" th:text="${usStat.count}" >
+                                    <span th:if="${usStat.count} gt 3" class="num" th:text="${usStat.count}">
                                     01</span>
-                                <a href="/song/670325973" th:href="@{/song(songId=${us.songId})}" th:title="${us.songName}" target="_blank">
-                                    <img th:src="${us.imgUri}" th:title="${us.songName}" alt="太多" class="pic"></a>
-                                <div class="info">
-                                    <h3 class="to">
-                                        <a href="/song/670325973" th:href="@{/song(songId=${us.songId})}" th:title="${us.songName}" target="_blank" class="song-title t" th:text="${us.songName}">太多</a>
-                                    </h3>
-                                    <h4 class="to">
-                                        <strong class=" to artist-list" data-v-4d3a7a3e>
-                                            <a href="/artist/2616" th:title="${us.singer.getName()}" target="_blank"  class="artist-item t desch4" th:text="${us.singer.getName()}" data-v-4d3a7a3e>
-                                                <!---->慕容晓晓</a>
-                                        </strong>
-                                    </h4>
+                                    <a href="/song/670325973" th:href="@{/song(songId=${us.songId})}"
+                                       th:title="${us.songName}" target="_blank">
+                                        <img th:src="${us.imgUri}" th:title="${us.songName}" alt="太多" class="pic"></a>
+                                    <div class="info">
+                                        <h3 class="to">
+                                            <a href="/song/670325973" th:href="@{/song(songId=${us.songId})}"
+                                               th:title="${us.songName}" target="_blank" class="song-title t"
+                                               th:text="${us.songName}">太多</a>
+                                        </h3>
+                                        <h4 class="to">
+                                            <strong class=" to artist-list" data-v-4d3a7a3e>
+                                                <a href="/artist/2616"
+                                                   th:href="@{/singerDetail(singerId=${us.singer.getSingerId()})}"
+                                                   th:title="${us.singer.getName()}" target="_blank"
+                                                   class="artist-item t desch4" th:text="${us.singer.getName()}"
+                                                   data-v-4d3a7a3e>
+                                                    <!---->慕容晓晓</a>
+                                            </strong>
+                                        </h4>
+                                    </div>
+                                    <div class="tool-bar" data-v-2113e2c9>
+                                        <a th:href="@{/player(id=${us.songId})}" target="_blank">
+                                            <i data-type="play"
+                                               class="t iconfont icon-hover_play"
+                                               data-v-2113e2c9></i>
+                                        </a>
+                                        <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
+                                        <i data-type="download" class="t iconfont icon-hover_download"
+                                           data-v-2113e2c9></i><!---->
+                                    </div>
                                 </div>
-                                <div class="tool-bar" data-v-2113e2c9>
-                                    <a th:href="@{/player(id=${us.songId})}" target="_blank">  <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i></a>
-                                    <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
-                                    <i data-type="download" class="t iconfont icon-hover_download" data-v-2113e2c9></i><!---->
-                                </div>
+
                             </div>
-
+                            <h4 class="more-rank" data-v-53224597>
+                                <a href="#" th:href="@{/topup}" title="歌曲飙升榜" target="_blank"
+                                   data-v-53224597>查看完整榜单&gt;</a>
+                            </h4>
                         </div>
-                        <h4 class="more-rank" data-v-53224597>
-                            <a href="#"  th:href="@{/topup}" title="歌曲飙升榜" target="_blank" data-v-53224597>查看完整榜单&gt;</a>
-                        </h4>
-                    </div>
                     </div>
                 </div>
             </section>
@@ -321,36 +415,45 @@
             <section class="mod-hot-songlist section-inner" data-v-2e4eea72>
                 <h2 class="mod-title clearfix" data-v-2e4eea72>
                     <i class="mod-title-txt" data-v-2e4eea72>热门歌手</i>
-                    <a href="/artist" target="_blank" class="more" data-v-2e4eea72>更多</a>
+                    <a href="/artist" th:href="@{/singers}" class="more" data-v-2e4eea72>更多</a>
                 </h2>
                 <div class="clearfix artist-width-ie9" style="padding:0 24px;" data-v-2e4eea72>
                     <!--歌手  6个-->
                     <div class=" li-wrapper" style="width:16.66%;" th:each="sl : ${singerList}">
-                    <div style="margin-right:78px;">
-                        <div class="img-wrapper-box pr" style="border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;">
-                            <a href="/artist/2517" target="_blank" class="img-wrapper pr" style="border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;z-index:1;">
-                                <img th:src="${sl.imgUri}" th:title="${sl.name}" th:alt="${sl.name}" class="t item-pic" style="border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;">
-                                <i  class="img-mask pa"></i>
-                            </a>
-                            <i target="_blank"  class="iconfont icon-play_2 pa t" style="display:none;">
+                        <div style="margin-right:78px;">
+                            <div class="img-wrapper-box pr"
+                                 style="border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;">
+                                <a href="/artist/2517" th:href="@{/singerDetail(singerId=${sl.singerId})}"
+                                   target="_blank" class="img-wrapper pr"
+                                   style="border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;z-index:1;">
+                                    <img th:src="${sl.imgUri}" th:title="${sl.name}" th:alt="${sl.name}"
+                                         class="t item-pic"
+                                         style="border-radius:50%;-webkit-border-radius:50%;-ms-border-radius:50%;-moz-border-radius:50%;">
+                                    <i class="img-mask pa"></i>
+                                </a>
+                                <i target="_blank" class="iconfont icon-play_2 pa t" style="display:none;">
 
-                            </i><!---->
+                                </i><!---->
+                            </div>
+                            <h3 class="to">
+                                <a href="/artist/2517" th:href="@{/singerDetail(singerId=${sl.singerId})}"
+                                   target="_blank" th:title="${sl.name}" class="title t" th:text="${sl.name}">薛之谦</a>
+                            </h3><!---->
                         </div>
-                        <h3 class="to">
-                            <a href="/artist/2517" target="_blank"  th:title="${sl.name}" class="title t" th:text="${sl.name}">薛之谦</a>
-                        </h3><!---->
                     </div>
-                </div>
 
 
                 </div>
             </section>
 
             <!--MV-->
+            <!--TODO 专辑链接与数据填充-->
             <section class="mod-focus section-box" data-v-39f5cd58>
-                <div slot="button-prev" class="swiper-button-prev t iconfont icon-hover_new_left swiper-button-prev-mv" data-v-39f5cd58>
+                <div slot="button-prev" class="swiper-button-prev t iconfont icon-hover_new_left swiper-button-prev-mv"
+                     data-v-39f5cd58>
                 </div>
-                <div slot="button-next" class="swiper-button-next t iconfont icon-hover_new_right swiper-button-next-mv" data-v-39f5cd58>
+                <div slot="button-next" class="swiper-button-next t iconfont icon-hover_new_right swiper-button-next-mv"
+                     data-v-39f5cd58>
 
                 </div>
                 <div class="section-inner clearfix" data-v-39f5cd58>
@@ -366,26 +469,28 @@
                                 <div class=" li-wrapper" style="width:25%;">
                                     <div style="margin-right:30px;">
                                         <div class="img-wrapper-box pr">
-                                            <a href="/playmv/672346902" target="_blank" class="img-wrapper pr" style="padding-top:56.32%;">
-                                                <img src="iamges/图像14_u169.jpg"  class="t item-pic">
-                                                <i  class="img-mask pa"></i>
+                                            <a href="/playmv/672346902" target="_blank" class="img-wrapper pr"
+                                               style="padding-top:56.32%;">
+                                                <img src="iamges/图像14_u169.jpg" class="t item-pic">
+                                                <i class="img-mask pa"></i>
                                             </a>
-                                            <i target="_blank"  class="iconfont icon-play_2 pa t"></i><!---->
+                                            <i target="_blank" class="iconfont icon-play_2 pa t"></i><!---->
                                         </div>
                                         <h3 class="to">
-                                            <a href="/playmv/672346902" target="_blank"  title="mv-密室逃脱" class="title t">密室逃脱</a>
+                                            <a href="/playmv/672346902" target="_blank" title="mv-密室逃脱" class="title t">密室逃脱</a>
                                         </h3>
                                         <h4 class="to">
-                                            <a  href="artist/2783" title="歌手-女孩与机器人" target="_blank" class="desch4 gray t">
+                                            <a href="artist/2783" title="歌手-女孩与机器人" target="_blank"
+                                               class="desch4 gray t">
                                                 <!---->女孩与机器人
-        </a>
+                                            </a>
                                         </h4>
                                     </div>
                                 </div>
 
                             </div>
 
-                            </div>
+                        </div>
                     </div>
 
                     <div slot="pagination" class="swiper-pagination swiper-pagination-mv" data-v-39f5cd58>
@@ -395,16 +500,16 @@
 
             </section>
 
-            </div>
+        </div>
 
         <footer>
             <div class="footer-mod" data-v-278df946>
                 <div class="section-inner clearfix footer-box-box" data-v-278df946>
                     <div class="footer-mod-box mod-box-center" data-v-278df946>
                         <h5 class="title" data-v-278df946>关于围巾音乐</h5>
-                        </div>
-
                     </div>
+
+                </div>
             </div>
 
             <div class="section-inner clearfix nav-box allow-card">
@@ -412,7 +517,7 @@
                     <div class="text">@2019 围巾音乐</div>
                     <div class="text">
                         如网站出现问题，请联系10086<br/><br/>
-        <a target="_blank" href="//music.taihe.com/feedback" style="color:#999">音乐后台</a>
+                        <a target="_blank" href="//music.taihe.com/feedback" style="color:#999">音乐后台</a>
                     </div>
                 </div>
             </div>
@@ -422,26 +527,28 @@
 
             <div class="list top" data-v-6a994542>
                 <a href="javascript:;" data-v-6a994542>
-                    <img data-type="top" id="totop" src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png" data-item="top" class="fixd-item-pic" data-v-6a994542>
+                    <img data-type="top" id="totop" src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png"
+                         data-item="top" class="fixd-item-pic" data-v-6a994542>
                 </a>
             </div>
 
-            <div class="list play-box" data-v-6a994542>
-                <a href="//play.taihe.com/" target="_blank" data-v-6a994542>
-                    <img data-type="musicbox" src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png" data-item="playbox" class="fixd-item-pic" data-v-6a994542>
-                </a>
-            </div>
+            <!--<div class="list play-box" data-v-6a994542>-->
+                <!--<a href="//play.taihe.com/" target="_blank" data-v-6a994542>-->
+                    <!--<img data-type="musicbox" src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png"-->
+                         <!--data-item="playbox" class="fixd-item-pic" data-v-6a994542>-->
+                <!--</a>-->
+            <!--</div>-->
 
-        <!--    <div class="list list-app-box" data-v-6a994542>
-                <a href="//music.taihe.com/download/" target="_blank" class="active app t-slow app-iphone" data-v-6a994542>
-                    <img src="//static1.qianqian.com/web/s/images/app_iphone.478391927e5a1253.png" alt class="app-icon" data-v-6a994542></a>
-                <a href="//music.taihe.com/download/" target="_blank" class=" app t-slow app-android" data-v-6a994542>
-                    <img src="//static1.qianqian.com/web/s/images/app_android.cfe42a5224b28668.png" alt class="app-icon" data-v-6a994542></a>
-                <a href="//music.taihe.com/download/" target="_blank" class=" app t-slow app-win" data-v-6a994542>
-                    <img src="//static1.qianqian.com/web/s/images/app_win.34ed2ceee7592c66.png" alt class="app-icon" data-v-6a994542></a>
-                <a href="//music.taihe.com/download/" target="_blank" class=" app t-slow app-mac" data-v-6a994542>
-                    <img src="//static1.qianqian.com/web/s/images/app_mac.dbd9a86345aed2a1.png" alt class="app-icon" data-v-6a994542></a>
-            </div> -->
+            <!--    <div class="list list-app-box" data-v-6a994542>
+                    <a href="//music.taihe.com/download/" target="_blank" class="active app t-slow app-iphone" data-v-6a994542>
+                        <img src="//static1.qianqian.com/web/s/images/app_iphone.478391927e5a1253.png" alt class="app-icon" data-v-6a994542></a>
+                    <a href="//music.taihe.com/download/" target="_blank" class=" app t-slow app-android" data-v-6a994542>
+                        <img src="//static1.qianqian.com/web/s/images/app_android.cfe42a5224b28668.png" alt class="app-icon" data-v-6a994542></a>
+                    <a href="//music.taihe.com/download/" target="_blank" class=" app t-slow app-win" data-v-6a994542>
+                        <img src="//static1.qianqian.com/web/s/images/app_win.34ed2ceee7592c66.png" alt class="app-icon" data-v-6a994542></a>
+                    <a href="//music.taihe.com/download/" target="_blank" class=" app t-slow app-mac" data-v-6a994542>
+                        <img src="//static1.qianqian.com/web/s/images/app_mac.dbd9a86345aed2a1.png" alt class="app-icon" data-v-6a994542></a>
+                </div> -->
 
         </div>
     </div>
@@ -449,46 +556,45 @@
 
 
 <script>
-    window.onload=function(){
-        var btn=document.getElementById('totop');
+    window.onload = function () {
+        var btn = document.getElementById('totop');
         //timer需要放在最外面
-        var timer=null;
-        var istop=true;
+        var timer = null;
+        var istop = true;
         //屏幕可视化高度
-        var clientHeight=document.documentElement.clientHeight;
+        var clientHeight = document.documentElement.clientHeight;
         //设置向上滚动时候突然往下翻的事件,注意要加window.onscroll
-        window.onscroll=function(){
-            if(!istop){
+        window.onscroll = function () {
+            if (!istop) {
                 clearInterval(timer);
             }
-            istop=false;
+            istop = false;
             //这里需要再申明一遍high的值，否则获取不到下面已经申明的值，因为Js是从上向下执行代码
-            var high=document.documentElement.scrollTop||document.body.scrollTop;
-            if(high>=clientHeight){
-                btn.style.display='block';
-            }else{
-                btn.style.display='none';
+            var high = document.documentElement.scrollTop || document.body.scrollTop;
+            if (high >= clientHeight) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
             }
         }
-        btn.onclick=function(){
+        btn.onclick = function () {
             //设置定时器，在30ms之内完成回到顶部的平滑效果
-            timer=setInterval(function() {
+            timer = setInterval(function () {
                 //解决各个浏览器的兼容性问题
                 //获得的这个high必须写在点击事件里面，因为js是从上往下执行代码
-                var high=document.documentElement.scrollTop||document.body.scrollTop;
+                var high = document.documentElement.scrollTop || document.body.scrollTop;
                 //设置向上的速度，由快到慢，并且取负数整，这样可以为0，让定时器关闭
-                var speed=Math.floor(-high/6);
-                document.documentElement.scrollTop=document.body.scrollTop=high+speed;
+                var speed = Math.floor(-high / 6);
+                document.documentElement.scrollTop = document.body.scrollTop = high + speed;
                 //向上滚动突然停止的变量一开始设为true,并且放在点击事件里面
-                istop=true;
-                if(high==0){
+                istop = true;
+                if (high == 0) {
                     clearInterval(timer);
                 }
-            },30);
+            }, 30);
         }
     }
 </script>
-
 
 
 <script src="//static1.qianqian.com/web/s/js/1.7996a14f483bf185.js" defer></script>
@@ -502,7 +608,6 @@
 <script src="//static1.qianqian.com/web/s/js/app.9cd88a1ddc07d942.js" defer></script>
 
 
-
 <style type="text/css">
     /* transition 影响页面渲染，暂放到底部 */
     .t {
@@ -511,6 +616,7 @@
         -moz-transition: all 0.2s;
         transition: all 0.2s;
     }
+
     .t-slow {
         -ms-transition: all 0.7s cubic-bezier(0.38, 1.13, 0.12, 1.01);
         -o-transition: all 0.7s cubic-bezier(0.38, 1.13, 0.12, 1.01);

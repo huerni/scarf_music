@@ -5057,17 +5057,18 @@
 
             <div class="sub-nav-box">
                 <nav class="sub-nav">
-                    <a href="/" class=" nav-list t">推荐</a>
+                    <a href="/" th:href="@{/}" class=" nav-list t">推荐</a>
                     <a href="/songlist" th:href="@{/songSheetList}" class=" nav-list t">歌单</a>
-                    <a href="/artist" target="_blank" class="on nav-list t">歌手</a>
-                    <a href="/rankList.htm" target="_blank" class="nav-list t">榜单</a>
-                    <a href="/tag" target="_blank" class=" nav-list t">分类</a>
-                    <a href="/mv" target="_blank" class=" nav-list t">MV</a>
+                    <a href="/artist" th:href="@{/singers}"  class="on nav-list t">歌手</a>
+                    <a href="/rankList.htm" th:href="@{/tophot}" class="nav-list t">榜单</a>
+                    <!--<a href="/tag" target="_blank" class=" nav-list t">分类</a>-->
+                    <!--<a href="/mv" target="_blank" class=" nav-list t">MV</a>-->
                 </nav>
             </div>
 
             <div class="container">
                 <div class="search_page" data-v-71e59797="">
+                    <!--TODO 换取banner图片-->
                     <div class="search_out" id="search_out" data-v-71e59797>
                         <div class="bg" data-v-71e59797></div>
                     </div>
@@ -5145,17 +5146,23 @@
                             </div>
                             <div class="artist_other" data-v-9661800c><!----><!----><!----><!----><!----><!----><!---->
                                 <!--小歌手--><!----><!----><!----><!---->
-                                <div class="artist_line flex_c" data-v-9661800c>
+
+                                <div class="artist_line flex_c" data-v-9661800c th:each="sgl : ${singerList.subList(12, singerList.size())}">
+                                    <a th:href="@{/singerDetail(singerId = ${sgl.singerId})}">
                                     <div class="img" data-v-9661800c>
-                                      <img alt="" src="iamges/3.jpg" data-v-9661800c></div>
+                                      <img alt="" src="iamges/3.jpg" data-v-9661800c th:src="${sgl.imgUri}">
+                                    </div>
+                                    </a>
+                                    <a th:href="@{/singerDetail(singerId = ${sgl.singerId})}">
                                     <span class="name" data-v-9661800c>
-                                      <span data-v-9661800c>Alan Walker</span>
+                                      <span data-v-9661800c th:text="${sgl.name}">Alan Walker</span>
                                     </span>
+                                    </a>
                                     <!---->
                                 </div>
 
                             </div>
-                            <div class="nodata flex_c" style="display:none;" data-v-7ad2a8ce data-v-9661800c>
+                            <div th:if="${singerList.size()} eq 0" class="nodata flex_c" style="display:;" data-v-7ad2a8ce data-v-9661800c>
                                 <div class="inner" data-v-7ad2a8ce><img
                                         src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png" alt class="nodata_img"
                                         data-v-7ad2a8ce>
@@ -5163,29 +5170,113 @@
                                 </div>
                             </div>
                         </div>
-                        <!--TODO 歌手分页-->
-                        <div class="page-wrap" data-v-9fcc0c74 data-v-9661800c><i
-                                class="li-page iconfont icon-icon_pageup notPointer" data-v-9fcc0c74></i>
-                            <ul class="flex_c" data-v-9fcc0c74>
-                                <li style="background:#FFDF1F;" data-v-9fcc0c74>
-                                  <span class="notCursor currentPage" data-v-9fcc0c74>1</span>
-                                </li>
-                                <li data-v-9fcc0c74><span data-v-9fcc0c74>2</span></li>
-                                <li data-v-9fcc0c74><span data-v-9fcc0c74>3</span></li>
-                                <li data-v-9fcc0c74><span class="notCursor" data-v-9fcc0c74>···</span></li>
-                                <li data-v-9fcc0c74><span data-v-9fcc0c74>212</span></li>
-                            </ul>
-                            <i class="li-page iconfont icon-icon_pagedown" data-v-9fcc0c74></i>
-                        </div>
+                        <!-- 歌手分页-->
+                        <block th:if="${totalPages} ne 0">
+                            <div class="zxf_pagediv">
+                                <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
+                                <a href="javascript:void(0);" th:href="@{/singers(pageNumber=${pabeNumber-1})}"  class="prebtn"th:if="${pageNumber} ne 0">上一页</a>
+                                <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
+                                    <a href="javascript:void(0)"  class="current"
+                                       th:if="${pageNumber+1} eq ${i}" th:href="@{/singers(pageNumber=${i})}"  th:text="${pageNumber+1}">1</a>
+                                    <a href="javascript:void(0)"   class="zxfPagenum"
+                                       th:if="${pageNumber+1} ne ${i}" th:href="@{/singers(pageNumber=${i})}" th:text="${i}">2</a>
+                                </th:block>
+                                <a href="javascript:void(0);" th:href="@{/singers(pageNumber=${pabeNumber+1})}"  class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
+                                <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
+                                <span>共<b th:text="${totalPages}">2</b>页</span>
+                            </div>
+                        </block>
 
                     </div>
                 </div>
             </div>
 
 <!--          footer-->
+            <br/><br/><br/><br/>
+            <footer>
+                <div class="footer-mod" data-v-278df946>
+                    <div class="section-inner clearfix footer-box-box" data-v-278df946>
+                        <div class="footer-mod-box mod-box-center" data-v-278df946>
+                            <h5 class="title" data-v-278df946>关于围巾音乐</h5>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="section-inner clearfix nav-box allow-card">
+                    <div class="wrap">
+                        <div class="text">@2019 围巾音乐</div>
+                        <div class="text">
+                            如网站出现问题，请联系10086<br/><br/>
+                            <a target="_blank" href="//music.taihe.com/feedback" style="color:#999">音乐后台</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="fixed" data-v-6a994542>
+
+                <div class="list top" data-v-6a994542>
+                    <a href="javascript:void(0);" data-v-6a994542 id="totop">
+                        <img data-type="top" src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png"
+                             data-item="top" class="fixd-item-pic" data-v-6a994542>
+                    </a>
+                </div>
+
+                <!--<div class="list play-box" data-v-6a994542>-->
+                <!--<a href="//play.taihe.com/" target="_blank" data-v-6a994542>-->
+                <!--<img data-type="musicbox"-->
+                <!--src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png"-->
+                <!--data-item="playbox" class="fixd-item-pic" data-v-6a994542>-->
+                <!--</a>-->
+                <!--</div>-->
+            </div>
 
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('totop');
+        //timer需要放在最外面
+        var timer = null;
+        var istop = true;
+        //屏幕可视化高度
+        var clientHeight = document.documentElement.clientHeight;
+        //设置向上滚动时候突然往下翻的事件,注意要加window.onscroll
+        window.onscroll = function () {
+            if (!istop) {
+                clearInterval(timer);
+            }
+            istop = false;
+            //这里需要再申明一遍high的值，否则获取不到下面已经申明的值，因为Js是从上向下执行代码
+            var high = document.documentElement.scrollTop || document.body.scrollTop;
+            if (high >= clientHeight) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
+        btn.onclick = function () {
+            //设置定时器，在30ms之内完成回到顶部的平滑效果
+            timer = setInterval(function () {
+                //解决各个浏览器的兼容性问题
+                //获得的这个high必须写在点击事件里面，因为js是从上往下执行代码
+                var high = document.documentElement.scrollTop || document.body.scrollTop;
+                //设置向上的速度，由快到慢，并且取负数整，这样可以为0，让定时器关闭
+                var speed = Math.floor(-high / 6);
+                document.documentElement.scrollTop = document.body.scrollTop = high + speed;
+                //向上滚动突然停止的变量一开始设为true,并且放在点击事件里面
+                istop = true;
+                if (high == 0) {
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </body>
 </html>

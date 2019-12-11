@@ -1,6 +1,7 @@
 package com.cgsx.scarf_music.service.impl;
 
 import com.cgsx.scarf_music.constants.Constants;
+import com.cgsx.scarf_music.entity.Album;
 import com.cgsx.scarf_music.entity.Singer;
 import com.cgsx.scarf_music.entity.Song;
 import com.cgsx.scarf_music.repository.SongRepository;
@@ -68,12 +69,14 @@ public class SongServiceImpl implements SongService {
                  * 多表查询
                  */
                 Join<Song, Singer> sroot = root.join("singer", JoinType.LEFT);
+                Join<Song, Album> aroot = root.join("album", JoinType.LEFT);
                 if(StringUtils.isNotBlank(keyword)){
                     predicates.add(
                             criteriaBuilder.and(
                                     criteriaBuilder.or(
                                         criteriaBuilder.like(root.get("songName"),"%" + keyword + "%"),
-                                            criteriaBuilder.like(sroot.get("name"), "%" + keyword + "%")
+                                            criteriaBuilder.like(sroot.get("name"), "%" + keyword + "%"),
+                                            criteriaBuilder.like(aroot.get("albumName"), "%" + keyword + "%")
                                     )
                             )
                     );

@@ -3644,7 +3644,7 @@
     }
 
     .singer_out .singer_info .info .btns .play[data-v-5fbff215] {
-        background: #ffe12c;
+        background: #ffdca2;
         color: #333
     }
 
@@ -4144,7 +4144,7 @@
         position: absolute;
         bottom: 0;
         width: 2px;
-        background: #ffe200
+        background: #ffdca2
     }
 
     .side1[data-v-edb94b72] {
@@ -5405,12 +5405,12 @@
 
             <div class="sub-nav-box">
                 <nav class="sub-nav">
-                    <a href="/" class=" nav-list t">推荐</a>
-                    <a href="/songlist" target="_blank" class=" nav-list t">歌单</a>
-                    <a href="/artist" target="_blank" class="on nav-list t">歌手</a>
-                    <a href="/rankList.htm" target="_blank" class="nav-list t">榜单</a>
-                    <a href="/tag" target="_blank" class=" nav-list t">分类</a>
-                    <a href="/mv" target="_blank" class=" nav-list t">MV</a>
+                    <a href="/" th:href="@{/}" class=" nav-list t">推荐</a>
+                    <a href="/songlist" th:href="@{/songSheetList}" class=" nav-list t">歌单</a>
+                    <a href="/artist" th:href="@{/singers}"  class="on nav-list t">歌手</a>
+                    <a href="/rankList.htm" th:href="@{/tophot}" class="nav-list t">榜单</a>
+                    <!--<a href="/tag" target="_blank" class=" nav-list t">分类</a>-->
+                    <!--<a href="/mv" target="_blank" class=" nav-list t">MV</a>-->
                 </nav>
             </div>
 
@@ -5445,6 +5445,7 @@
                                         <span class="num" data-v-5fbff215 th:text="${singer.listenTimes}">1030</span>
                                     </span>
                                 </div>
+                                <!--TODO 完成歌手简介 分页页面与跳转-->
                                 <div class="singer_items flex_c" data-v-5fbff215>
                                     <p data-v-5fbff215>
                                         <span data-v-5fbff215>英文名：<span data-v-5fbff215>Jay&nbsp;Chou</span></span>
@@ -5456,6 +5457,7 @@
                                     <span class="all" data-v-5fbff215>全部 &gt;</span>
                                 </div>
                                 <div class="btns" data-v-5fbff215>
+                                    <!--TODO 完成播放跳转播放器页面  完成用户关注歌手-->
                                     <button class="play" style="display:;" data-v-5fbff215>
                                         <i class="iconfont icon-icon_play_" data-v-5fbff215></i>
                                         播放全部歌曲
@@ -5468,7 +5470,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <!--TODO 完成歌手专辑 简介分页-->
                     <div class="main_con" data-v-5fbff215>
                         <div class="con_l" data-v-5fbff215 id="con_l">
 

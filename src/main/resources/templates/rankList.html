@@ -5564,12 +5564,12 @@
 
             <div class="sub-nav-box">
                 <nav class="sub-nav">
-                    <a href="/" class=" nav-list t">推荐</a>
+                    <a href="/" th:href="@{/}" class=" nav-list t">推荐</a>
                     <a href="/songlist" th:href="@{/songSheetList}" class=" nav-list t">歌单</a>
-                    <a href="/artist" target="_blank" class=" nav-list t">歌手</a>
-                    <a href="/rankList.htm" target="_blank" class="on nav-list t">榜单</a>
-                    <a href="/tag" target="_blank" class=" nav-list t">分类</a>
-                    <a href="/mv" target="_blank" class=" nav-list t">MV</a>
+                    <a href="/artist" th:href="@{/singers}"  class=" nav-list t">歌手</a>
+                    <a href="/rankList.htm" th:href="@{/tophot}" class="on nav-list t">榜单</a>
+                    <!--<a href="/tag" target="_blank" class=" nav-list t">分类</a>-->
+                    <!--<a href="/mv" target="_blank" class=" nav-list t">MV</a>-->
                 </nav>
             </div>
 
@@ -5648,12 +5648,13 @@
                                     <span class="update_time" data-v-2a28ea40>更新时间：2019-11-29</span>
                                 </div>
                                 <div class="btns" data-v-2a28ea40>
-                                    <a th:href="@{/playerList(songList = ${songListIds})}">
+                                    <a th:href="@{/playerList(songList = ${songListIds})}" target="_blank">
                                         <button class="play bg_primary" data-v-2a28ea40>
                                             <i class="iconfont icon-icon_play_" data-v-2a28ea40></i>
                                             <span data-v-2a28ea40>播放全部</span>
                                         </button>
                                     </a>
+                                    <!--TODO 完成添加与收藏功能-->
                                     <button data-v-2a28ea40>
                                         <i class="iconfont icon-playlist_icon_add_" data-v-2a28ea40></i>
                                         <span data-v-2a28ea40>添加</span>
@@ -5706,16 +5707,17 @@
                                                     <!---->
                                                 </div>
                                                 <div data-v-edb94b72="" class="song_artist">
-                                                    <span data-v-edb94b72="" title="MC海伦"
+                                                    <span data-v-edb94b72="" title="MC海伦" th:title="${sl.singer.getName()}"
                                                           th:text="${sl.singer.getName()}">MC海伦</span>
                                                 </div>
                                                 <div data-v-edb94b72="" class="song_album">
-                                                    <span data-v-edb94b72="" title="桥边姑娘">桥边姑娘</span>
+                                                    <span data-v-edb94b72="" title="桥边姑娘" th:title="${sl.album.getAlbumName()}" th:text="${sl.album.getAlbumName()}">桥边姑娘</span>
                                                 </div>
                                                 <div data-v-edb94b72="" class="song_time">
-                                                    <span data-v-edb94b72="">03:03</span>
+                                                    <span data-v-edb94b72="" th:text="${sl.duration}">03:03</span>
                                                 </div>
                                                 <div data-v-edb94b72="" class="song_opts flex_c">
+                                                    <!--TODO 完成添加与收藏功能  还有下载功能-->
                                                     <a th:href="@{/player(id=${sl.songId})}" target="_blank"><i
                                                             data-v-edb94b72="" class="iconfont icon-icon_play_"></i></a>
                                                     <i data-v-edb94b72="" class="iconfont icon-playlist_icon_add_"></i>

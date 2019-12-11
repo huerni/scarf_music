@@ -6,4 +6,6 @@ import org.springframework.data.domain.Page;
 public interface AlbumService {
 
     Page<Album> findSearchAlbum(int page, int size, String keyword);
+
+    Album findAlbumById(Long albumId);
 }

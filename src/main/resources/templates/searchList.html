@@ -29766,15 +29766,13 @@
                                 </div>
                                 <div class="list" data-v-641b187a id="xiala">
                                     <p class="tit" style="display:;" data-v-641b187a>大家都在搜</p>
-                                    <ul data-v-641b187a>
+                                    <ul data-v-641b187a id="list">
                                         <!--下拉 -->
-                                        <li class="list_item flex_c" data-v-641b187a>
-                                            <span class="idx" data-v-641b187a>1</span>
-                                            <span class="key-text" data-v-641b187a>dsfsd</span>
-                                        </li>
-                                        <li class="list_item flex_c" data-v-641b187a>
-                                            <span class="idx" data-v-641b187a>2</span>
-                                            <span class="key-text" data-v-641b187a>hudi</span>
+                                        <li class="list_item flex_c" id="items" data-v-641b187a th:each="sl : ${songL}">
+                                            <a th:href="@{/search(keyword=${sl.songName})}">
+                                            <span class="idx" data-v-641b187a th:text="${slStat.count}">1</span>
+                                            <span class="key-text" data-v-641b187a th:text="${sl.songName}">dsfsd</span>
+                                            </a>
                                         </li>
 
                                     </ul>
@@ -29826,20 +29824,20 @@
 
             <div class="fixed" data-v-6a994542>
 
-                <div class="list top" data-v-6a994542>
+                <div class="list top" id="totop" data-v-6a994542>
                     <a href="javascript:void(0);" data-v-6a994542>
                         <img data-type="top" src="//static1.qianqian.com/web/s/images/top.9c02ac0060c3aa4c.png"
                              data-item="top" class="fixd-item-pic" data-v-6a994542>
                     </a>
                 </div>
 
-                <div class="list play-box" data-v-6a994542>
-                    <a href="//play.taihe.com/" target="_blank" data-v-6a994542>
-                        <img data-type="musicbox"
-                             src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png"
-                             data-item="playbox" class="fixd-item-pic" data-v-6a994542>
-                    </a>
-                </div>
+                <!--<div class="list play-box" data-v-6a994542>-->
+                    <!--<a href="//play.taihe.com/" target="_blank" data-v-6a994542>-->
+                        <!--<img data-type="musicbox"-->
+                             <!--src="//static1.qianqian.com/web/s/images/music-box.108e7ca05789b670.png"-->
+                             <!--data-item="playbox" class="fixd-item-pic" data-v-6a994542>-->
+                    <!--</a>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
@@ -29866,7 +29864,7 @@
             } else {
                 btn.style.display = 'none';
             }
-        }
+        };
         btn.onclick = function () {
             //设置定时器，在30ms之内完成回到顶部的平滑效果
             timer = setInterval(function () {
@@ -29929,6 +29927,13 @@
              $("#sheet").addClass("active");
              toPageSheet(0);
          });
+
+         // $("#list #items").click(function(){
+         //     alert($(this).text());
+         //     toPage(0,$(this).text());
+         //     //$('#showCat').text($(this).text());
+         // });
+
       });
 
     //跳转第几页
@@ -30051,9 +30056,17 @@
     /*<![CDATA[*/
     var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
 
+    function isNull(str){
+        if ( str == "" ) return true;
+        var regu = "^[ ]+$";
+        var re = new RegExp(regu);
+        return re.test(str);
+    }
+
+
     $(function () {
         $('#kw1').bind('keypress', function (event) {
-            if (event.keyCode == "13") {
+            if (event.keyCode == "13" && !isNull($('#kw1').val())) {
                 //alert('你输入的内容为：' + encrypt($('#kw1').val()));
                 //window.location.href = "/search?keyword=" + encrypt($('#kw1').val());
                 window.location.href = "/search?keyword=" + $('#kw1').val();
@@ -30064,17 +30077,20 @@
             //alert('你输入的内容为：' + encrypt($('#kw1').val()));
             //window.open("/search?keyword=" + $('#kw').val());
             // window.location.href = "/search?keyword=" + encrypt($('#kw1').val());
-            window.location.href = "/search?keyword=" + $('#kw1').val();
+            if(!isNull($('#kw1').val()))
+                window.location.href = "/search?keyword=" + $('#kw1').val();
         });
 
         $('#kw1').bind('click', function () {
             $('#xiala').addClass('hot_key');
+            $('#xiala').css("display", "");
         });
 
         $('#search_out').hover(function () {
 
         }, function () {
             $('#xiala').removeClass('hot_key');
+            $('#xiala').css("display", "none");
         });
     });
     /*]]>*/

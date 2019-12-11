@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head data-n-head="">
-    <title data-n-head="true">通宵必备：别拦着我，我要修仙到天亮_酥糖哟_酷我音乐</title>
+    <title data-n-head="true">围巾音乐-耳朵里的温暖</title>
     <meta data-n-head="true" charset="utf-8">
     <meta data-n-head="true" name="viewport" content="width=device-width, initial-scale=1">
     <meta data-n-head="true" http-equiv="Cache-Control" content="no-transform">
     <meta data-n-head="true" http-equiv="Cache-Control" content="no-siteapp">
     <meta data-n-head="true" data-hid="keywords" name="keywords"
-          content="通宵必备：别拦着我，我要修仙到天亮,通宵必备：别拦着我，我要修仙到天亮歌单,兴奋,电子,欧美">
+          content="围巾音乐-耳朵里的温暖">
     <meta data-n-head="true" data-hid="description" name="description"
-          content="酥糖哟创建通宵必备：别拦着我，我要修仙到天亮，包含热门歌曲：Electric Elephants,Phoenix,The Man,What I did for Love(Vinai remix),Arcade(Radio Edit)等高品质音乐，好音质，用酷我">
+          content="围巾音乐-耳朵里的温暖">
     <link data-n-head="true" rel="icon" type="image/x-icon" href="/favicon.ico">
     <link data-n-head="true" rel="canonical" href="http://www.kuwo.cn/playlist_detail/2916631429">
 
@@ -123,7 +123,7 @@
     }
 
     .bg_primary {
-        background: #ffe12c
+        background: #ffdca2
     }
 
     .col_pri {
@@ -3347,7 +3347,7 @@
         height: 40px;
         text-align: center;
         line-height: 40px;
-        background: #ffe200;
+        background: #ffdca2;
         border-radius: 2px;
         color: #333;
         margin-left: 9px
@@ -3392,7 +3392,7 @@
         width: 100%;
         height: 40px;
         line-height: 38px;
-        background: #ffe200;
+        background: #ffdca2;
         text-align: center;
         border-radius: 2px;
         color: rgba(0, 0, 0, .8);
@@ -3511,7 +3511,7 @@
         width: 12px;
         text-align: center;
         vertical-align: middle;
-        background: #ffe200
+        background: #ffdca2
     }
 
     .reg_login .inner input[type=checkbox]:checked + label[data-v-291ce4ec]:before {
@@ -3695,7 +3695,7 @@
 
     .main_con .info_r .btns .play[data-v-688173d4] {
         width: 150px;
-        background: #ffe12c
+        background: #ffdca2
     }
 
     .pagination[data-v-688173d4] {
@@ -4067,7 +4067,7 @@
         position: absolute;
         bottom: 0;
         width: 2px;
-        background: #ffe200
+        background: #ffdca2
     }
 
     .side1[data-v-edb94b72] {
@@ -4232,7 +4232,7 @@
         height: 38px;
         text-align: center;
         line-height: 37px;
-        background: #ffe12c;
+        background: #ffdca2;
         margin-left: 5px;
         border-radius: 22px;
         color: #333
@@ -4758,7 +4758,7 @@
     }
 
     .model .btns .load[data-v-72d4e460] {
-        background: #ffdf1f;
+        background: #ffdca2;
         border: none;
         margin-right: 36px
     }
@@ -5535,7 +5535,7 @@
     }
 
     .model .btns .load[data-v-493521fa] {
-        background: #ffdf1f;
+        background: #ffdca2;
         border: none;
         margin-right: 12px
     }
@@ -5710,13 +5710,13 @@
                     <a href="/" th:href="@{/}" class=" nav-list t">推荐</a>
                     <a href="/songlist" th:href="@{/songSheetList}" class="on nav-list t">歌单</a>
                     <a href="/artist" th:href="@{/singers}" class=" nav-list t">歌手</a>
-                    <a href="/rankList.htm" th:href="@{/tophat}"  class="nav-list t">榜单</a>
+                    <a href="/rankList.htm" th:href="@{/tophot}" class="nav-list t">榜单</a>
                 </nav>
             </div>
 
             <div class="container">
                 <div class="main_con" data-v-688173d4>
-                    <div class="content" data-v-688173d4>
+                    <div class="content" id="content" data-v-688173d4>
                         <div class="info_l" data-v-688173d4>
                             <div class="cover_out" data-v-688173d4>
                                 <img src="http://h5static.kuwo.cn/www/kw-www/img/99aa867.png" alt="" class="cover"
@@ -5739,130 +5739,95 @@
                         </div>
                         <div class="info_r" data-v-688173d4>
                             <div data-v-688173d4>
-                                <h1 style="display: none" data-v-688173d4 th:text="${songSheet.songSheetName}">通宵必备：别拦着我，我要修仙到天亮</h1>
-                                <p class="song_name" data-v-688173d4 th:text="${songSheet.songSheetName}">通宵必备：别拦着我，我要修仙到天亮</p>
+                                <h1 style="display: none" data-v-688173d4 th:text="${songSheet.songSheetName}">
+                                    通宵必备：别拦着我，我要修仙到天亮</h1>
+                                <p class="song_name" data-v-688173d4 th:text="${songSheet.songSheetName}">
+                                    通宵必备：别拦着我，我要修仙到天亮</p>
                                 <!-- 创建歌单用户-->
                                 <p class="artist_name flex_c" data-v-688173d4>
                                     <img alt="" class="user_img" th:src="${songSheet.user.getImgUri()}" data-v-688173d4>
                                     <span data-v-688173d4 th:text="${songSheet.user.getUsername()}">酥糖哟</span>
                                 </p>
-                                <!--TODO 歌单所属分类-->
-                                <p class="type" data-v-688173d4><span th:each="ssc : ${songSheet.categoryList}" th:text="${#strings.append(ssc.getTag(), ' ')}">兴奋 </span></p>
+                                <!--歌单所属分类-->
+                                <p class="type" data-v-688173d4><span th:each="ssc : ${songSheet.categoryList}"
+                                                                      th:text="${#strings.append(ssc.getTag(), ' ')}">兴奋 </span>
+                                </p>
                                 <div class="btns" data-v-688173d4>
+                                    <!--TODO 完成播放全部跳转播放器页面，如歌单没有歌，提示没有歌曲-->
                                     <button class="play bg_primary" data-v-688173d4>
                                         <i class="iconfont icon-icon_play_" data-v-688173d4></i>
                                         <span data-v-688173d4>播放全部</span>
                                     </button>
-<!--                                    <button data-v-688173d4>-->
-<!--                                        <i class="iconfont icon-playlist_icon_add_" data-v-688173d4></i>-->
-<!--                                        <span data-v-688173d4>添加</span>-->
-<!--                                    </button>-->
+                                    <!--                                    <button data-v-688173d4>-->
+                                    <!--                                        <i class="iconfont icon-playlist_icon_add_" data-v-688173d4></i>-->
+                                    <!--                                        <span data-v-688173d4>添加</span>-->
+                                    <!--                                    </button>-->
+                                    <!--TODO 完成收藏歌单功能-->
                                     <button data-v-688173d4>
                                         <i class="iconfont icon-bar_icon_heart_" data-v-688173d4></i>
                                         <span data-v-688173d4>收藏</span>
                                     </button>
-<!--                                    <button data-v-688173d4>-->
-<!--                                        <i class="iconfont icon-mv_icon_share_" data-v-688173d4></i>-->
-<!--                                        <span data-v-688173d4>分享</span>-->
-<!--                                    </button>-->
+                                    <!--                                    <button data-v-688173d4>-->
+                                    <!--                                        <i class="iconfont icon-mv_icon_share_" data-v-688173d4></i>-->
+                                    <!--                                        <span data-v-688173d4>分享</span>-->
+                                    <!--                                    </button>-->
                                     <button data-v-688173d4>
                                         <i class="iconfont icon-bar_icon_ncomment_" data-v-688173d4></i>
                                         <span data-v-688173d4>评论</span>
                                     </button>
                                 </div>
-                                <div data-v-688173d4>
-                                    <div data-v-edb94b72 data-v-688173d4>
-                                        <div class="list_head head_name_album" style="display:;" data-v-edb94b72>
-                                            <ul class="flex_c" data-v-edb94b72>
-                                                <li class="head_num" data-v-edb94b72>序号</li>
-                                                <li class="head_name" data-v-edb94b72>歌曲</li>
-                                                <li class="head_artist" data-v-edb94b72>歌手</li>
-                                                <!---->
-                                                <li class="head_time" data-v-edb94b72>时长</li>
-                                            </ul>
-                                        </div>
-                                        <ul class="album_list" data-v-edb94b72>
-                                            <!--TODO 歌曲列表-->
-                                            <li class="song_item flex_c" data-v-edb94b72>
-                                                <div class="song_rank flex_c" data-v-edb94b72><!---->
-                                                    <div class="rank_num" data-v-edb94b72>
-                                                        <span class="playing" style="display:none;" data-v-edb94b72>
-                                                            <span class="side1 pause" data-v-edb94b72></span>
-                                                            <span class="side2 pause" data-v-edb94b72></span>
-                                                            <span class="side3 pause" data-v-edb94b72></span>
-                                                        </span>
-                                                        <span style="display:;" data-v-edb94b72>1</span>
-                                                    </div>
-                                                    <!---->
-                                                    <!---->
-                                                </div>
-                                                <div class="song_name flex_c" data-v-edb94b72>
-                                                    <span title="Electric Elephants" class="name" data-v-edb94b72>Electric Elephants</span>
-                                                    <!----> <!---->
-                                                </div>
-                                                <div class="song_artist" style="display:;" data-v-edb94b72>
-                                                    <span title="Jay Hardway" data-v-edb94b72>Jay Hardway</span>
-                                                </div>
-                                                <div class="song_album" style="display:none;" data-v-edb94b72>
-                                                    <span
-                                                            title="Electric Elephants"
-                                                            data-v-edb94b72>Electric Elephants</span>
-                                                </div>
-                                                <div class="song_time" data-v-edb94b72><span
-                                                        data-v-edb94b72>02:53</span>
-                                                </div>
-                                                <div class="song_opts flex_c" data-v-edb94b72><i
-                                                        class="iconfont icon-icon_play_" data-v-edb94b72></i> <i
-                                                        class="iconfont icon-playlist_icon_add_" data-v-edb94b72></i> <i
-                                                        class="iconfont icon-bar_icon_heart_" data-v-edb94b72></i> <i
-                                                        class="iconfont icon-bar_icon_download_" data-v-edb94b72></i>
-                                                </div>
-                                            </li>
+                                <!--child_view-->
+                                <div id="child_view">
 
-                                        </ul>
-                                    </div>
-                                    <div class="nodata flex_c" style="display:none;" data-v-7ad2a8ce data-v-688173d4>
-                                        <div class="inner" data-v-7ad2a8ce>
-                                            <img
-                                                src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png" alt
-                                                class="nodata_img" data-v-7ad2a8ce>
-                                            <div class="tip" data-v-7ad2a8ce><p data-v-7ad2a8ce>暂无相关数据</p></div>
+                                </div>
+                                <!---->
+                            </div>
+                            <!--TODO 完成评论-->
+                            <div id="comment_con" class="comment_con" data-v-688173d4>
+                                <section class="all-comment" style="display: none">
+                                    <div class="type recent">全部评论
+                                    <span class="comment-num">2条</span>
+                                    </div> <div class="new-comment-out">
+
+                                    <div class="each-comment">
+                                        <div class="each-comment-avatar">
+                                            <img alt="" data-src="http://wx.qlogo.cn/mmopen/gGZpic9iaXlcr7BpMUoiaO2CqvOibXibeSYZsYJh9K6Wg4jibBh6xsJEW6upx1eoLDGSM7SzuGG2GawW8rRFnficqeWcRtFKgYdJzze/0" src="http://wx.qlogo.cn/mmopen/gGZpic9iaXlcr7BpMUoiaO2CqvOibXibeSYZsYJh9K6Wg4jibBh6xsJEW6upx1eoLDGSM7SzuGG2GawW8rRFnficqeWcRtFKgYdJzze/0" lazy="loaded">
+                                        </div>
+                                        <div class="each-comment-msg">
+                                            <div class="each-comment-nickname">
+                                                <span>相遇是缘</span>
+                                                <i class=""></i>
+                                            </div>
+                                            <div class="each-comment-content text-selection">
+                                                <!---->
+                                                <span class="msg-text">早上好！</span>
+                                            </div>
+                                            <!---->
+                                            <div class="each-comment-time">
+                                                <div class="time">7小时前</div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div> <!----></div>
-                            <div id="comment_con" class="comment_con" data-v-688173d4>
-                                <section class="all-comment" style="display:;"><!----> </section>
-                                <section class="all-comment"><!---->
-                                    <div class="new-comment-out"></div> <!----></section> <!----></div>
+                                    <div class="each-comment">
+                                        <div class="each-comment-avatar"><img alt="" data-src="http://thirdqq.qlogo.cn/qqapp/100243533/DBD2027E2B01BDBB8E9561E5BA4BCB5A/100" src="http://thirdqq.qlogo.cn/qqapp/100243533/DBD2027E2B01BDBB8E9561E5BA4BCB5A/100" lazy="loaded"></div> <div class="each-comment-msg"><div class="each-comment-nickname"><span>@林哥</span> <i class=""></i></div> <div class="each-comment-content text-selection"><!----> <span class="msg-text">你好！</span></div> <!----> <div class="each-comment-time"><div class="time">
+                                    2019-12-08 13:26:10
+                                </div></div></div></div></div> <div data-v-9fcc0c74="" class="page-wrap" style="display: none;"><i data-v-9fcc0c74="" class="li-page iconfont icon-icon_pageup notPointer"></i> <ul data-v-9fcc0c74="" class="flex_c"><li data-v-9fcc0c74="" style="background: rgb(255, 223, 31);"><span data-v-9fcc0c74="" class="notCursor currentPage">1</span></li></ul> <i data-v-9fcc0c74="" class="li-page iconfont icon-icon_pagedown notPointer"></i></div></section>
+                                <!---->
+                                <div data-v-7ad2a8ce="" class="nodata flex_c" style="display: ;">
+                                    <div data-v-7ad2a8ce="" class="inner">
+                                        <img data-v-7ad2a8ce=""
+                                             src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png"
+                                             alt="" class="nodata_img">
+                                        <div data-v-7ad2a8ce="" class="tip">
+                                            暂无评论
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <!---->
-<!--                    <div class="model_out" style="display:none;" data-v-770a1cd1 data-v-688173d4>-->
-<!--                        <div class="model" data-v-770a1cd1>-->
-<!--                            <div class="tit" data-v-770a1cd1>-->
-<!--                                <span data-v-770a1cd1>分享</span> <i-->
-<!--                                    class="iconfont icon-list_icon_x" data-v-770a1cd1></i></div>-->
-<!--                            <div class="platforms flex_c" data-v-770a1cd1>-->
-<!--                                <div class="item" data-v-770a1cd1>-->
-<!--                                    <div class="icon " data-v-770a1cd1></div>-->
-<!--                                    <p data-v-770a1cd1>新浪微博</p></div>-->
-<!--                                <div class="item" data-v-770a1cd1>-->
-<!--                                    <div class="icon weixin" data-v-770a1cd1></div>-->
-<!--                                    <p data-v-770a1cd1>微信</p></div>-->
-<!--                            </div>-->
-<!--                            <div data-v-770a1cd1><p class="tits" data-v-770a1cd1>分享链接</p>-->
-<!--                                <div class="flex_c copy_out" data-v-770a1cd1><input id="copy" type="text"-->
-<!--                                                                                    data-v-770a1cd1> <span class="url"-->
-<!--                                                                                                           data-v-770a1cd1></span>-->
-<!--                                    <span class="copy" data-v-770a1cd1>复制链接</span></div>-->
-<!--                            </div>-->
-<!--                            <div class="wx_share" style="display:none;" data-v-770a1cd1>-->
-<!--                                <div class="canvas_out" data-v-770a1cd1>-->
-<!--                                    <canvas id="wx_canvas" data-v-770a1cd1></canvas>-->
-<!--                                </div>-->
-<!--                                <p class="tip" data-v-770a1cd1>请用微信扫描二维码，打开单曲播放页面后，点击微信右上角的更多按钮，分享到好友或朋友圈</p></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+
                 </div>
             </div>
 
@@ -5950,6 +5915,43 @@
             }, 30);
         }
     }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    var id = [[${songSheet.songSheetId}]];
+    $(function () {
+        getSongSheetSongList(0, id); //加载完index页面后，获取第一页表格数据
+    });
+
+
+    //跳转第几页
+    function getSongSheetSongList(num, songSheetId) {
+        //alert("ssdf");
+        $.ajax({
+            url: basePath + '/songSheet/songList',
+            type: 'post',
+            dataType: 'text',
+            data: {
+                'pageNumber': num,//第几页
+                'songSheetId': songSheetId
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                $("#child_view").empty();
+                $("#child_view").append(data);
+                document.getElementById("content").scrollIntoView();
+            }
+        });
+    }
+
+    /*]]>*/
 </script>
 
 </body>

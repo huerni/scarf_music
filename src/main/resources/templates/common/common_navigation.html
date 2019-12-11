@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="search-box">
-                <input type="text" id="kw" name="kw" placeholder="请输入歌名、歌词、歌手或专辑" autocomplete="off" value=""
+                <input type="text" id="kw" name="kw" placeholder="请输入歌名、歌单名、歌手或专辑" autocomplete="off" value=""
                        class="t s-input">
                 <i class="iconfont t icon-search" id="search"></i>
                 <div class="search-content-wrap" style="display:none;">
@@ -26,8 +26,8 @@
         </div>
         <nav class="nav">
             <a href="#" th:href="@{/}" class="on nav-list t">发现音乐</a>
-            <a href="#" target="_blank" class=" nav-list t">我的音乐</a>
-            <a href="#" target="_blank" class=" nav-list t">客户端</a>
+            <a href="#"  class=" nav-list t">我的音乐</a>
+            <a href="#"  class=" nav-list t">客户端</a>
         </nav>
     </div>
     <script type="text/javascript" src="js/decode.js"></script>
@@ -36,9 +36,16 @@
         /*<![CDATA[*/
         var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
 
+        function isNull(str){
+            if ( str == "" ) return true;
+            var regu = "^[ ]+$";
+            var re = new RegExp(regu);
+            return re.test(str);
+        }
+
         $(function () {
             $('#kw').bind('keypress', function (event) {
-                if (event.keyCode == "13") {
+                if (event.keyCode == "13" && !isNull($('#kw').val())) {
                     //alert('你输入的内容为：' + $('#kw').val());
                     // window.location.href = "/search?keyword=" + encrypt($('#kw').val());
                     window.location.href = "/search?keyword=" + $('#kw').val();
@@ -49,34 +56,12 @@
                 //alert('你输入的内容为：' + $('#kw').val());
                 //window.open("/search?keyword=" + $('#kw').val());
                 // window.location.href = "/search?keyword=" + encrypt($('#kw').val());
-                window.location.href = "/search?keyword=" + $('#kw').val();
+                if(!isNull($('#kw').val()))
+                    window.location.href = "/search?keyword=" + $('#kw').val();
             });
         });
         /*]]>*/
 
-
-        /**
-         * 加密（需要先加载lib/aes/aes.min.js文件）
-         * @param word
-         * @returns {*}
-         */
-        function encrypt(word){
-            var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
-            var srcs = CryptoJS.enc.Utf8.parse(word);
-            var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
-            return encrypted.toString();
-        }
-
-        /**
-         * 解密
-         * @param word
-         * @returns {*}
-         */
-        function decrypt(word){
-            var key = CryptoJS.enc.Utf8.parse("abcdefgabcdefg12");
-            var decrypt = CryptoJS.AES.decrypt(word, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
-            return CryptoJS.enc.Utf8.stringify(decrypt).toString();
-        }
 
 
     </script>

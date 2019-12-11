@@ -39,8 +39,9 @@ public class SingerController {
     public String toSingerList(Model model, @RequestParam(name = "pageNumber", defaultValue = "0")Integer pageNumber){
 
         Page<Singer> singers = singerService.findAllSingerByIsOnline(pageNumber, Constants.defaultPageSize*60);
-
         model.addAttribute("singerList", singers.getContent());
+        model.addAttribute("pageNumber", pageNumber);
+        model.addAttribute("totalPages", singers.getTotalPages());
         return "singers";
     }
 

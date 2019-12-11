@@ -2,6 +2,7 @@
 
 <div id="child_view">
     <div class="btns" style="display:;" data-v-3665e15d>
+        <!--TODO 完成播放功能  收藏功能  下载歌曲提示不能下载-->
         <button class="play bg_primary" style="background: #ffdca2" data-v-3665e15d>
             <i class="iconfont icon-icon_play_" data-v-3665e15d></i>
             <span data-v-3665e15d>播放全部</span>
@@ -55,10 +56,10 @@
                     </div>
                     <div class="song_album" data-v-edb94b72="">
                                                 <span title="Guardians of the Galaxy (Original Score)"
-                                                      data-v-edb94b72="">Guardians of the Galaxy (Original Score)</span>
+                                                      data-v-edb94b72="" th:text="${sl.album.getAlbumName()}">Guardians of the Galaxy (Original Score)</span>
                     </div>
                     <div class="song_time" data-v-edb94b72="">
-                        <span data-v-edb94b72="">02:52</span>
+                        <span data-v-edb94b72="" th:text="${sl.duration}">02:52</span>
                     </div>
                     <div class="song_opts flex_c" data-v-edb94b72="">
                         <a th:href="@{/player(id=${sl.songId})}" target="_blank">

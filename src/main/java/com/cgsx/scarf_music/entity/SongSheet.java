@@ -80,4 +80,12 @@ public class SongSheet implements Serializable {
 
     private Integer isOnline;
 
+
+    /**
+     * 歌单歌曲
+     */
+    @ManyToMany
+    @JoinTable(name = "songSheetSong", joinColumns = {@JoinColumn(name = "songSheetId")},
+            inverseJoinColumns = {@JoinColumn(name = "songId")})
+    private List<Song> songList = new ArrayList<>();
 }

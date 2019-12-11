@@ -52,6 +52,8 @@ public class Singer implements Serializable {
     private Integer isOnline;
 
     @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true)
-    //@JoinColumn(name = "songId")
     private List<Song> songList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "singer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Album> albumList = new ArrayList<>();
 }

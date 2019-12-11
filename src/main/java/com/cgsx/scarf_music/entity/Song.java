@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "song")
@@ -41,9 +43,8 @@ public class Song implements Serializable {
     //发行日期
     private Date issueDate;
 
-    @Temporal(TemporalType.TIME)
     //时长
-    private Date duration;
+    private String duration;
 
 
     //是否上线
@@ -52,6 +53,21 @@ public class Song implements Serializable {
     @ManyToOne
     @JoinColumn(name = "singer_id")
     private Singer singer;
+
+    /**
+     * 歌单歌曲
+     */
+    @ManyToMany
+    @JoinTable(name = "songSheetSong", joinColumns = {@JoinColumn(name = "songId")},
+            inverseJoinColumns = {@JoinColumn(name = "songSheetId")})
+    private List<SongSheet> songSheetList = new ArrayList<>();
+
+    /**
+     * 专辑
+     */
+    @ManyToOne
+    @JoinColumn(name = "album_id")
+    private Album album;
 
 
 }

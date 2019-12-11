@@ -30,9 +30,8 @@ public class PlayController {
     * @Date: 2019/12/2
     */
     @RequestMapping("/player")
-    public String toPlayer(Model model, @RequestParam(name = "id") Long songId, HttpServletRequest request){
+    public String toPlayer(Model model, @RequestParam(name = "id") Long songId,HttpSession session){
         Song song = songService.findSongBySongIdAndIsOnline(songId);
-        HttpSession session = request.getSession();
         List<Song> listSong = new ArrayList<>();
         if(session.getAttribute("listSong") != null){
             listSong = (List<Song>) session.getAttribute("listSong");

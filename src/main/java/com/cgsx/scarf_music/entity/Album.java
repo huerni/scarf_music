@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "album")
@@ -39,4 +41,14 @@ public class Album implements Serializable {
     private Integer listenTimes;
 
     private Integer isOnline;
+
+    @Transient
+    private String showIntro;
+
+    @ManyToOne
+    @JoinColumn(name = "singer_id")
+    private Singer singer;
+
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Song> songList = new ArrayList<>();
 }

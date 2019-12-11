@@ -29,6 +29,8 @@ public class ResourceConfigAdapter extends WebMvcConfigurerAdapter {
                     addResourceLocations("file:D:/scarf_music_resource/songMp3/");
             registry.addResourceHandler("/userImages/**").
                     addResourceLocations("file:D:/scarf_music_resource/userImages/");
+            registry.addResourceHandler("/albumImages/**").
+                    addResourceLocations("file:D:/scarf_music_resource/albumImages/");
         } else {
             //linux和mac系统
             registry.addResourceHandler("/singerImages/**").
@@ -41,6 +43,8 @@ public class ResourceConfigAdapter extends WebMvcConfigurerAdapter {
                     addResourceLocations("file:/usr/local/scarf_music_resource/songMp3/");
             registry.addResourceHandler("/userImages/**").
                     addResourceLocations("file:/usr/local/scarf_music_resource/userImages/");
+            registry.addResourceHandler("/albumImages/**").
+                    addResourceLocations("file:/usr/local/scarf_music_resource/albumImages/");
         }
         super.addResourceHandlers(registry);
     }

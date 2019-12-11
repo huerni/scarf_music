@@ -2,29 +2,33 @@
 <div id="child_view">
     <div data-v-10ead6d8="" class="rec_list" >
         <div data-v-71f1ac8b="" data-v-10ead6d8="" class="item item" th:each="ssl : ${songSheetList}">
+            <a th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
             <div data-v-71f1ac8b="" class="pic_out">
                 <div data-v-71f1ac8b="" class="cover">
-                    <span data-v-71f1ac8b="" class="play icon_play">
-                        <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
-                    </span>
+                    <a>
+                        <!--TODO 点击播放跳转播放器页面，如歌单没有歌，提示没有歌曲-->
+                        <span data-v-71f1ac8b="" class="play icon_play">
+                            <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
+                        </span>
+                    </a>
                 </div>
-                <a th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
-                <img data-v-71f1ac8b="" alt="【港乐经典】九十年代辉煌金曲"
-                     src="http://img1.kwcdn.kuwo.cn/star/userpl2015/74/18/1575293134558_395182674_500.jpg"
-                     class="pic"
-                     th:src="${ssl.imgUri}"
-                     lazy="loaded">
-                </a>
+
+                    <img data-v-71f1ac8b="" alt="【港乐经典】九十年代辉煌金曲"
+                         src="http://img1.kwcdn.kuwo.cn/star/userpl2015/74/18/1575293134558_395182674_500.jpg"
+                         class="pic"
+                         th:src="${ssl.imgUri}"
+                         lazy="loaded">
+
             </div>
+            </a>
             <a th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
-            <p data-v-71f1ac8b="" class="name">
-                <span data-v-71f1ac8b="" title="【港乐经典】九十年代辉煌金曲" th:text="${ssl.songSheetName}">【港乐经典】九十年代辉煌金曲</span>
-            </p>
+                <p data-v-71f1ac8b="" class="name">
+                    <span data-v-71f1ac8b="" title="【港乐经典】九十年代辉煌金曲" th:text="${ssl.songSheetName}">【港乐经典】九十年代辉煌金曲</span>
+                </p>
             </a>
             <p data-v-71f1ac8b="" class="count">
-                <i data-v-71f1ac8b=""
-                   class="iconfont icon-icon_play_"></i>
-                <th:block th:text="${#strings.append(ssl.listenTimes, '万')}">5.0万</th:block>
+                <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
+                <th:block th:text="${#strings.append(ssl.listenTimes, '次')}">5.0万</th:block>
             </p>
         </div>
 

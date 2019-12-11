@@ -34,6 +34,13 @@ public class SongSheetController {
     private SongSheetService songSheetService;
 
 
+    /**
+    * @Description: 跳转到歌单列表页面
+    * @Param: [model]
+    * @return: java.lang.String
+    * @Author: cgsx
+    * @Date: 2019/12/10
+    */
     @RequestMapping("/songSheetList")
     public String toSongSheetList(Model model){
         List<Category> categoryList = categoryService.findAllCategory();
@@ -43,6 +50,13 @@ public class SongSheetController {
         return "songSheepList";
     }
 
+    /**
+    * @Description: 获取不同类别歌单列表数据，实现局部刷新
+    * @Param: [model, pageNumber, type]
+    * @return: java.lang.String
+    * @Author: cgsx
+    * @Date: 2019/12/10
+    */
     @RequestMapping("/songSheetList/data")
     public String getSongSheetList(Model model, @RequestParam(name="pageNumber", defaultValue = "0")Integer pageNumber,@RequestParam(name = "type", defaultValue = "-1")Long type){
         /**

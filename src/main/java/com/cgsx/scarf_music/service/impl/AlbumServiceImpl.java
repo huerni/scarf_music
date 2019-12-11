@@ -31,11 +31,30 @@ public class AlbumServiceImpl implements AlbumService {
     @Autowired
     private AlbumRepository albumRepository;
 
+    /**
+    * @Description: keyword模糊搜索专辑
+    * @Param: [page, size, keyword]
+    * @return: org.springframework.data.domain.Page<com.cgsx.scarf_music.entity.Album>
+    * @Author: cgsx
+    * @Date: 2019/12/10
+    */
     @Override
     public Page<Album> findSearchAlbum(int page, int size, String keyword) {
         Pageable pageable = PageRequest.of(page, size, Sort.Direction.DESC, "listenTimes");
 
         return albumRepository.findAll(getWhereClause(keyword), pageable);
+    }
+
+    /**
+    * @Description: 通过id查找专辑
+    * @Param: [albumId]
+    * @return: com.cgsx.scarf_music.entity.Album
+    * @Author: cgsx
+    * @Date: 2019/12/10
+    */
+    @Override
+    public Album findAlbumById(Long albumId) {
+        return albumRepository.findByAlbumIdAndIsOnline(albumId, Constants.YES);
     }
 
     public Specification<Album> getWhereClause(String keyword){
