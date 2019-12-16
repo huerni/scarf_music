@@ -1,5 +1,102 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 <div th:fragment="commonNavigation">
+    <!--register-->
+    <div class="container1 card-wrap card border-0 shadow card--register" id="registerForm">
+        <div class="card-body">
+            <h2 class="card-title">会员注册</h2>
+            <br/>
+            <form id="register_value">
+                <p class="badge-wrap">
+                    <a class="badge">
+                        <img src="userImages/moren.jpg" style="border-radius:50%"  width="75" height="75">
+                    </a>
+                </p>
+                <br/>
+                <p id="showError2"></p>
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="昵称" name="username" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" placeholder="邮箱" name="email" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" placeholder="密码" name="password" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" placeholder="确认密码" name="checkPassword" required="required"/>
+                </div>
+                <button class="btn btn-lg" type="button" id="registersubmit">注册</button>
+            </form>
+        </div>
+        <button class="btn btn-back js-btn" data-target="welcome" id="close1">
+            <!--<i class="fas fa-angle-left"></i>-->
+            <!--<img src="iamges/yz.jpg">-->
+        </button>
+    </div>
+    <!--login-->
+    <div class="container1 card-wrap card border-0 shadow card--login" id="loginForm">
+        <div class="card-body">
+            <h2 class="card-title">欢迎登录围巾音乐！</h2>
+            <!--<h4 th:text="${login_error}"></h4>-->
+            <p id="showError">使用昵称或邮箱登录</p>
+            <br/>
+            <form id="login_value">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username"   placeholder="用户名或邮箱" value=""
+                           required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="密码" required="required"/>
+                </div>
+                <div class="form-group">
+                    <!--style="background:url(iamges/yz.jpg) no-repeat right;background-size:65px 30px;"-->
+                    <input class="form-control" type="text" placeholder="验证码" />
+                </div>
+                <div class="form-group">
+                    <img src="iamges/yz.jpg">
+                </div>
+                <p><a href="javascript:void(0)" id="gotorePassForm">忘记密码?</a>
+                    &emsp;<a href="javascript:void(0)" id="gotoRegister">去注册</a>
+                </p>
+                <br/>
+                <button class="btn btn-lg"  type="button" id="loginsubmit">登录</button>
+            </form>
+        </div>
+        <button class="btn btn-back js-btn" data-target="welcome" id="close">
+            <!--<i class="fas fa-angle-left"></i>-->
+        </button>
+    </div>
+    <!--修改密码-->
+    <div class="container1 card-wrap card border-0 shadow card--login" id="rePassForm">
+        <div class="card-body">
+            <h2 class="card-title">忘记密码？！</h2>
+
+            <p>请设置新密码</p>
+            <br/>
+            <form >
+                <div class="form-group">
+                    <input class="form-control" type="text"  placeholder="用户名或邮箱" value=""
+                           required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password"  placeholder="新密码" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password"  placeholder="确认新密码" required="required"/>
+                </div>
+                <br/>
+                <button  class="btn btn-lg">确认</button>
+            </form>
+        </div>
+        <button class="btn btn-back js-btn" data-target="welcome" id="close2">
+            <!--<i class="fas fa-angle-left"></i>-->
+        </button>
+    </div>
+
+
     <div class="section-inner clearfix nav-box">
         <h1 title="围巾音乐" class="logo">
             <a href="/" title="围巾音乐">
@@ -8,13 +105,59 @@
             </a>
         </h1>
         <div class="search-and-login">
-            <div id="menu-user-con" class="menu-user ">
-                <div class="login-no">
-                    <a class="login-btn">登录</a>
-                    <i class="login-line">|</i>
-                    <a target="_blank" href="">注册</a>
+            <!--<h4  sec:authentication="name"></h4>-->
+            <div sec:authorize="isAuthenticated()">
+            <div id="menu-user-con" class="menu-user login">
+                <div class="userinfo-box" id="userbar">
+                    <div class="user-pic-box">
+                        <img th:src="${user.imgUri}" src="http://himg.bdimg.com/sys/portrait/item/054e3138352a2a2a2a2a2a313730e8.jpg" th:title="${user.username}" class="user-pic">
+                        <span class="user-name-right to">
+                            <a href="#" target="_blank" th:text="${user.username}"></a>
+                        </span>
+                        <div id="menu-user" class="user-bar-list hidden">
+                        <span class="u_ddl_arrow">
+                            <em>
+
+                            </em>
+                        </span>
+                        <div class="mnd">
+                            <ul class="uuser-list">
+                                <!---->
+                                <li>
+                                    <a href="/user/" target="_blank" rel="nofollow" class="my-songlist">
+                                        <i class="icon icon-songlist"></i>
+                                        <span>个人主页</span></a>
+                                </li>
+                                <li>
+                                    <a href="//passport.taihe.com/v2/web/settings.html?tpl=baidu_music" target="_blank" rel="nofollow" class="my-info">
+                                        <i class="icon icon-seturl"></i>
+                                        <span>账号设置</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" id="logout" rel="nofollow" class="logout">
+                                        <i class="icon icon-logouturl">
+                                        </i><span>退出</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
+            </div>
+
+            <div sec:authorize="!isAuthenticated()">
+            <div  class="menu-user ">
+                <div class="login-no">
+                        <!--<h4  sec:authentication="name"></h4>-->
+                        <a class="login-btn" id="loginBtn">登录</a>
+                        <i class="login-line">|</i>
+                        <a class="btn-register" id="registerBtn">注册</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="search-box">
                 <input type="text" id="kw" name="kw" placeholder="请输入歌名、歌单名、歌手或专辑" autocomplete="off" value=""
                        class="t s-input">
@@ -32,6 +175,152 @@
     </div>
     <script type="text/javascript" src="js/decode.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="http://malsup.github.io/jquery.form.js"></script>
+
+
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+        var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+        // var id = [[${singerId}]];
+        // $(function () {
+        //    toPage(0,id); //加载完index页面后，获取第一页表格数据
+        //  });
+
+        function isNull(str){
+            if ( str == "" ) return true;
+            var regu = "^[ ]+$";
+            var re = new RegExp(regu);
+            return re.test(str);
+        }
+
+        //登录
+        $("#loginsubmit").bind("click", function (event) {
+            var x=$("#login_value").serializeArray();
+            if(isNull(x[0].value)){
+                $("#showError").text("请填写用户名或邮箱！");
+            }
+            else if(isNull(x[1].value)){
+                $("#showError").text("请填写密码!");
+            }
+            else{
+                $.ajax({
+                    url:basePath + '/login',
+                    type: 'post',
+                    dataType: 'json',
+                    data: $("#login_value").serialize(),
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        if(data.success == true) {
+                            window.location.reload();
+                        }
+                        else if(data.success == false){
+                            $("#showError").text(data.message);
+                        }
+                    }
+                });
+            }
+        });
+
+        //退出
+        $("#logout").bind("click", function (event) {
+            $.ajax({
+                url:basePath + '/logout',
+                type: 'post',
+                dataType: 'json',
+                data: {},
+                cache: false,
+                async: true,
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        });
+
+        //注册
+        $("#registersubmit").bind("click", function (event) {
+            var myreg = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+            var x=$("#register_value").serializeArray();
+            if(isNull(x[0].value)){
+                $("#showError2").text("请填写用户名！");
+            }
+            else if(isNull(x[1].value)){
+                $("#showError2").text("请填写邮箱！");
+            }
+            else if(!myreg.test(x[1].value)){
+                $("#showError2").text("请填写正确的邮箱格式！");
+            }
+            else if(isNull(x[2].value)){
+                $("#showError2").text("请填写密码！");
+            }
+            else if(isNull(x[3].value)){
+                $("#showError2").text("请确认密码！");
+            }
+            else if(x[2].value != x[3].value){
+                $("#showError2").text("密码不一致！");
+            }
+            else{
+                $.ajax({
+                    url:basePath + '/register',
+                    type: 'post',
+                    // dataType: 'text',
+                    ContentType:"application/x-www-form-urlencoded;charset=UTF-8",
+                    data: $("#register_value").serialize(),
+                    cache: false,
+                    async: true,
+                    success: function (data) {
+                        if(data.success == true){
+                            $("#loginForm").addClass("is-show");
+                            $("#registerForm").removeClass("is-show");
+                        }else if(data.success == false){
+                            $("#showError2").text(data.message);
+                        }
+                    }
+                });
+            }
+        })
+
+        /*]]>*/
+    </script>
+
+
+    <script>
+
+        $("#gotorePassForm").bind("click", function (event) {
+           $("#rePassForm").addClass("is-show");
+           $("#loginForm").removeClass("is-show");
+        });
+
+        $("#close2").bind("click", function (event) {
+            $("#loginForm").addClass("is-show");
+            $("#rePassForm").removeClass("is-show");
+        });
+
+        $("#loginBtn").bind("click", function (event) {
+            $("#loginForm").addClass("is-show");
+            $("#registerForm").removeClass("is-show");
+        });
+
+        $("#close").bind("click", function (event) {
+            $("#loginForm").removeClass("is-show");
+        });
+
+        $("#registerBtn").bind("click", function (event) {
+            $("#registerForm").addClass("is-show");
+            $("#loginForm").removeClass("is-show");
+        });
+
+        $("#gotoRegister").bind("click", function (event) {
+            $("#registerForm").addClass("is-show");
+            $("#loginForm").removeClass("is-show");
+        });
+
+        $("#close1").bind("click", function (event) {
+            $("#registerForm").removeClass("is-show");
+        });
+    </script>
+
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
         var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;

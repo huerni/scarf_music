@@ -28,6 +28,8 @@ public class User implements Serializable {
 
     private String password;
 
+    private String email;
+
     private Integer sex;
 
     @Temporal(TemporalType.DATE)
@@ -35,7 +37,15 @@ public class User implements Serializable {
 
     private String qq;
 
+    /**
+     * 听歌次数
+     */
     private Integer listenTimes;
+
+    /**
+     * 登录次数
+     */
+    private Integer loginTimes;
 
     /**
      * 该用户拥有的角色
@@ -75,4 +85,6 @@ public class User implements Serializable {
     inverseJoinColumns = {@JoinColumn(name = "singerId")})
     private List<Singer> singerList = new ArrayList<>();
 
+    public User(String username, String password, String email) {
+    }
 }
