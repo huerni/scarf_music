@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/tophot/**").permitAll()
                 .antMatchers("/topnew/**").permitAll()
                 .antMatchers("/topup/**").permitAll()
+                .antMatchers("/captcha.jpg/**").permitAll()
                 .and()
                 .formLogin().permitAll().//允许所有用户
                 successHandler(authenticationSuccessHandler).//登录成功处理逻辑

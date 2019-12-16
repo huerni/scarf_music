@@ -53,12 +53,13 @@
                 </div>
                 <div class="form-group">
                     <!--style="background:url(iamges/yz.jpg) no-repeat right;background-size:65px 30px;"-->
-                    <input class="form-control" type="text" placeholder="验证码" />
+                    <input class="form-control" type="text" name="captcha" placeholder="验证码" />
                 </div>
                 <div class="form-group">
-                    <img src="iamges/yz.jpg">
+                    <img src="/captcha.jpg"  id="captcha" alt="captcha" height="50px" width="150px" style="margin-left: 20px">
                 </div>
-                <p><a href="javascript:void(0)" id="gotorePassForm">忘记密码?</a>
+                <p>
+                    <a href="javascript:void(0)" id="gotorePassForm">忘记密码?</a>
                     &emsp;<a href="javascript:void(0)" id="gotoRegister">去注册</a>
                 </p>
                 <br/>
@@ -176,6 +177,7 @@
     <script type="text/javascript" src="js/decode.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="http://malsup.github.io/jquery.form.js"></script>
+    <script type="text/javascript" src="js/jquerysession.js"></script>
 
 
     <script type="text/javascript" th:inline="javascript">
@@ -194,6 +196,10 @@
             return re.test(str);
         }
 
+        $("#captcha").bind("click", function (event) {
+            $("#captcha").attr('src',"/captcha.jpg");
+        });
+
         //登录
         $("#loginsubmit").bind("click", function (event) {
             var x=$("#login_value").serializeArray();
@@ -204,19 +210,38 @@
                 $("#showError").text("请填写密码!");
             }
             else{
+                //验证码判断
                 $.ajax({
-                    url:basePath + '/login',
+                    url:basePath + '/judge',
                     type: 'post',
                     dataType: 'json',
-                    data: $("#login_value").serialize(),
+                    data: {
+                        captcha:x[2].value
+                    },
                     cache: false,
                     async: true,
                     success: function (data) {
-                        if(data.success == true) {
-                            window.location.reload();
+                        if(data.success == true){
+                            $.ajax({
+                                url:basePath + '/login',
+                                type: 'post',
+                                dataType: 'json',
+                                data: $("#login_value").serialize(),
+                                cache: false,
+                                async: true,
+                                success: function (data) {
+                                    if(data.success == true) {
+                                        window.location.reload();
+                                    }
+                                    else if(data.success == false){
+                                        $("#showError").text(data.message);
+                                    }
+                                }
+                            });
                         }
                         else if(data.success == false){
                             $("#showError").text(data.message);
+                            $("#captcha").attr('src',"/captcha.jpg");
                         }
                     }
                 });
