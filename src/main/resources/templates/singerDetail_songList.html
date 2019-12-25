@@ -1,106 +1,99 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<block id="con_l">
-    <ul class="tabs flex_c" data-v-5fbff215>
-        <li data-v-5fbff215>
-            <span class="active" data-v-5fbff215>单曲</span>
-            <span data-v-5fbff215>专辑</span>
-            <span data-v-5fbff215>简介</span>
-        </li>
-    </ul>
-    <div class="child_view" data-v-95223f3c data-v-5fbff215>
-        <div data-v-95223f3c>
-            <div data-v-edb94b72 data-v-95223f3c>
-                <div class="list_head head_name_singer" style="display:;" data-v-edb94b72>
-                    <ul class="flex_c" data-v-edb94b72>
-                        <li class="head_num" data-v-edb94b72>序号</li>
-                        <li class="head_name" data-v-edb94b72>歌曲</li> <!---->
-                        <li class="head_album" data-v-edb94b72>专辑</li>
-                        <li class="head_time" data-v-edb94b72>时长</li>
-                    </ul>
-                </div>
 
-                <!--单曲列表-->
-                <ul data-v-edb94b72="" class="singer_list">
+<div id="child_view">
+    <div data-v-95223f3c>
+        <div data-v-edb94b72 data-v-95223f3c>
+            <div class="list_head head_name_singer" style="display:;" data-v-edb94b72>
+                <ul class="flex_c" data-v-edb94b72>
+                    <li class="head_num" data-v-edb94b72>序号</li>
+                    <li class="head_name" data-v-edb94b72>歌曲</li> <!---->
+                    <li class="head_album" data-v-edb94b72>专辑</li>
+                    <li class="head_time" data-v-edb94b72>时长</li>
+                </ul>
+            </div>
 
-                    <li data-v-edb94b72="" class="song_item flex_c" th:each="ssl : ${songList}">
-                        <div data-v-edb94b72="" class="song_rank flex_c">
-                            <!---->
-                            <div data-v-edb94b72="" class="rank_num">
+            <!--单曲列表-->
+            <ul data-v-edb94b72="" class="singer_list">
+
+                <li data-v-edb94b72="" class="song_item flex_c" th:each="ssl : ${songList}">
+                    <div data-v-edb94b72="" class="song_rank flex_c">
+                        <!---->
+                        <div data-v-edb94b72="" class="rank_num">
                                                         <span data-v-edb94b72="" class="playing" style="display: none;">
                                                             <span data-v-edb94b72="" class="side1 pause"></span>
                                                             <span data-v-edb94b72="" class="side2 pause"></span>
                                                             <span data-v-edb94b72="" class="side3 pause"></span>
                                                         </span>
-                                <span data-v-edb94b72="" th:text="${sslStat.count}+${pageNumber}*15">1</span>
-                            </div>
-                            <!---->
-                            <img data-v-edb94b72="" alt="" class="cover"
-                                 src="http://img2.kuwo.cn/star/albumcover/120/64/39/3540704654.jpg"
-                                 th:src="${ssl.getImgUri()}"
-                                 lazy="loaded">
+                            <span data-v-edb94b72="" th:text="${sslStat.count}+${pageNumber}*15">1</span>
                         </div>
-                        <div data-v-edb94b72="" class="song_name flex_c">
+                        <!---->
+                        <img data-v-edb94b72="" alt="" class="cover"
+                             src="http://img2.kuwo.cn/star/albumcover/120/64/39/3540704654.jpg"
+                             th:src="${ssl.getImgUri()}"
+                             lazy="loaded">
+                    </div>
+                    <div data-v-edb94b72="" class="song_name flex_c">
                             <span data-v-edb94b72="" title="告白气球" class="name"
                                   th:text="${ssl.getSongName()}">告白气球</span>
-                            <i data-v-edb94b72="" class="type iconfont icon-tag_wusun"></i>
-                            <i data-v-edb94b72="" class="has_mv iconfont icon-icon_mv_"></i>
-                        </div>
-                        <div data-v-edb94b72="" class="song_artist" style="display: none;">
-                            <span data-v-edb94b72="" title="周杰伦">周杰伦</span>
-                        </div>
-                        <div data-v-edb94b72="" class="song_album">
-                            <span data-v-edb94b72="" title="周杰伦的床边故事">周杰伦的床边故事</span>
-                        </div>
-                        <div data-v-edb94b72="" class="song_time">
-                            <span data-v-edb94b72="">03:35</span>
-                        </div>
-                        <div data-v-edb94b72="" class="song_opts flex_c">
-                            <i data-v-edb94b72="" class="iconfont icon-icon_play_"></i>
-                            <i data-v-edb94b72="" class="iconfont icon-playlist_icon_add_"></i>
-                            <i data-v-edb94b72="" class="iconfont icon-bar_icon_heart_"></i>
-                            <i data-v-edb94b72="" class="iconfont icon-bar_icon_download_"></i>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div th:if="${singer.songList.size()} eq 0" class="nodata flex_c" style="display:;" data-v-7ad2a8ce
-                 data-v-95223f3c>
-                <div class="inner" data-v-7ad2a8ce>
-                    <img src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png" alt
-                         class="nodata_img" data-v-7ad2a8ce>
-                    <div class="tip" data-v-7ad2a8ce>
-                        <p data-v-7ad2a8ce>暂无相关数据</p>
+                        <i data-v-edb94b72="" class="type iconfont icon-tag_wusun"></i>
+                        <i data-v-edb94b72="" class="has_mv iconfont icon-icon_mv_"></i>
                     </div>
+                    <div data-v-edb94b72="" class="song_artist" style="display: none;">
+                        <span data-v-edb94b72="" title="周杰伦">周杰伦</span>
+                    </div>
+                    <div data-v-edb94b72="" class="song_album">
+                        <span data-v-edb94b72="" title="周杰伦的床边故事">周杰伦的床边故事</span>
+                    </div>
+                    <div data-v-edb94b72="" class="song_time">
+                        <span data-v-edb94b72="">03:35</span>
+                    </div>
+                    <div data-v-edb94b72="" class="song_opts flex_c">
+                        <i data-v-edb94b72="" class="iconfont icon-icon_play_"></i>
+                        <i data-v-edb94b72="" class="iconfont icon-playlist_icon_add_"></i>
+                        <i data-v-edb94b72="" class="iconfont icon-bar_icon_heart_"></i>
+                        <i data-v-edb94b72="" class="iconfont icon-bar_icon_download_"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div th:if="${singer.songList.size()} eq 0" class="nodata flex_c" style="display:;" data-v-7ad2a8ce
+             data-v-95223f3c>
+            <div class="inner" data-v-7ad2a8ce>
+                <img src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png" alt
+                     class="nodata_img" data-v-7ad2a8ce>
+                <div class="tip" data-v-7ad2a8ce>
+                    <p data-v-7ad2a8ce>暂无相关数据</p>
                 </div>
             </div>
         </div>
-        <!--翻页-->
-        <block th:if="${songList.size()} ne 0">
-            <div class="zxf_pagediv">
-                <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
-                <a href="javascript:void(0)"
-                   th:onclick="'javascript:toPage( \''+${pageNumber-1}+'\', \''+${singer.singerId}+'\' )'"
-                   class="prebtn" th:if="${pageNumber} ne 0">上一页</a>
-                <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
-                    <a class="current" href="javascript:void(0)"
-                       th:onclick="'javascript:toPage( \''+${i}+'\', \''+${singer.singerId}+'\' )'"
-                       th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
-                    <a
-                            class="zxfPagenum" href="javascript:void(0)"
-                            th:onclick="'javascript:toPage( \''+${i}+'\', \''+${singer.singerId}+'\' )'"
-                            th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
-                </th:block>
-                <a href="javascript:void(0)"
-                   th:onclick="'javascript:toPage( \''+${pageNumber+1}+'\', \''+${singer.singerId}+'\' )'"
-                   class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
-                <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
-                <span>共<b th:text="${totalPages}">2</b>页</span>
-            </div>
-        </block>
     </div>
-</block>
+    <!--翻页-->
+    <block th:if="${songList.size()} ne 0">
+        <div class="zxf_pagediv">
+            <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
+            <a href="javascript:void(0)"
+               th:onclick="'javascript:toPage( \''+${pageNumber-1}+'\', \''+${singer.singerId}+'\' )'"
+               class="prebtn" th:if="${pageNumber} ne 0">上一页</a>
+            <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
+                <a class="current" href="javascript:void(0)"
+                   th:onclick="'javascript:toPage( \''+${i}+'\', \''+${singer.singerId}+'\' )'"
+                   th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
+                <a
+                        class="zxfPagenum" href="javascript:void(0)"
+                        th:onclick="'javascript:toPage( \''+${i}+'\', \''+${singer.singerId}+'\' )'"
+                        th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
+            </th:block>
+            <a href="javascript:void(0)"
+               th:onclick="'javascript:toPage( \''+${pageNumber+1}+'\', \''+${singer.singerId}+'\' )'"
+               class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
+            <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
+            <span>共<b th:text="${totalPages}">2</b>页</span>
+        </div>
+    </block>
+</div>
+
 
 <script type="text/javascript" th:inline="javascript">
     /*<![CDATA[*/
@@ -125,10 +118,10 @@
             cache: false,
             async: true,
             success: function (data) {
-                // $(".child_view").empty();
-                // $(".child_view").append(data);
-                $("#con_l").empty();
-                $("#con_l").append(data);
+                $("#child_view").empty();
+                $("#child_view").append(data);
+                // $("#con_l").empty();
+                // $("#con_l").append(data);
                 document.getElementById("singer_out").scrollIntoView();
             }
         });

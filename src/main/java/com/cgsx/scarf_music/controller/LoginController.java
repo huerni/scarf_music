@@ -21,7 +21,7 @@ import java.util.Map;
  * @create: 2019-12-13 16:22
  **/
 @RestController
-public class LoginController {
+    public class LoginController {
 
     @Autowired
     private UserService userService;

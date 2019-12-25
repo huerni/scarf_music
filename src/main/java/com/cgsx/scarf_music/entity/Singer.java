@@ -42,6 +42,10 @@ public class Singer implements Serializable {
 
     private String nationality;
 
+    private String gender;
+
+    private String E_name;
+
     @Lob
     @Column(columnDefinition = "TEXT")
     private String experience;
