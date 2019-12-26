@@ -5,9 +5,15 @@
             <a th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
             <div data-v-71f1ac8b="" class="pic_out">
                 <div data-v-71f1ac8b="" class="cover">
-                    <a>
-                        <!--TODO 点击播放跳转播放器页面，如歌单没有歌，提示没有歌曲-->
-                        <span data-v-71f1ac8b="" class="play icon_play">
+                    <a th:if="${ssl.songList.size()} ne 0" th:href="@{/playSongSheet(songSheetId = ${ssl.songSheetId})}">
+                        <!-- 点击播放跳转播放器页面，如歌单没有歌，提示没有歌曲-->
+                        <span data-v-71f1ac8b="" class="play icon_play" id="playI">
+                            <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
+                        </span>
+                    </a>
+
+                    <a th:if="${ssl.songList.size()} eq 0" target="_blank" th:href="@{/songSheet(songSheetId=${ssl.songSheetId})}">
+                        <span data-v-71f1ac8b="" class="play icon_play" >
                             <i data-v-71f1ac8b="" class="iconfont icon-icon_play_1"></i>
                         </span>
                     </a>

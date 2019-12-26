@@ -1,5 +1,5 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <div id="child_view">
     <div data-v-688173d4>
@@ -10,6 +10,7 @@
                     <li class="head_name" data-v-edb94b72>歌曲</li>
                     <li class="head_artist" data-v-edb94b72>歌手</li>
                     <!---->
+
                     <li class="head_time" data-v-edb94b72>时长</li>
                 </ul>
             </div>
@@ -18,11 +19,11 @@
                 <li class="song_item flex_c" data-v-edb94b72 th:each=" son : ${songList}">
                     <div class="song_rank flex_c" data-v-edb94b72><!---->
                         <div class="rank_num" data-v-edb94b72>
-                                                        <span class="playing" style="display:none;" data-v-edb94b72>
-                                                            <span class="side1 pause" data-v-edb94b72></span>
-                                                            <span class="side2 pause" data-v-edb94b72></span>
-                                                            <span class="side3 pause" data-v-edb94b72></span>
-                                                        </span>
+                            <span class="playing" style="display:none;" data-v-edb94b72>
+                                <span class="side1 pause" data-v-edb94b72></span>
+                                <span class="side2 pause" data-v-edb94b72></span>
+                                <span class="side3 pause" data-v-edb94b72></span>
+                            </span>
                             <span style="display:;" data-v-edb94b72 th:text="${sonStat.count}">1</span>
                         </div>
                         <!---->
@@ -33,7 +34,8 @@
                         <!----> <!---->
                     </div>
                     <div class="song_artist" style="display:;" data-v-edb94b72>
-                        <span th:title="${son.singer.getName()}" title="Jay Hardway" data-v-edb94b72 th:text="${son.singer.getName()}">Jay Hardway</span>
+                        <span th:title="${son.singer.getName()}" title="Jay Hardway" data-v-edb94b72
+                              th:text="${son.singer.getName()}">Jay Hardway</span>
                     </div>
                     <div class="song_album" style="display:none;" data-v-edb94b72>
                                                     <span title="Electric Elephants"
@@ -42,17 +44,38 @@
                     <div class="song_time" data-v-edb94b72><span
                             data-v-edb94b72 th:text="${son.duration}">02:53</span>
                     </div>
-                    <div class="song_opts flex_c" data-v-edb94b72><i
-                            class="iconfont icon-icon_play_" data-v-edb94b72></i> <i
-                            class="iconfont icon-playlist_icon_add_" data-v-edb94b72></i> <i
-                            class="iconfont icon-bar_icon_heart_" data-v-edb94b72></i> <i
-                            class="iconfont icon-bar_icon_download_" data-v-edb94b72></i>
+                    <!--完成歌曲收藏-->
+                    <div class="song_opts flex_c" data-v-edb94b72>
+                        <a th:href="@{/player(id=${son.songId})}" target="_blank">
+                            <i class="iconfont icon-icon_play_" data-v-edb94b72></i>
+                        </a>
+                        <a href="javascript:;" id="menu-toggle1">
+                            <i class="iconfont icon-playlist_icon_add_" data-v-edb94b72></i>
+                        </a>
+                        <ul class="menu" data-menu data-menu-toggle="#menu-toggle1, #menu-toggle2">
+                            <h3>&emsp;请选择歌单</h3>
+                            <li class="menu-separator"></li>
+                            <li th:each="sss : ${mySongSheet}" sec:authorize="isAuthenticated()">
+                                <a href="javascript:void(0);" th:onclick="'javascript:addSong( \''+${son.songId}+'\', \''+${sss.songSheetId}+'\')'" th:text="${sss.songSheetName}">歌单名</a>
+                            </li>
+                            <li sec:authorize="!isAuthenticated()">
+                                <a href="#">你没有登录，请登录</a>
+                            </li>
+
+                        </ul>
+                        <!--<button type="button" id="ClickMe">点击显示弹窗遮罩</button>-->
+                        <!--<div id="goodcover"></div>-->
+                        <!--<div id="code">-->
+                          <!---->
+                        <!--</div>-->
+                        <i class="iconfont icon-bar_icon_heart_" data-v-edb94b72></i>
+                        <i class="iconfont icon-bar_icon_download_" data-v-edb94b72></i>
                     </div>
                 </li>
 
             </ul>
         </div>
-        <div th:if = "${songList.size()} eq 0" class="nodata flex_c" style="display:;" data-v-7ad2a8ce data-v-688173d4>
+        <div th:if="${songList.size()} eq 0" class="nodata flex_c" style="display:;" data-v-7ad2a8ce data-v-688173d4>
             <div class="inner" data-v-7ad2a8ce>
                 <img
                         src="http://h5static.kuwo.cn/www/kw-www/img/f18848f.png" alt
@@ -66,14 +89,16 @@
     <block th:if="${totalPages} ne 0">
         <div class="zxf_pagediv">
             <span class="disabled" th:if="${pageNumber} eq 0">上一页</span>
-            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber-1}+'\')'" class="prebtn"th:if="${pageNumber} ne 0">上一页</a>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber-1}+'\')'" class="prebtn"
+               th:if="${pageNumber} ne 0">上一页</a>
             <th:block th:each="i:${#numbers.sequence(1,totalPages)}">
-                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'"  class="current"
+                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'" class="current"
                    th:if="${pageNumber+1} eq ${i}" th:text="${pageNumber+1}">1</a>
-                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'"  class="zxfPagenum"
+                <a href="javascript:void(0)" th:onclick="'javascript:toPage( \''+${i}+'\')'" class="zxfPagenum"
                    th:if="${pageNumber+1} ne ${i}" th:text="${i}">2</a>
             </th:block>
-            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber+1}+'\')'" class="nextbtn" th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
+            <a href="javascript:void(0);" th:onclick="'javascript:toPage( \''+${pageNumber+1}+'\')'" class="nextbtn"
+               th:if="${pageNumber} lt ${totalPages}-1">下一页</a>
             <span class="disabled" th:if="${pageNumber} eq ${totalPages}-1">下一页</span>
             <span>共<b th:text="${totalPages}">2</b>页</span>
         </div>
@@ -81,6 +106,11 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="pop/dist/menu.min.js"></script>
+<script>$('[data-menu]').menu();</script>
 
 <script type="text/javascript" th:inline="javascript">
     /*<![CDATA[*/
@@ -92,6 +122,23 @@
     //  });
 
     var key = [[${songSheetId}]];
+    
+    function addSong(songId, songSheetId) {
+        $.ajax({
+            url: basePath + '/user/addSong',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'songId': songId,//第几页
+                'songSheetId': songSheetId
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                alert(data.message);
+            }
+        });
+    }
 
     //跳转第几页
     function toPage(num) {
@@ -115,4 +162,71 @@
     }
 
     /*]]>*/
+</script>
+
+<script>
+    $(function() {
+        //alert($(window).height());
+        $('#ClickMe').click(function() {
+            $('#code').center();
+            $('#goodcover').show();
+            $('#code').fadeIn();
+        });
+        $('#closebt').click(function() {
+            $('#code').hide();
+            $('#goodcover').hide();
+        });
+        $('#goodcover').click(function() {
+            $('#code').hide();
+            $('#goodcover').hide();
+        });
+        /*var val=$(window).height();
+        var codeheight=$("#code").height();
+        var topheight=(val-codeheight)/2;
+        $('#code').css('top',topheight);*/
+        jQuery.fn.center = function(loaded) {
+            var obj = this;
+            body_width = parseInt($(window).width());
+            body_height = parseInt($(window).height());
+            block_width = parseInt(obj.width());
+            block_height = parseInt(obj.height());
+
+            left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+            if (body_width < block_width) {
+                left_position = 0 + $(window).scrollLeft();
+            };
+
+            top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+            if (body_height < block_height) {
+                top_position = 0 + $(window).scrollTop();
+            };
+
+            if (!loaded) {
+
+                obj.css({
+                    'position': 'absolute'
+                });
+                obj.css({
+                    'top': ($(window).height() - $('#code').height()) * 0.5,
+                    'left': left_position
+                });
+                $(window).bind('resize', function() {
+                    obj.center(!loaded);
+                });
+                $(window).bind('scroll', function() {
+                    obj.center(!loaded);
+                });
+
+            } else {
+                obj.stop();
+                obj.css({
+                    'position': 'absolute'
+                });
+                obj.animate({
+                    'top': top_position
+                }, 200, 'linear');
+            }
+        }
+
+    })
 </script>

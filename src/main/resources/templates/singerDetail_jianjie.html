@@ -8477,14 +8477,14 @@
             </div>
             <div data-v-087ea220="" class="item_r">
                 <span data-v-087ea220="">英文名：
-                    <span data-v-087ea220="" class="text">Jay&nbsp;Chou</span>
+                    <span data-v-087ea220="" class="text" th:text="${singer.E_name}">Jay&nbsp;Chou</span>
                 </span>
             </div>
         </div>
         <div data-v-087ea220="" class="info_list flex_c">
             <div data-v-087ea220="" class="item_l">
                 <span data-v-087ea220="">性别：
-                    <span data-v-087ea220="" class="text">男</span>
+                    <span data-v-087ea220="" class="text" th:text="${singer.gender}">男</span>
                 </span>
             </div>
             <div data-v-087ea220="" class="item_r">
@@ -8498,7 +8498,7 @@
 
     <p data-v-087ea220="" class="tit">个人简介</p>
     <!--信息-->
-    <p data-v-087ea220="" class="info">
+    <p data-v-087ea220="" class="info" th:text="${singer.experience}">
         中文名:周杰伦<br>&nbsp;外文名:Jay&nbsp;Chou<br>
     </p>
 </div>

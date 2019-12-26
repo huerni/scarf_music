@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <html lang="en">
 <head data-n-head="">
     <title data-n-head="true">围巾音乐-耳朵里的温暖</title>
@@ -24,6 +25,33 @@
     <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
     <script type="text/javascript" src="js/zxf_page.js"></script>
+
+
+    <link rel="stylesheet" href="pop/css/main.css" />
+    <script type="text/javascript" src="pop/js/jquery-1.8.2.min.js"></script>
+
+    <link rel="stylesheet" href="pop/dist/menu.min.css" type="text/css">
+    <style type="text/css">
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        body {
+            background: #eee;
+            font-family: 'PT Sans Narrow', sans-serif;
+        }
+        .toggle {
+            color: #666;
+            display: block;
+            float: left;
+            height: 72px;
+            line-height: 72px;
+            text-align: center;
+            width: 72px;
+        }
+        .right {
+            float: right
+        }
+    </style>
 
     <style data-vue-ssr-id="2b07de92:0 dea7db52:0 7bcf49f8:0 662cad01:0 17cfdfa9:0 747fea46:0 355dcdaa:0 12111b23:0 49645ff5:0 2a63b114:0 473be92f:0 7832f5f5:0 ef9a2c2e:0 7ef9b5ec:0 e94312be:0 5ae6b581:0 c1ff7e42:0 747c0c1a:0 55c18182:0 5b0e7c02:0 945fa658:0">*, :after, :before {
         -webkit-tap-highlight-color: transparent;
@@ -5748,16 +5776,16 @@
                                     通宵必备：别拦着我，我要修仙到天亮</p>
                                 <!-- 创建歌单用户-->
                                 <p class="artist_name flex_c" data-v-688173d4>
-                                    <img alt="" class="user_img" th:src="${songSheet.user.getImgUri()}" data-v-688173d4>
-                                    <span data-v-688173d4 th:text="${songSheet.user.getUsername()}">酥糖哟</span>
+                                    <img alt="" class="user_img" th:src="${songSheet.user1.getImgUri()}" data-v-688173d4>
+                                    <span data-v-688173d4 th:text="${songSheet.user1.getUsername()}">酥糖哟</span>
                                 </p>
                                 <!--歌单所属分类-->
                                 <p class="type" data-v-688173d4><span th:each="ssc : ${songSheet.categoryList}"
                                                                       th:text="${#strings.append(ssc.getTag(), ' ')}">兴奋 </span>
                                 </p>
                                 <div class="btns" data-v-688173d4>
-                                    <!--TODO 完成播放全部跳转播放器页面，如歌单没有歌，提示没有歌曲-->
-                                    <button class="play bg_primary" data-v-688173d4>
+                                    <!-- 完成播放全部跳转播放器页面，如歌单没有歌，提示没有歌曲-->
+                                    <button class="play bg_primary" data-v-688173d4 id="play">
                                         <i class="iconfont icon-icon_play_" data-v-688173d4></i>
                                         <span data-v-688173d4>播放全部</span>
                                     </button>
@@ -5765,8 +5793,8 @@
                                     <!--                                        <i class="iconfont icon-playlist_icon_add_" data-v-688173d4></i>-->
                                     <!--                                        <span data-v-688173d4>添加</span>-->
                                     <!--                                    </button>-->
-                                    <!--TODO 完成收藏歌单功能-->
-                                    <button data-v-688173d4>
+                                    <!-- 完成收藏歌单功能-->
+                                    <button data-v-688173d4 id="shoucan">
                                         <i class="iconfont icon-bar_icon_heart_" data-v-688173d4></i>
                                         <span data-v-688173d4>收藏</span>
                                     </button>
@@ -5928,8 +5956,48 @@
     var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
 
     var id = [[${songSheet.songSheetId}]];
+    var user1 = [[${myUser}]];
     $(function () {
         getSongSheetSongList(0, id); //加载完index页面后，获取第一页表格数据
+
+    });
+
+
+
+    $("#shoucan").bind("click", function (event) {
+        if(user1 != null)
+            var userid = user1.userId;
+        else
+            var userid = 4;
+        $.ajax({
+            url:basePath + '/user/favorite',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                songSheetId:id,
+                userId : userid
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                if(data.success == false){
+                    alert(data.message);
+                }
+                else{
+                    alert(data.message);
+                }
+            }
+        });
+    });
+
+    var songL = [[${songSheet.songList.size()}]]
+    $("#play").bind("click", function (event) {
+        if(songL == 0){
+            alert("该歌单没有歌曲！");
+        }
+        else {
+            window.open("/playSongSheet?songSheetId="+ id, '_blank');
+        }
     });
 
 
@@ -5953,6 +6021,11 @@
             }
         });
     }
+
+
+
+
+
 
     /*]]>*/
 </script>

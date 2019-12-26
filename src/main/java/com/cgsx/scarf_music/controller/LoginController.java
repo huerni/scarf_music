@@ -1,7 +1,9 @@
 package com.cgsx.scarf_music.controller;
 
 import com.cgsx.scarf_music.constants.Constants;
+import com.cgsx.scarf_music.entity.Role;
 import com.cgsx.scarf_music.entity.User;
+import com.cgsx.scarf_music.service.RoleService;
 import com.cgsx.scarf_music.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +28,9 @@ import java.util.Map;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RoleService roleService;
 
     /**
     * @Description: 登录控制器 返回json数据
@@ -58,6 +64,9 @@ import java.util.Map;
             user.setListenTimes(1);
             user.setImgUri("userImages/moren.jpg");
             user.setSex(Constants.MALE);
+            List<Role> roleList = new ArrayList<>();
+            roleList.add(roleService.findById(1L));
+            user.setRoleList(roleList);
             userService.saveUser(user);
             result.put("success", true);
         }

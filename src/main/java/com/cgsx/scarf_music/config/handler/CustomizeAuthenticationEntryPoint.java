@@ -1,5 +1,6 @@
 package com.cgsx.scarf_music.config.handler;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,12 @@ public class CustomizeAuthenticationEntryPoint implements AuthenticationEntryPoi
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         Map<String,Object> result = new HashMap<String,Object>();
         result.put("success", false);
-        result.put("message", "你未登录");
+        result.put("message", "你未登录,请登录");
+
+        //处理编码方式，防止中文乱码的情况
+        httpServletResponse.setContentType("text/json;charset=utf-8");
+        //塞到HttpServletResponse中返回给前台
+        httpServletResponse.getWriter().write(JSON.toJSONString(result));
+        System.out.println("你未登录");
     }
 }

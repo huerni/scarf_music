@@ -16,4 +16,8 @@ public interface SongSheetService {
     Page<SongSheet> findSongSheetSort(int page, int size, String sort);
 
     SongSheet findSongSheetById(Long songSheetId);
+
+    List<SongSheet> findSongSheetByUser(Long userId);
+
+    void saveSongSheet(SongSheet songSheet);
 }

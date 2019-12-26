@@ -1,8 +1,14 @@
 package com.cgsx.scarf_music.controller;
 
 import com.cgsx.scarf_music.entity.Song;
+import com.cgsx.scarf_music.entity.SongSheet;
+import com.cgsx.scarf_music.entity.User;
+import com.cgsx.scarf_music.service.AuthenticationService;
 import com.cgsx.scarf_music.service.SongService;
+import com.cgsx.scarf_music.service.SongSheetService;
+import com.cgsx.scarf_music.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +27,15 @@ public class PlayController {
 
     @Autowired
     private SongService songService;
+
+    @Autowired
+    private SongSheetService songSheetService;
+
+    @Autowired
+    private AuthenticationService authenticationService;
+
+    @Autowired
+    private UserService userService;
 
     /**
     * @Description: 单个跳转播放页面
@@ -41,6 +56,19 @@ public class PlayController {
         }else {
             listSong.add(song);
             session.setAttribute("listSong", listSong);
+        }
+
+        Authentication authentication = authenticationService.getAuthentication();
+        if (authentication != null) {
+            String username = authentication.getName();
+            List<User> users = userService.findByUserNameOrEmail(username).getContent();
+            if(users.size() > 0) {
+                User user = users.get(0);
+                if (user != null) {
+                    user.setListenTimes(user.getListenTimes()+1);
+                    userService.saveUser(user);
+                }
+            }
         }
 
         return "player";
@@ -69,6 +97,44 @@ public class PlayController {
         HttpSession session = request.getSession();
         session.setAttribute("listSong", listSong);
         System.out.println(songListIds);
+
+        Authentication authentication = authenticationService.getAuthentication();
+        if (authentication != null) {
+            String username = authentication.getName();
+            List<User> users = userService.findByUserNameOrEmail(username).getContent();
+            if(users.size() > 0) {
+                User user = users.get(0);
+                if (user != null) {
+                    user.setListenTimes(user.getListenTimes()+1);
+                    userService.saveUser(user);
+                }
+            }
+        }
+
+        return "player";
+    }
+
+    @RequestMapping("/playSongSheet")
+    public String playSongSheet(Model model, @RequestParam(name = "songSheetId")Long songSheetId,  HttpServletRequest request){
+        SongSheet songSheet = songSheetService.findSongSheetById(songSheetId);
+
+        List<Song> songList = songSheet.getSongList();
+        HttpSession session = request.getSession();
+        session.setAttribute("listSong", songList);
+
+        Authentication authentication = authenticationService.getAuthentication();
+        if (authentication != null) {
+            String username = authentication.getName();
+            List<User> users = userService.findByUserNameOrEmail(username).getContent();
+            if(users.size() > 0) {
+                User user = users.get(0);
+                if (user != null) {
+                    user.setListenTimes(user.getListenTimes()+1);
+                    userService.saveUser(user);
+                }
+            }
+        }
+
         return "player";
     }
 }

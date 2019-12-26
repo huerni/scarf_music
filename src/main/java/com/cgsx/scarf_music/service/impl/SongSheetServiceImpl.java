@@ -49,6 +49,16 @@ public class SongSheetServiceImpl implements SongSheetService {
         return songSheetRepository.findBySongSheetIdAndIsOnline(songSheetId, Constants.YES);
     }
 
+    @Override
+    public List<SongSheet> findSongSheetByUser(Long userId) {
+        return songSheetRepository.findByUserAndIsOnline(userId, Constants.YES);
+    }
+
+    @Override
+    public void saveSongSheet(SongSheet songSheet) {
+        songSheetRepository.save(songSheet);
+    }
+
     public Specification<SongSheet> getWhereClause(String keyword){
         return new Specification<SongSheet>() {
             @Override

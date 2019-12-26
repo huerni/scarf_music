@@ -1,0 +1,146 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"><head>
+
+    <meta charset="utf-8">
+    <title>我的歌单歌单编辑_千千音乐-听见世界</title>
+
+    <link rel="stylesheet" type="text/css" href="//static0.qianqian.com/web/static/c/SJ7hBJjY.css">
+    <!-- 太合域名 -->
+    <link rel="stylesheet" type="text/css" href="//static0.qianqian.com/web/static/c/lWEqcAon.css">
+    <link rel="stylesheet" type="text/css" href="//static1.qianqian.com/web/static/c/Jx4lItx8.css">
+    <link rel="stylesheet" type="text/css" href="//static4.qianqian.com/web/static/c/afuNa5qZ.css">
+    <link type="text/css" rel="stylesheet" href="//static3.qianqian.com/web/down_load_app/css/index.css">
+</head>
+
+
+<body data-tiptaihe="0">
+
+
+<div class="music-main" alog-alias="music-main-alog">
+    <div class="music-main-body">
+        <div class="music-body clearfix">
+
+            <br/><br/>
+            <div class="songlist-edit pr">
+                <div class="songlist-edit-header clearfix">
+                    <h3 class="title-h2 f20 c3 fb fl">添加歌单</h3>
+                    <!--<a href="/songlist/566792670" class="blue f14 fl">返回该歌单详情页 &gt;&gt;</a>-->
+                </div>
+                <form enctype="multipart/form-data"  >
+                <dl class="songlist-edit-cover pa">
+                    <dt>
+                        <!--<a href="javascript:void()" class="songlist-edit-cover-btn">-->
+                            <img
+                                src="http://qukufile2.qianqian.com/data2/pic/bb05acf2f7849d6d95961c902f971959/278299183/278299183.jpg@s_2,w_500,h_500"
+                                alt="" class="edit-cover-preview"
+                                id="atlas-img"
+                                width="240px"
+                                height="500px"
+                                onclick="openFile('atlas_photo')">
+                            <span onclick="openFile('atlas_photo')" class="bg-blue f16 t">更改封面</span>
+                        <!--</a>-->
+                        <input type="file" name="file" id="atlas_photo" multiple="multiple" style="display:none;" onchange="viewImage('atlas-img')">
+                    </dt>
+                    <dd class="c9 f14">支持 jpg/png格式，建议尺寸大于500＊500，文件小于10M</dd>
+                </dl>
+                <div class="songlist-edit-name">
+                    <h3 class="title-h3 f16 c3 fb pr">
+                        <i class="pa important-val">*</i>歌单名称:</h3>
+                    <div class="edit-detail-box pr">
+                        <input type="text" id="songSheetname" name="songSheet" value="" placeholder="输入歌单名称" class="edit-name t"><br>
+                        <span class="songlist-title-tip t noen"></span>
+                        <i class="songlist-num pa c9">26</i>
+                    </div>
+                </div>
+                <div class="songlist-edit-desc">
+                    <h3 class="title-h3 f16 c3 fb">歌单简介:</h3>
+                    <div class="edit-detail-box pr">
+                        <textarea name="" id="intro" cols="30" rows="10" placeholder="" class="edit-desc"></textarea>
+                        <span class="desc-text pa t c9">500</span>
+                    </div>
+                </div>
+                <div class="songlist-edit-list">
+
+                <div class="songlist-edit-list">
+                    <a href="javascript:void(0)" id="button" class="songlist-edit-submit submit f16 bg-blue t"
+                       data-listid="566792670">保存</a>
+                </div>
+            </div>
+                </form>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+
+    $("#file0").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+        // console.log("objUrl = "+objUrl) ;
+        if (objUrl)
+        {
+            $("#img0").attr("src", objUrl);
+            $("#img0").removeClass("hide");
+        }
+    });
+
+    var photoId;
+    function openFile(e) {
+        photoId=e;
+        document.getElementById(photoId).click();
+    }
+    function viewImage(e) {
+        var file = $("#"+photoId).prop('files')[0];
+        if (file) {
+            // image = file; //用于确定信息时确保是否已上传图片
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function (even) {
+                $('#'+e).attr("src", even.currentTarget.result);
+                addBox(e);
+            }
+        }
+    }
+
+    $("#button").bind("click", function (event) {
+        var file = $("#"+photoId).prop('files')[0];
+        var songSheet = $("#songSheetname").val();
+        var intro = $("#intro").val();
+         // alert(songSheet);
+        if (typeof (file) == "undefined" || file.size <= 0) {
+            alert("请选择图片");
+            return;
+        }
+        var formFile = new FormData();
+        formFile.append("file", file);
+        formFile.append("songSheetName",songSheet);
+        formFile.append("introduction",intro);
+        var data = formFile;
+        $.ajax({
+            url:basePath + '/user/addSongSheet',
+            type: 'post',
+            dataType: 'json',
+            data: data,
+            processData : false, // 使数据不做处理
+            contentType : false, // 不要设置Content-Type请求头
+            cache: false,
+            async: true,
+            success: function (data) {
+                if(data.success == true){
+                    alert(data.message);
+                }
+            }
+        });
+    })
+    /*]]>*/
+</script>
+
+</body>
+</html>

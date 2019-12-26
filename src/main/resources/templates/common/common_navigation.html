@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <meta name="_csrf" th:content="${_csrf.token}"/>
 <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
 <div th:fragment="commonNavigation">
     <!--register-->
     <div class="container1 card-wrap card border-0 shadow card--register" id="registerForm">
@@ -36,6 +37,7 @@
             <!--<img src="iamges/yz.jpg">-->
         </button>
     </div>
+
     <!--login-->
     <div class="container1 card-wrap card border-0 shadow card--login" id="loginForm">
         <div class="card-body">
@@ -98,6 +100,7 @@
     </div>
 
 
+
     <div class="section-inner clearfix nav-box">
         <h1 title="围巾音乐" class="logo">
             <a href="/" title="围巾音乐">
@@ -111,9 +114,9 @@
             <div id="menu-user-con" class="menu-user login">
                 <div class="userinfo-box" id="userbar">
                     <div class="user-pic-box">
-                        <img th:src="${user.imgUri}" src="http://himg.bdimg.com/sys/portrait/item/054e3138352a2a2a2a2a2a313730e8.jpg" th:title="${user.username}" class="user-pic">
+                        <img th:src="${myUser.imgUri}" src="http://himg.bdimg.com/sys/portrait/item/054e3138352a2a2a2a2a2a313730e8.jpg" th:title="${myUser.username}" class="user-pic">
                         <span class="user-name-right to">
-                            <a href="#" target="_blank" th:text="${user.username}"></a>
+                            <a href="#" target="_blank" th:text="${myUser.username}"></a>
                         </span>
                         <div id="menu-user" class="user-bar-list hidden">
                         <span class="u_ddl_arrow">
@@ -125,15 +128,16 @@
                             <ul class="uuser-list">
                                 <!---->
                                 <li>
-                                    <a href="/user/" target="_blank" rel="nofollow" class="my-songlist">
+                                    <a href="/user/" th:href="@{/user(userId=${myUser.userId})}" rel="nofollow" class="my-songlist">
                                         <i class="icon icon-songlist"></i>
                                         <span>个人主页</span></a>
                                 </li>
                                 <li>
-                                    <a href="//passport.taihe.com/v2/web/settings.html?tpl=baidu_music" target="_blank" rel="nofollow" class="my-info">
+                                    <a href="javascript:;" rel="nofollow"class="my-info">
                                         <i class="icon icon-seturl"></i>
                                         <span>账号设置</span>
                                     </a>
+
                                 </li>
                                 <li>
                                     <a href="javascript:;" id="logout" rel="nofollow" class="logout">
@@ -169,8 +173,8 @@
             </div>
         </div>
         <nav class="nav">
-            <a href="#" th:href="@{/}" class="on nav-list t">发现音乐</a>
-            <a href="#"  class=" nav-list t">我的音乐</a>
+            <a href="#" th:href="@{/}" id="toIndex" class="on nav-list t">发现音乐</a>
+            <a href="#" id="toUser"  class=" nav-list t">我的音乐</a>
             <a href="#"  class=" nav-list t">客户端</a>
         </nav>
     </div>
@@ -178,6 +182,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="http://malsup.github.io/jquery.form.js"></script>
     <script type="text/javascript" src="js/jquerysession.js"></script>
+
 
 
     <script type="text/javascript" th:inline="javascript">
@@ -198,6 +203,29 @@
 
         $("#captcha").bind("click", function (event) {
             $("#captcha").attr('src',"/captcha.jpg");
+        });
+
+        var user = [[${myUser}]];
+
+        /**
+         * 个人主页
+         * */
+        $("#toUser").bind("click", function (event) {
+            $.ajax({
+                url:basePath + '/user',
+                type: 'post',
+                dataType: 'json',
+                data: {},
+                cache: false,
+                async: true,
+                success: function (data) {
+                    if(data.success == false){
+                         alert(data.message);
+                    }
+                }
+            });
+            if(user != null)
+                window.location.href="/user?userId=" + user.userId;
         });
 
         //登录
@@ -379,6 +407,7 @@
 
 
     </script>
+
 </div>
 
 

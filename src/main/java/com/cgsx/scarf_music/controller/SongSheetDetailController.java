@@ -3,7 +3,9 @@ package com.cgsx.scarf_music.controller;
 import com.cgsx.scarf_music.constants.Constants;
 import com.cgsx.scarf_music.entity.Song;
 import com.cgsx.scarf_music.entity.SongSheet;
+import com.cgsx.scarf_music.entity.User;
 import com.cgsx.scarf_music.service.SongSheetService;
+import com.cgsx.scarf_music.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ public class SongSheetDetailController {
 
     @Autowired
     private SongSheetService songSheetService;
+    @Autowired
+    private UserService userService;
 
     /**
     * @Description: 跳转到歌单详细页面
@@ -37,6 +41,8 @@ public class SongSheetDetailController {
     public String toSongSheet(Model model, @RequestParam(name = "songSheetId")Long songSheetId){
         SongSheet songSheet = songSheetService.findSongSheetById(songSheetId);
 
+        User user = userService.findByUserId(songSheet.getUser());
+        songSheet.setUser1(user);
         model.addAttribute("songSheet", songSheet);
 
         return "songSheet";

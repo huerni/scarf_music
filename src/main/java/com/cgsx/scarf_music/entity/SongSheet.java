@@ -58,17 +58,18 @@ public class SongSheet implements Serializable {
     /**
      * 歌单创建用户
      */
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
+    private Long user;
 
-    /**
-     * 歌单收藏用户
-     */
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "userSongSheet", joinColumns = {@JoinColumn(name = "songSheetId")},
-            inverseJoinColumns = {@JoinColumn(name = "userId")})
-    private List<User> userList = new ArrayList<>();
+    @Transient
+    private User user1;
+
+//    /**
+//     * 歌单收藏用户
+//     */
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "userSongSheet", joinColumns = {@JoinColumn(name = "songSheetId")},
+//            inverseJoinColumns = {@JoinColumn(name = "userId")})
+//    private List<User> userList = new ArrayList<>();
 
     /**
      * 歌单分类

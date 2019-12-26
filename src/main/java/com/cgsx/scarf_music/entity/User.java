@@ -48,6 +48,12 @@ public class User implements Serializable {
     private Integer loginTimes;
 
     /**
+     * 收藏的歌单
+     */
+    private String songSheetStr;
+
+
+    /**
      * 该用户拥有的角色
      */
     @ManyToMany(fetch = FetchType.EAGER)
@@ -58,24 +64,30 @@ public class User implements Serializable {
     /**
      * 收藏，喜欢的歌曲
      */
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "userSong",joinColumns = {@JoinColumn(name = "userId")},
-    inverseJoinColumns = @JoinColumn(name = "songId"))
-    private List<Song> songList = new ArrayList<>();
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "userSong",joinColumns = {@JoinColumn(name = "userId")},
+//    inverseJoinColumns = @JoinColumn(name = "songId"))
+//    private List<Song> songList1 = new ArrayList<>();
+
+//    /**
+//     * 创建的歌单
+//     */
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<SongSheet> songSheets = new ArrayList<>();
 
     /**
      * 创建的歌单
      */
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Transient
     private List<SongSheet> songSheets = new ArrayList<>();
 
-    /**
-     * 收藏的歌单
-     */
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "userSongSheet", joinColumns = {@JoinColumn(name = "userId")},
-    inverseJoinColumns = {@JoinColumn(name = "songSheetId")})
-    private List<SongSheet> songSheetList = new ArrayList<>();
+//    /**
+//     * 收藏的歌单
+//     */
+//    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(name = "userSongSheet", joinColumns = {@JoinColumn(name = "userId")},
+//    inverseJoinColumns = {@JoinColumn(name = "songSheetId")})
+//    private List<SongSheet> songSheetList = new ArrayList<>();
 
     /**
      * 关注的歌手

@@ -36,6 +36,8 @@ public class MyUserDetailService implements UserDetailsService {
             throw new RuntimeException("用户不存在");
         }
         User user = userList.get(0);
+        user.setLoginTimes(user.getLoginTimes()+1);
+        userService.saveUser(user);
 //        System.out.println(user.getPassword());
         List<SimpleGrantedAuthority> simpleGrantedAuthorityList = new ArrayList<>();
         for(Role role : user.getRoleList()){

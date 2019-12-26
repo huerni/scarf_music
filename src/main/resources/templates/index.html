@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <title>围巾音乐-耳朵里的温暖</title>
     <meta content="围巾音乐" name="keywords"/>
@@ -9,6 +8,32 @@
     <link rel="dns-prefetch" href="static1.qianqian.com">
     <meta name="baidu-site-verification" content="m6MTpI0KQl"/>
     <link rel="canonical" href="music.taihe.com"/>
+
+    <link rel="stylesheet" href="pop/css/main.css" />
+    <script type="text/javascript" src="pop/js/jquery-1.8.2.min.js"></script>
+
+    <link rel="stylesheet" href="pop/dist/menu.min.css" type="text/css">
+    <style type="text/css">
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        body {
+            background: #eee;
+            font-family: 'PT Sans Narrow', sans-serif;
+        }
+        .toggle {
+            color: #666;
+            display: block;
+            float: left;
+            height: 72px;
+            line-height: 72px;
+            text-align: center;
+            width: 72px;
+        }
+        .right {
+            float: right
+        }
+    </style>
 
     <link rel='stylesheet' href="loginForm/css/all.min.css">
     <link rel='stylesheet' href="loginForm/css/bootstrap.min.css">
@@ -24,11 +49,11 @@
     <link rel="stylesheet" href="static1.qianqian.com/web/s/css/app.bf379620769235f7.css">
 
 
-
 </head>
 <body class="theme-taihe">
 <div data-server-rendered="true">
     <div class="view">
+
         <div th:include="common/common_navigation :: commonNavigation"></div>
 
         <div class="sub-nav-box">
@@ -67,7 +92,7 @@
                                     <div style="margin-right:30px;">
                                         <div class="img-wrapper-box pr">
                                             <a href="#" th:href="@{/songSheet(songSheetId=${ss.songSheetId})}"
-                                               target="_blank" class="img-wrapper pr">
+                                                class="img-wrapper pr">
                                                 <img th:src="${ss.imgUri}" th:title="${ss.songSheetName}"
                                                      th:alt="${ss.songSheetName}" class="t item-pic">
                                                 <!--item-pic-v  图片变灰-->
@@ -284,7 +309,19 @@
                                         <a th:href="@{/player(id=${ns.songId})}" target="_blank">
                                             <i data-type="play" class="t iconfont icon-hover_play" data-v-2113e2c9></i>
                                         </a>
-                                        <i data-type="add" class="t iconfont icon-hover_add" data-v-2113e2c9></i>
+                                        <a href="javascript:;" >
+                                            <i data-type="add" class="t iconfont icon-hover_add" id="menu-toggle1" data-v-2113e2c9></i>
+                                        </a>
+                                        <ul class="menu" data-menu data-menu-toggle="#menu-toggle1, #menu-toggle2">
+                                            <h3>&emsp;请选择歌单</h3>
+                                            <li class="menu-separator"></li>
+                                            <li th:each="sss : ${mySongSheet}" sec:authorize="isAuthenticated()">
+                                                <a href="javascript:void(0);" th:onclick="'javascript:addSong( \''+${ns.songId}+'\', \''+${sss.songSheetId}+'\')'" th:text="${sss.songSheetName}">歌单名</a>
+                                            </li>
+                                            <li sec:authorize="!isAuthenticated()">
+                                                <a href="#">你没有登录，请登录</a>
+                                            </li>
+                                        </ul>
                                         <i data-type="download" class="t iconfont icon-hover_download"
                                            data-v-2113e2c9></i>
                                         <!---->
@@ -603,6 +640,38 @@
         }
     }
 
+
+
+
+</script>
+
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="pop/dist/menu.min.js"></script>
+<script>$('[data-menu]').menu();</script>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    function addSong(songId, songSheetId) {
+        $.ajax({
+            url: basePath + '/user/addSong',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'songId': songId,//第几页
+                'songSheetId': songSheetId
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                alert(data.message);
+            }
+        });
+    }
+
+    /*]]>*/
 </script>
 
 

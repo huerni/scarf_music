@@ -1,7 +1,9 @@
 package com.cgsx.scarf_music.interceptors;
 
+import com.cgsx.scarf_music.entity.SongSheet;
 import com.cgsx.scarf_music.entity.User;
 import com.cgsx.scarf_music.service.AuthenticationService;
+import com.cgsx.scarf_music.service.SongSheetService;
 import com.cgsx.scarf_music.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -30,11 +32,14 @@ public class RequestInterceptors extends HandlerInterceptorAdapter {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private SongSheetService songSheetService;
+
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object object, ModelAndView modelAndView) {
         if (modelAndView != null) {
             ModelMap modelMap = modelAndView.getModelMap();
-
+//            System.out.println(111);
             Authentication authentication = authenticationService.getAuthentication();
             if (authentication != null) {
                 String username = authentication.getName();
@@ -42,10 +47,11 @@ public class RequestInterceptors extends HandlerInterceptorAdapter {
                 if(users.size() > 0) {
                     User user = users.get(0);
                     if (user != null) {
+                        List<SongSheet> songSheetList = songSheetService.findSongSheetByUser(user.getUserId());
+//                        user.setSongSheets(songSheetList);
 
-                        user.setLoginTimes(user.getLoginTimes()+1);
-                        userService.saveUser(user);
-                        modelMap.addAttribute("user", user);
+                        modelMap.addAttribute("mySongSheet", songSheetList);
+                        modelMap.addAttribute("myUser", user);
                     }
                 }
             }

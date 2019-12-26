@@ -43,6 +43,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Override
+    public User findByUserId(Long userId) {
+        return userRepository.findById(userId).get();
+    }
+
     Specification<User> getWhereClause(String keyword) {
         return new Specification<User>() {
             @Override
@@ -51,8 +56,8 @@ public class UserServiceImpl implements UserService {
                 if (StringUtils.isNotBlank(keyword)) {
                     predicates.add(
                             criteriaBuilder.or(
-                                    criteriaBuilder.like(root.get("email"), "%" + keyword + "%"),
-                                    criteriaBuilder.like(root.get("username"), "%" + keyword + "%")
+                                    criteriaBuilder.like(root.get("email"),  keyword),
+                                    criteriaBuilder.like(root.get("username"),  keyword)
                             )
                     );
                 }

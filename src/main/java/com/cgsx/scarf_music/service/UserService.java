@@ -7,4 +7,6 @@ public interface UserService {
     Page<User> findByUserNameOrEmail(String keyword);
 
     void saveUser(User user);
+
+    User findByUserId(Long userId);
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <html lang="en">
 <head data-n-head="">
     <title data-n-head="true">围巾音乐，带给你全新音乐体验。</title>
@@ -17,13 +18,6 @@
 
     <link data-n-head="true" rel="icon" type="image/x-icon" href="/favicon.ico">
     <link data-n-head="true" rel="canonical" href="http://www.kuwo.cn/play_detail/81933656">
-    <!--<link rel="preload" href="http://h5static.kuwo.cn/www/kw-www/9b7411d86a6b26dae13f.js" as="script">-->
-    <!--<link rel="preload" href="http://h5static.kuwo.cn/www/kw-www/c27286caa6b7d3a31f44.js" as="script">-->
-    <!--<link rel="preload" href="http://h5static.kuwo.cn/www/kw-www/77947e2a8ec70245645f.js" as="script">-->
-    <!--<link rel="preload" href="http://h5static.kuwo.cn/www/kw-www/782c5fab261818131be9.js" as="script">-->
-    <!--<link rel="preload" href="http://h5static.kuwo.cn/www/kw-www/3c06ba5995504c40fca7.js" as="script">-->
-    <!--<link rel="preload" href="http://h5static.kuwo.cn/www/kw-www/7af92abb2603ef7dbb3a.js" as="script">-->
-
 
     <link rel="stylesheet" href="static1.qianqian.com/web/s/css/app.bf379620769235f7.css">
 
@@ -32,10 +26,35 @@
 
     <script type="text/javascript" src="js/zxf_page.js"></script>
 
+    <link rel="stylesheet" href="pop/dist/menu.min.css" type="text/css">
+    <style type="text/css">
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        body {
+            background: #eee;
+            font-family: 'PT Sans Narrow', sans-serif;
+        }
+        .toggle {
+            color: #666;
+            display: block;
+            float: left;
+            height: 72px;
+            line-height: 72px;
+            text-align: center;
+            width: 72px;
+        }
+        .right {
+            float: right
+        }
+    </style>
+
     <style data-vue-ssr-id="2b07de92:0 dea7db52:0 7bcf49f8:0 662cad01:0 17cfdfa9:0 747fea46:0 355dcdaa:0 12111b23:0 49645ff5:0 7a67e209:0 ef9a2c2e:0 7ef9b5ec:0 e94312be:0 5ae6b581:0 c1ff7e42:0 747c0c1a:0 55c18182:0 5b0e7c02:0 945fa658:0">*, :after, :before {
         -webkit-tap-highlight-color: transparent;
         box-sizing: border-box
     }
+
+
 
     blockquote, body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, td, textarea, th, ul {
         margin: 0;
@@ -5482,18 +5501,31 @@
                                     <span class="time" data-v-63cd9696 th:text="${song.issueDate}">2019-11-22</span>
                                 </p>
                                 <div class="btns" data-v-63cd9696>
+                                    <a th:href="@{/player(id=${song.songId})}">
                                     <button class="play bg_primary" data-v-63cd9696>
                                         <i class="iconfont icon-icon_play_" data-v-63cd9696></i><span
                                             data-v-63cd9696>立即播放</span>
                                     </button>
+                                    </a>
                                     <button data-v-63cd9696>
-                                        <i class="iconfont icon-playlist_icon_add_" data-v-63cd9696></i>
+                                        <i class="iconfont icon-playlist_icon_add_" id="menu-toggle2" data-v-63cd9696></i>
                                         <span data-v-63cd9696>添加</span>
                                     </button>
-                                    <button data-v-63cd9696>
+                                    <button data-v-63cd9696 id="menu-toggle1">
                                         <i class="iconfont icon-bar_icon_heart_" data-v-63cd9696></i>
                                         <span data-v-63cd9696>收藏</span>
                                     </button>
+                                    <ul class="menu" data-menu data-menu-toggle="#menu-toggle1, #menu-toggle2">
+                                        <h3>&emsp;请选择歌单</h3>
+                                        <li class="menu-separator"></li>
+                                        <li th:each="sss : ${mySongSheet}" sec:authorize="isAuthenticated()">
+                                            <a href="javascript:void(0);" th:onclick="'javascript:addSong( \''+${song.songId}+'\', \''+${sss.songSheetId}+'\')'" th:text="${sss.songSheetName}">歌单名</a>
+                                        </li>
+                                        <li sec:authorize="!isAuthenticated()">
+                                            <a href="#">你没有登录，请登录</a>
+                                        </li>
+
+                                    </ul>
                                     <!--<button data-v-63cd9696>-->
                                         <!--<i class="iconfont icon-mv_icon_share_" data-v-63cd9696></i>-->
                                         <!--<span data-v-63cd9696>分享</span>-->
@@ -5720,6 +5752,34 @@
         }
     }
 </script>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="pop/dist/menu.min.js"></script>
+<script>$('[data-menu]').menu();</script>
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+    function addSong(songId, songSheetId) {
+        $.ajax({
+            url: basePath + '/user/addSong',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'songId': songId,//第几页
+                'songSheetId': songSheetId
+            },
+            cache: false,
+            async: true,
+            success: function (data) {
+                alert(data.message);
+            }
+        });
+    }
+
+    /*]]>*/
+</script>
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" th:inline="javascript">
     $(function () {
