@@ -90,12 +90,24 @@ public class UserController {
 //        System.out.println(userId);
         User user = userService.findByUserId(userId);
         String[] ss = user.getSongSheetStr().split(",");
+        StringBuffer stringBuffer = new StringBuffer();
+        int flag = 0;
         for(String s : ss){
             if(Long.parseLong(s) == songSheetId){
-                map.put("success", true);
-                map.put("message", "你已收藏该歌单");
-                return map;
+//                map.put("success", true);
+//                map.put("message", "你已收藏该歌单");
+                flag = 1;
+                continue;
+//                return map;
             }
+            stringBuffer.append(s+",");
+        }
+        if(flag == 1){
+            user.setSongSheetStr(stringBuffer.toString());
+            userService.saveUser(user);
+            map.put("success", true);
+            map.put("message", "取消收藏成功");
+            return map;
         }
         SongSheet songSheet = songSheetService.findSongSheetById(songSheetId);
         if(songSheet.getUser() == userId){
@@ -195,6 +207,57 @@ public class UserController {
         songSheetService.saveSongSheet(songSheet);
         map.put("success", true);
         map.put("message", "新增成功");
+        return map;
+    }
+
+
+    @RequestMapping("/toEditUser")
+    public String toEditUser(Model model){
+
+        return "editUser";
+    }
+
+    @RequestMapping("/user/removeSongSheet")
+    @ResponseBody
+    public Map<String, Object> removeSongSheet(@RequestParam(name = "songSheetId")Long songSheetId){
+        Map<String, Object> map = new HashMap<>();
+
+        SongSheet songSheet = songSheetService.findSongSheetById(songSheetId);
+        songSheet.setIsOnline(Constants.NO);
+        songSheetService.saveSongSheet(songSheet);
+        map.put("success", true);
+        map.put("message", "删除成功");
+        return map;
+    }
+
+    @RequestMapping("/user/removeCollectionSongSheet")
+    @ResponseBody
+    public Map<String, Object> removeCollectionSongSheet(@RequestParam(name = "songSheetId")Long songSheetId){
+        Map<String, Object> map = new HashMap<>();
+
+        Authentication authentication = authenticationService.getAuthentication();
+        if (authentication != null) {
+            String username = authentication.getName();
+            List<User> users = userService.findByUserNameOrEmail(username).getContent();
+            if(users.size() > 0) {
+                User user = users.get(0);
+                if (user != null) {
+                    String[] str = user.getSongSheetStr().split(",");
+                    StringBuffer stringBuffer = new StringBuffer();
+                    for(String s : str){
+                        if(!s.equals(songSheetId.toString())){
+                            stringBuffer.append(s + ",");
+                        }
+                    }
+                    user.setSongSheetStr(stringBuffer.toString());
+                    map.put("success", true);
+                    map.put("message", "取消收藏成功");
+                    return map;
+                }
+            }
+        }
+        map.put("success", false);
+        map.put("message", "取消收藏失败");
         return map;
     }
 

@@ -1,6 +1,9 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+
+    <meta charset="utf-8">
+    <title>围巾音乐</title>
 
     <link rel="stylesheet" type="text/css" href="//static0.qianqian.com/web/static/c/SJ7hBJjY.css">
     <!-- 太合域名 -->
@@ -9,24 +12,27 @@
     <link rel="stylesheet" type="text/css" href="//static3.qianqian.com/web/static/c/3DsaZTtK.css">
     <link rel="stylesheet" type="text/css" href="//static4.qianqian.com/web/static/c/afuNa5qZ.css">
     <link type="text/css" rel="stylesheet" href="//static3.qianqian.com/web/down_load_app/css/index.css">
+</head>
+<body data-tiptaihe="0">
 
+<!-- 太合域名 -->
 
-<div th:fragment="edit">
 <div class="music-main" alog-alias="music-main-alog">
     <div class="music-main-body">
         <div class="music-body clearfix">
-
             <div class="songlist-edit pr">
-
                 <!-- user-info-set -->
+                <form>
                 <div class="set-box user-info-set" style="display: block;">
                     <dl class="songlist-edit-cover pa">
                         <dt>
                             <a href="javascript:void(0)" class="songlist-edit-cover-btn"><img
-                                    data-initpic="http://himg.bdimg.com/sys/portrait/item/054e3138352a2a2a2a2a2a313730e8.jpg"
                                     src="http://himg.bdimg.com/sys/portrait/item/054e3138352a2a2a2a2a2a313730e8.jpg"
-                                    alt="" class="edit-cover-preview">
+                                    alt="" class="edit-cover-preview"
+                                    id="atlas-img"
+                                    onclick="openFile('atlas_photo')">
                                 <span class="f16 t">更改头像</span></a>
+                            <input type="file" name="file" id="atlas_photo" multiple="multiple" style="display:none;" onchange="viewImage('atlas-img')">
                         </dt>
 <!--                        <dd class="c9 f14 edit-cover-text pa">支持 jpg \ png \ gif 格式，建议尺寸大于100＊100，文件小于10M</dd>-->
                     </dl>
@@ -34,8 +40,9 @@
                     <div class="songlist-edit-name user-style">
                         <h3 class="title-h3 f16 c3 fb nick-title pr"><i class="pa important-val">*</i>用户名:</h3>
                         <div class="edit-detail-box pr">
-                            <input type="text" nick="false" value="" placeholder="输入昵称"
-                                   class="edit-name"><br>
+                            <input id="name" type="text" nick="false" value="" placeholder="输入用户名"
+                                   class="edit-name">
+                            <br>
                             <span class="nick-error-text none t ">用户名需在2-12个字之间, 可以包含英文字母、中文、-、_、数字</span>
 <!--                            <span class="nick-text pa t c9">3</span>-->
                         </div>
@@ -236,7 +243,7 @@
                     <div class="songlist-edit-desc user-style">
                         <h3 class="title-h3 f16 c3 fb">个人简介:</h3>
                         <div class="edit-detail-box pr">
-                            <textarea name="" id="" desc="true" cols="30" rows="10" placeholder=""
+                            <textarea name="" id="intro" desc="true" cols="30" rows="10" placeholder=""
                                       class="edit-desc"></textarea>
                             <span class="desc-error-text none t"></span>
                             <span class="desc-text pa t c9">140</span>
@@ -244,15 +251,83 @@
                     </div>
 
                     <div class="songlist-edit-list">
-                        <a href="javascript:void(0)" class="songlist-edit-submit submit f16 bg-blue t"
-                           data-listid="">保存</a>
+                        <a href="javascript:void(0)" id="button1" class="songlist-edit-submit submit f16 bg-blue t"
+                           data-listid="566792670">保存</a>
                     </div>
+
                 </div>
-
-
+                </form>
             </div>
-
         </div>
     </div>
 </div>
-</div>
+
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
+
+
+    $("#file0").change(function(){
+        var objUrl = getObjectURL(this.files[0]) ;
+        // console.log("objUrl = "+objUrl) ;
+        if (objUrl)
+        {
+            $("#img0").attr("src", objUrl);
+            $("#img0").removeClass("hide");
+        }
+    });
+
+    var photoId;
+    function openFile(e) {
+        photoId=e;
+        document.getElementById(photoId).click();
+    }
+    function viewImage(e) {
+        var file = $("#"+photoId).prop('files')[0];
+        if (file) {
+            // image = file; //用于确定信息时确保是否已上传图片
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function (even) {
+                $('#'+e).attr("src", even.currentTarget.result);
+                addBox(e);
+            }
+        }
+    }
+
+    $("#button1").bind("click", function (event) {
+        // var file = $("#"+photoId).prop('files')[0];
+        // var username = $("#name").val();
+        // var intro = $("#intro").val();
+        alert(sdfs);
+        // var formFile = new FormData();
+        // formFile.append("file", file);
+        // formFile.append("userName",username);
+        // formFile.append("introduction",intro);
+        // var data = formFile;
+        // $.ajax({
+        //     url:basePath + '/',
+        //     type: 'post',
+        //     dataType: 'json',
+        //     data: data,
+        //     processData : false, // 使数据不做处理
+        //     contentType : false, // 不要设置Content-Type请求头
+        //     cache: false,
+        //     async: true,
+        //     success: function (data) {
+        //         if(data.success == true){
+        //             alert(data.message);
+        //         }
+        //     }
+        // });
+    });
+
+    /*]]>*/
+
+</script>
+
+</body>
+</html>

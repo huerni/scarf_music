@@ -169,9 +169,9 @@
                                        th:text="${sss.songSheetName}">我的歌单</a>
                                 </p>
                                 <p class="text-user" th:text="${#strings.append(sss.songList.size(),'首')}">0首</p>
-                                <div class="btn-plu" style="display: none;">
-                                    <a href="#"  target="_blank" class="edit edit-hook"></a>
-                                    <a href="javascript:;" class="close songlist-del-hook"
+                                <div class="btn-plu" style="display: block;">
+                                    <!--<a href="#"  target="_blank" class="edit edit-hook"></a>-->
+                                    <a href="javascript:void(0);" th:onclick="'javascript:shanchu1( \''+${sss.songSheetId}+'\')'" class="close songlist-del-hook"
                                        data-songlistid="566792670">
                                     </a>
                                 </div>
@@ -204,25 +204,21 @@
                             <p class="uuser-line" th:if="${user.sex} eq 0">90后·女生</p>
                         </div>
                         <div class="uuser-active">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <span>听歌次数</span>
-                                        <b th:text="${user.listenTimes}">0</b></a>
-                                </li>
-                                <li class="center">
-                                    <a href="#">
-                                        <span>登录次数</span>
-                                        <b th:text="${user.loginTimes}">2</b>
-                                    </a>
-                                </li>
-                                <!--                                <li><a href="http://music.taihe.com/user/fans">-->
-                                <!--                                    <span>粉丝</span>-->
-                                <!--                                    <b>0</b></a>-->
-                                <!--                                </li>-->
-                            </ul>
+                            <!--<ul>-->
+                                <!--<li>-->
+                                    <!--<a href="#">-->
+                                        <!--<span>听歌次数</span>-->
+                                        <!--<b th:text="${user.listenTimes}">0</b></a>-->
+                                <!--</li>-->
+                                <!--<li class="center">-->
+                                    <!--<a href="#">-->
+                                        <!--<span>登录次数</span>-->
+                                        <!--<b th:text="${user.loginTimes}">2</b>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
                             <div class="uuser-active-btn friend-btn-hook active-self-hook" data-bdid="0">
-                                <a href="#" class="setting">个人设置</a>
+                                <a href="#" th:href="@{/toAddSongSheet}" target="_blank" class="setting">个人设置</a>
                             </div>
                             <div class="uuser-active-btn friend-btn-hook active-self-hook" data-bdid="0">
                                 <a href="#" th:href="@{/user/toAddSongSheet}" target="_blank" class="setting" >新增歌单</a>
@@ -230,11 +226,11 @@
                             <!--<div>-->
                                 <!--<button type="button" id="ClickMe">点击显示弹窗遮罩</button>-->
                             <!--</div>-->
-                            <div id="goodcover"></div>
-                            <div id="code">
-                                <h1>sdfs</h1>
-                                <div th:include="common/editUser :: edit"></div>
-                            </div>
+                            <!--<div id="goodcover"></div>-->
+                            <!--<div id="code">-->
+                                <!--<h1>sdfs</h1>-->
+                                <!--<div th:include="common/editUser :: edit"></div>-->
+                            <!--</div>-->
                         </div>
 
                         <div class="uuser-desc">
@@ -245,13 +241,15 @@
                 </div>
 
                 <!--弹窗-->
-                <div class="common-pop" style="margin-top: -89px; margin-left: -117px; position: fixed; display: none;">
-                    <a class="close close-window-hook" href="javascript:;"></a>
+                <div class="common-pop" id="commonPop" style="margin-top: -89px; margin-left: -117px; position: fixed;  display: none;">
+                    <a class="close close-window-hook" href="javascript:void(0);" id="close11"></a>
                     <div class="common-pop-text">确定删除歌单？</div>
-                    <div class="common-pop-btn"><a class="commit commit-window-hook" href="javascript:;">删除</a>
-                        <a class="cancel close-window-hook" href="javascript:;">取消</a>
+                    <div class="common-pop-btn">
+                        <a class="commit commit-window-hook" href="javascript:;" id="shanchu">删除</a>
+                        <a class="cancel close-window-hook" href="javascript:;" id="quxiao">取消</a>
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- -->
@@ -393,17 +391,46 @@
     }
 </script>
 
-<script>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
-    // $("#list_tags #item").bind("mouseover", function (event) {
-    //     $("#btn_bg").css("display", "");
-    //     $("#btn-plu").css("display", "");
-    // });
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    var basePath = /*[[${#httpServletRequest.getScheme() + "://" + #httpServletRequest.getServerName() + ":" + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]*/;
 
-    // $("#list_tags #item").mouseover(function(){
-    //     //alert($(this).index());
-    //     //$('#showCat').text($(this).text());
-    // });
+
+    function shanchu1(songSheetId) {
+        $("#commonPop").css("display", "");
+        $("#close11").bind("click", function (event) {
+            $("#commonPop").css("display", "none");
+        });
+
+        $("#quxiao").bind("click", function (event) {
+            $("#commonPop").css("display", "none");
+        });
+
+        $("#shanchu").bind("click", function (event) {
+            // alert(songSheetId);
+            $.ajax({
+                url:basePath + '/user/removeSongSheet',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    songSheetId:songSheetId
+                },
+                cache: false,
+                async: true,
+                success: function (data) {
+                    if(data.success == true){
+                        alert(data.message);
+                        window.location.reload();
+                    }
+                }
+            });
+        })
+
+    };
+
+    /*]]>*/
 </script>
 
 <script>
