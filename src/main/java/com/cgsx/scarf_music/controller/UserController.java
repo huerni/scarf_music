@@ -57,9 +57,11 @@ public class UserController {
             String[] ss = str.split(",");
 
             for(String s : ss){
-                SongSheet songSheet = songSheetService.findSongSheetById(Long.parseLong(s));
-                songSheetLists.add(songSheet);
-                System.out.println(songSheet.getSongSheetName());
+                if(!s.equals("")) {
+                    SongSheet songSheet = songSheetService.findSongSheetById(Long.parseLong(s));
+                    songSheetLists.add(songSheet);
+                    System.out.println(songSheet.getSongSheetName());
+                }
             }
         }
 
@@ -93,6 +95,8 @@ public class UserController {
         StringBuffer stringBuffer = new StringBuffer();
         int flag = 0;
         for(String s : ss){
+            if(s.equals(""))
+                continue;
             if(Long.parseLong(s) == songSheetId){
 //                map.put("success", true);
 //                map.put("message", "你已收藏该歌单");
@@ -167,6 +171,13 @@ public class UserController {
         return "addSongSheet";
     }
 
+    /**
+    * @Description:
+    * @Param: [model, file, songSheetName, introduction]
+    * @return: java.util.Map<java.lang.String,java.lang.Object>
+    * @Author: cgsx
+    * @Date: 2019/12/27
+    */
     @RequestMapping("/user/addSongSheet")
     @ResponseBody
     private Map<String, Object> addSongSheet(Model model, @RequestParam(name = "file")MultipartFile file,   @RequestParam(name = "songSheetName")String songSheetName, @RequestParam(name = "introduction")String introduction){
