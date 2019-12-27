@@ -56,8 +56,8 @@ public class UserServiceImpl implements UserService {
                 if (StringUtils.isNotBlank(keyword)) {
                     predicates.add(
                             criteriaBuilder.or(
-                                    criteriaBuilder.like(root.get("email"),  keyword),
-                                    criteriaBuilder.like(root.get("username"),  keyword)
+                                    criteriaBuilder.like(root.get("email"),  ""+keyword),
+                                    criteriaBuilder.like(root.get("username"),  ""+keyword)
                             )
                     );
                 }

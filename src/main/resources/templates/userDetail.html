@@ -144,7 +144,7 @@
                         </span>
                     </div>
                     <div class="uuser-list-tmpl uuser-songlist" data-bdid="0">
-                        <!--<div class="up-no-data"></div>-->
+                        <div th:if="${mySongSheet.size()} eq 0" class="up-no-data"></div>
 
                         <ul class="songlist-list" th:if="${mySongSheet.size()} ne 0" id="list_tags">
                             <br/>

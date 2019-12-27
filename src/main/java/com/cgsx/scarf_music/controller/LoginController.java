@@ -67,6 +67,7 @@ import java.util.Map;
             List<Role> roleList = new ArrayList<>();
             roleList.add(roleService.findById(1L));
             user.setRoleList(roleList);
+            user.setSongSheetStr(",");
             userService.saveUser(user);
             result.put("success", true);
         }
